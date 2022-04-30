@@ -39,7 +39,7 @@ def main():
     print(mturk.get_account_balance())
 
     print("Uploading hits to: ", "Sandbox" if is_sandbox else "Production")
-    max_assigns = 1
+    max_assigns = 3
     hit_lifetime = 7 * 24 * 6 * ten_minutes_sec
     hit_resps = []
     for item_idx, item in gvlab_creation_df.iterrows():
@@ -165,13 +165,21 @@ def get_quals(phase):
         "Comparator": "Exists"
     }
 
+    # if is_sandbox:
+    #     if phase == "train":
+    #         quals = [qual_approve_percent, qual_not_rejected, qual_in_screening]
+    #     else:
+    #         quals = [qual_approve_percent, qual_not_rejected, qual_not_in_screening]
+    # elif phase == "train":
+    #     quals = [qual_approve_percent, qual_approve_number, qual_en_locale, qual_not_rejected, qual_in_screening]
+
     if is_sandbox:
         if phase == "train":
-            quals = [qual_approve_percent, qual_not_rejected, qual_in_screening]
+            quals = [qual_approve_percent, qual_not_rejected]
         else:
-            quals = [qual_approve_percent, qual_not_rejected, qual_not_in_screening]
+            quals = [qual_approve_percent, qual_not_rejected]
     elif phase == "train":
-        quals = [qual_approve_percent, qual_approve_number, qual_en_locale, qual_not_rejected, qual_in_screening]
+        quals = [qual_approve_percent, qual_approve_number, qual_en_locale, qual_not_rejected]
 
     return quals, inadequate_type_id, in_screening_type_id, in_training_type_id
 
