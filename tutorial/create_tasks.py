@@ -20,10 +20,11 @@ def main():
         LifetimeInSeconds = 172800,
         AssignmentDurationInSeconds = 600,
         AutoApprovalDelayInSeconds = 14400,
-        Question = question,
+        Question=question,
     )
     print("A new HIT has been created. You can preview it here:")
     print("https://workersandbox.mturk.com/mturk/preview?groupId=" + new_hit['HIT']['HITGroupId'])
+    # print("https://workersandbox.mturk.com/mturk/preview?groupId=" + new_hit['HIT']['HITTypeId'])
     print("HITID = " + new_hit['HIT']['HITId'] + " (Use to Get Results)")
 
 
