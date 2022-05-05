@@ -13,7 +13,7 @@ if is_sandbox:
 else:
     endpoint_url = 'https://mturk-requester.us-east-1.amazonaws.com'
 
-print("Using sandobx: ", is_sandbox)
+print("Using sandbox: ", is_sandbox)
 mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
 mturk.get_account_balance()
 
@@ -32,24 +32,45 @@ def assign_tasks(config):
     print(f"task_type, start, end: {config['task_type'], config['start_idx'], config['end_idx']}")
     df = pd.read_csv(os.path.join(f'urls', f'urls_{task_type}.csv'))
     print(f"read dataframe of size: {len(df)} ({task_type})")
-    df_sample = df.iloc[config['start_idx']:config['end_idx']]
-    print(f"Taking indices: {(config['start_idx'],config['end_idx'])}, got df sample of size: {len(df_sample)}")
+    if 'qual' in task_type:
+        df_sample = df
+    else:
+        df_sample = df.iloc[config['start_idx']:config['end_idx']]
+        print(f"Taking indices: {(config['start_idx'],config['end_idx'])}, got df sample of size: {len(df_sample)}")
     gvlab_hit_type_id, gvlab_quals = create_gvlab_creation_hit_type(config)
+    print(f"gvlab_hit_type_id: {gvlab_hit_type_id}")
+    # exit()
     config['gvlab_hit_type_id'] = gvlab_hit_type_id
 
     print(f"Created qualifications")
     external_question = open("./external_question.xml").read()
 
     print(f"balance: {mturk.get_account_balance()['AvailableBalance']}")
-    current_mturk_balance = mturk.get_account_balance()
+    current_mturk_balance = mturk.get_account_balance()['AvailableBalance']
     config['current_mturk_balance'] = current_mturk_balance
 
     print("Uploading hits to: ", "Sandbox" if is_sandbox else "Production")
-    max_assigns = 1 if is_sandbox else 3
-    config['max_assigns'] = max_assigns
     print(f"max_assigns: {max_assigns} (is_sandbox: {is_sandbox})")
     hit_lifetime = 7 * 24 * 6 * ten_minutes_sec
     hit_responses = []
+    if 'qual' in task_type:
+        """ If in a qualification test, sending X number of test to accumulate workers that have this qualification """
+        for i in range(number_of_annotators_for_qual):
+            sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses)
+    else:
+        sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses)
+
+    print(f"Finished uploading! {len(hit_responses)} responses")
+    print(f'config')
+    print(config)
+    config['hit_responses'] = hit_responses
+    config['current_mturk_balance_after_hits'] = mturk.get_account_balance()['AvailableBalance']
+    output_json_path = os.path.join('published_batches', f"hits_{config['current_time']}_{config['task_type']}_{config['start_idx']}-{config['end_idx']}.json")
+    json.dump(config, open(output_json_path,'w'))
+    print(f"Wrote config to {output_json_path}")
+
+
+def sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses):
     for item_idx, item in df_sample.iterrows():
         escaped_url = xml_escape(item['ID'])
         this_question = external_question.format(url=escaped_url)
@@ -60,15 +81,6 @@ def assign_tasks(config):
             Question=this_question
         )
         hit_responses.append(response['HIT']['HITId'])
-
-    print(f"Finished uploading! {len(hit_responses)} responses")
-    print(f'config')
-    print(config)
-    config['hit_responses'] = hit_responses
-    config['current_mturk_balance_after_hits'] = mturk.get_account_balance()['AvailableBalance']
-    output_json_path = os.path.join('published_batches', f"hits_{config['current_time']}_{config['task_type']}_{config['start_idx']}-{config['end_idx']}.json")
-    json.dump(config, open(output_json_path,'w'))
-    print(f"Wrote config to {output_json_path}")
 
 
 def review_hits(hit_type_id):
@@ -111,7 +123,7 @@ def create_or_get_qualification(qualification):
     return qual_type_id
 
 
-def get_quals(phase):
+def get_quals(task_type):
     print("Listing qualifications for : ", "Sandobx" if is_sandbox else "Production")
     inadequate = {
         "Name": "inadequate",
@@ -120,25 +132,32 @@ def get_quals(phase):
         "AutoGranted": False,
     }
 
-    in_screening = {
-        "Name": "in_screening",
-        "Description": "in_screening",
+    gvlab_annotator = {
+        "Name": "gvlab_annotator",
+        "Description": "GVLAB annotator",
         "QualificationTypeStatus": "Active",
         "AutoGranted": False,
     }
 
-    in_training = {
-        "Name": "in_training",
-        "Description": "in_training",
+    passed_gvlab_solve_qualification = {
+        "Name": "passed_gvlab_solve_qualification",
+        "Description": "Passed the GVLAB solve qualification",
         "QualificationTypeStatus": "Active",
         "AutoGranted": False,
     }
+
+    passed_gvlab_create_qualification = {
+        "Name": "passed_gvlab_create_qualification",
+        "Description": "Passed the GVLAB create qualification",
+        "QualificationTypeStatus": "Active",
+        "AutoGranted": False,
+    }
+
+    gvlab_annotator_qualification_type_id = create_or_get_qualification(gvlab_annotator)
+    passed_gvlab_solve_qualification_type_id = create_or_get_qualification(passed_gvlab_solve_qualification)
+    passed_gvlab_create_qualification_type_id = create_or_get_qualification(passed_gvlab_create_qualification)
 
     inadequate_type_id = create_or_get_qualification(inadequate)
-
-    in_screening_type_id = create_or_get_qualification(in_screening)
-
-    in_training_type_id = create_or_get_qualification(in_training)
 
     qual_approve_percent = {
         "QualificationTypeId": PercentAssignmentsApproved,
@@ -165,42 +184,51 @@ def get_quals(phase):
         "Comparator": "DoesNotExist"
     }
 
-    qual_not_in_screening = {
-        "QualificationTypeId": in_screening_type_id,
+    qual_needs_to_do_gvlab_solve_test = {
+        "QualificationTypeId": passed_gvlab_solve_qualification_type_id,
         "Comparator": "DoesNotExist"
     }
-    qual_in_screening = {
-        "QualificationTypeId": in_screening_type_id,
+    qual_passed_gvlab_solve_test = {
+        "QualificationTypeId": passed_gvlab_solve_qualification_type_id,
+        "Comparator": "Exists"
+    }
+    qual_gvlab_annotator = {
+        "QualificationTypeId": gvlab_annotator_qualification_type_id,
+        "Comparator": "Exists"
+    }
+    qual_needs_to_do_gvlab_create_test = {
+        "QualificationTypeId": passed_gvlab_create_qualification_type_id,
+        "Comparator": "DoesNotExist"
+    }
+    qual_passed_gvlab_create_test = {
+        "QualificationTypeId": passed_gvlab_create_qualification_type_id,
         "Comparator": "Exists"
     }
 
-    qual_in_training = {
-        "QualificationTypeId": in_training_type_id,
-        "Comparator": "Exists"
-    }
+    quals = [qual_approve_percent, qual_not_rejected, qual_gvlab_annotator]
+    if task_type == "solve_qual_test":
+        """ If the task is the solve qual, we need to make sure that the annotator didn't do it yet """
+        quals.append(qual_needs_to_do_gvlab_solve_test)
+    elif task_type == "create_qual_test":
+        """ If the task is the create qual, we need to make sure that the annotator didn't do it yet """
+        quals.append(qual_needs_to_do_gvlab_create_test)
+    elif task_type == 'solve':
+        """ If the task is solve, we need to make sure that the annotator passed the solve qual """
+        quals.append(qual_passed_gvlab_solve_test)
+    elif task_type == 'create':
+        """ If the task is solve, we need to make sure that the annotator passed the solve qual """
+        quals.append(qual_passed_gvlab_create_test)
+    else:
+        raise Exception(f"Exception, unknown task_type: {task_type}")
+    if not is_sandbox:
+        print("Not sandbox, adding two quals (number, locale)")
+        quals += [qual_approve_number, qual_en_locale]
 
-    # if is_sandbox:
-    #     if phase == "train":
-    #         quals = [qual_approve_percent, qual_not_rejected, qual_in_screening]
-    #     else:
-    #         quals = [qual_approve_percent, qual_not_rejected, qual_not_in_screening]
-    # elif phase == "train":
-    #     quals = [qual_approve_percent, qual_approve_number, qual_en_locale, qual_not_rejected, qual_in_screening]
-
-    if is_sandbox:
-        if phase == "train":
-            quals = [qual_approve_percent, qual_not_rejected]
-        else:
-            quals = [qual_approve_percent, qual_not_rejected]
-    elif phase == "train":
-        quals = [qual_approve_percent, qual_approve_number, qual_en_locale, qual_not_rejected]
-
-    return quals, inadequate_type_id, in_screening_type_id, in_training_type_id
+    return quals
 
 
 def create_gvlab_creation_hit_type(config):
-
-    gvlab_quals, inadequate_type_id, in_screening_type_id, in_training_type_id = get_quals('train')
+    gvlab_quals = get_quals(config['task_type'])
     print(f"Created qualifications")
     response = mturk.create_hit_type(
         AutoApprovalDelayInSeconds=thirty_days_sec,
@@ -247,21 +275,36 @@ def retrieve_assignments(hit_type_id, hit_ids):
 
 if __name__ == '__main__':
     current_time = strftime("%Y-%m-%d_%H:%M:%S", gmtime())
-    start_idx, end_idx = 0, 100 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
-    task_type = 'solve'
+    start_idx, end_idx = 100, 150 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
+    number_of_annotators_for_qual = 50
+    # task_type = 'solve'
+    task_type = 'solve_qual_test'
 
-    title = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
+    title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
+    title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
-    solve_description = "Fun Visual Associations: Given 5 images, choose the images that are most associated with the cue"
-    create_description = "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating!"
+    solve_description = "Fun Visual Associations: Given 5 images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
+    create_description = "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
+    solve_qual_test_description = "Pass this qualification for future HITs: Fun Visual Associations: Given 5 images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
+    create_qual_test_description = "Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
+
+    max_assigns_full = 3
+    max_assigns_qual = 1
+    qual_test_reward = '0.01'  # minimum reward for qual test HIT
     solve_reward = '0.03'
     create_reward = '0.05'
     if task_type == 'solve':
-        reward_dollars, keywords, description = solve_reward, solve_keywords, solve_description
+        title, reward_dollars, keywords, description, max_assigns = title_full, solve_reward, solve_keywords, solve_description, max_assigns_full
+    elif task_type == 'create':
+        title, reward_dollars, keywords, description, max_assigns = title_full, create_reward, create_keywords, create_description, max_assigns_full
+    elif task_type == 'solve_qual_test':
+        title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, solve_keywords, solve_qual_test_description, max_assigns_qual
+    elif task_type == 'create_qual_test':
+        title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, create_keywords, create_qual_test_description, max_assigns_qual
     else:
-        reward_dollars, keywords, description = create_reward, create_keywords, create_description
-    config = {'task_type': task_type, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx}
+        raise Exception(f"Unknown task_type: {task_type}")
+    config = {'task_type': task_type, 'max_assigns': max_assigns, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx}
     print(f'task_type: {task_type}, config: ')
     print(config)
     assign_tasks(config)

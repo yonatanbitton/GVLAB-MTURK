@@ -12,7 +12,7 @@ else:
 if __name__ == '__main__':
     print("Using sandobx: ", is_sandbox)
     mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
-    hit_type_id = '3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1'
+    hit_type_id = '35EE6WR8LHPD5V6FND0B2VK1GAF17F'
     for i in range(12):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")
