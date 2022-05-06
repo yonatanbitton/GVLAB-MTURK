@@ -3,7 +3,7 @@ from datetime import datetime
 import boto3 as boto3
 import pytz as pytz
 
-is_sandbox = True
+is_sandbox = False
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:
@@ -12,7 +12,8 @@ else:
 if __name__ == '__main__':
     print("Using sandobx: ", is_sandbox)
     mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
-    hit_type_id = '35EE6WR8LHPD5V6FND0B2VK1GAF17F'
+    # hit_type_id = '35EE6WR8LHPD5V6FND0B2VK1GAF17F'
+    title = 'GVLAB: Visual Associations - test for future HITs (Fun!)'
     for i in range(12):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")
@@ -20,7 +21,10 @@ if __name__ == '__main__':
             break
         deleted = []
         for h in hits:
-            if h['HITTypeId'] != hit_type_id:
+            # if h['HITTypeId'] != hit_type_id:
+            #     continue
+            if h['Title'] not in ['GVLAB: Visual Associations - (solve items 100-550)']:
+                print(f"Not same title {h['Title']}")
                 continue
             expiration_time = datetime(2000,1,1, 1, 1, 1, tzinfo=pytz.timezone('GMT'))
             response = mturk.update_expiration_for_hit(
@@ -28,7 +32,20 @@ if __name__ == '__main__':
                 ExpireAt=datetime(2015, 1, 1)
             )
             h_new = mturk.get_hit(HITId=h['HITId'])
-            h_new["HIT"]['Expiration']
-            mturk.delete_hit(HITId=h['HITId'])
+            try:
+                mturk.delete_hit(HITId=h['HITId'])
+            except Exception as ex:
+                # h['HITStatus'] == 'Reviewable'
+                print("Exception")
+                # continue
+                hit_assignments = mturk.list_assignments_for_hit(HITId=h['HITId'])
+                if len(hit_assignments['Assignments']) > 0:
+                    AssignmentId = hit_assignments['Assignments'][0]['AssignmentId']
+                    AssignmentStatus = hit_assignments['Assignments'][0]['AssignmentStatus']
+                    print(f"Approving: {AssignmentId, AssignmentStatus}")
+                    mturk.approve_assignment(
+                        AssignmentId=AssignmentId,
+                        OverrideRejection=False,
+                    )
             deleted.append((h['HITId'], hit_type_id))
         print(f'deleted: {deleted}')

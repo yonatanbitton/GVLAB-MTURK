@@ -7,7 +7,10 @@ import pandas as pd
 from tqdm import tqdm
 from time import gmtime, strftime
 
-is_sandbox = True
+is_sandbox = False
+if not is_sandbox:
+    for i in range(100):
+        print('*** NOT SANDBOX!!! THIS IS REAL!!! ***')
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:
@@ -15,7 +18,7 @@ else:
 
 print("Using sandbox: ", is_sandbox)
 mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
-mturk.get_account_balance()
+print(f"Available Balance: {mturk.get_account_balance()['AvailableBalance']}")
 
 # 30 days?
 ten_minutes_sec = 60 * 10
@@ -65,7 +68,12 @@ def assign_tasks(config):
     print(config)
     config['hit_responses'] = hit_responses
     config['current_mturk_balance_after_hits'] = mturk.get_account_balance()['AvailableBalance']
-    output_json_path = os.path.join('published_batches', f"hits_{config['current_time']}_{config['task_type']}_{config['start_idx']}-{config['end_idx']}.json")
+    print(f"current_mturk_balance_after_hits: {config['current_mturk_balance_after_hits']}")
+    fname = f"hits_{config['current_time']}_{config['task_type']}_{config['start_idx']}-{config['end_idx']}.json"
+    if is_sandbox:
+        output_json_path = os.path.join('published_batches_sandbox', fname)
+    else:
+        output_json_path = os.path.join('published_batches', fname)
     json.dump(config, open(output_json_path,'w'))
     print(f"Wrote config to {output_json_path}")
 
@@ -205,7 +213,9 @@ def get_quals(task_type):
         "Comparator": "Exists"
     }
 
-    quals = [qual_approve_percent, qual_not_rejected, qual_gvlab_annotator]
+    # quals = [qual_approve_percent, qual_not_rejected, qual_gvlab_annotator]
+    quals = [qual_approve_percent, qual_not_rejected]
+    print(f"Not requiring GVLAB Annotator")
     if task_type == "solve_qual_test":
         """ If the task is the solve qual, we need to make sure that the annotator didn't do it yet """
         quals.append(qual_needs_to_do_gvlab_solve_test)
@@ -275,19 +285,20 @@ def retrieve_assignments(hit_type_id, hit_ids):
 
 if __name__ == '__main__':
     current_time = strftime("%Y-%m-%d_%H:%M:%S", gmtime())
-    start_idx, end_idx = 100, 150 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
-    number_of_annotators_for_qual = 50
-    # task_type = 'solve'
-    task_type = 'solve_qual_test'
+    # start_idx, end_idx = 100, 550 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
+    start_idx, end_idx = 550, 650  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
+    number_of_annotators_for_qual = 200
+    task_type = 'solve'
+    # task_type = 'solve_qual_test'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
-    solve_description = "Fun Visual Associations: Given 5 images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
+    solve_description = "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
     create_description = "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
-    solve_qual_test_description = "Pass this qualification for future HITs: Fun Visual Associations: Given 5 images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
-    create_qual_test_description = "Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
+    solve_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
+    create_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
 
     max_assigns_full = 3
     max_assigns_qual = 1

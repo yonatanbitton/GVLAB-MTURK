@@ -4,11 +4,14 @@ import boto3
 import pandas as pd
 from tqdm import tqdm
 
-is_sandbox = True
+is_sandbox = False
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:
     endpoint_url = 'https://mturk-requester.us-east-1.amazonaws.com'
+if not is_sandbox:
+    for i in range(100):
+        print('*** NOT SANDBOX!!! THIS IS REAL!!! ***')
 
 print("Using sandobx: ", is_sandbox)
 mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
@@ -66,8 +69,8 @@ def review_hits(hit_type_id):
     print(mturk.get_account_balance())
     print(f"Receiving HITs...")
     assignments = review_assignments(hit_type_id)
-    print(f"Reviewed assignments: ")
-    print(assignments)
+    print(f"Returning reviewed assignments")
+    # print(assignments)
     return assignments
 
 
