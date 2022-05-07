@@ -37,9 +37,12 @@ def assign_tasks(config):
     print(f"read dataframe of size: {len(df)} ({task_type})")
     if 'qual' in task_type:
         df_sample = df
-    else:
+    elif 'test' not in task_type:
         df_sample = df.iloc[config['start_idx']:config['end_idx']]
         print(f"Taking indices: {(config['start_idx'],config['end_idx'])}, got df sample of size: {len(df_sample)}")
+    elif 'test' in task_type:
+        df_sample = df
+        print(f"df at length {len(df_sample)}")
     gvlab_hit_type_id, gvlab_quals = create_gvlab_creation_hit_type(config)
     print(f"gvlab_hit_type_id: {gvlab_hit_type_id}")
     # exit()
@@ -161,7 +164,15 @@ def get_quals(task_type):
         "AutoGranted": False,
     }
 
+    annotated_gvlab_swow_solve = {
+        "Name": "First GVLAB Solve Batch Performance",
+        "Description": "First GVLAB Solve Batch Performance",
+        "QualificationTypeStatus": "Active",
+        "AutoGranted": False,
+    }
+
     gvlab_annotator_qualification_type_id = create_or_get_qualification(gvlab_annotator)
+    annotated_gvlab_swow_solve_type_id = create_or_get_qualification(annotated_gvlab_swow_solve)
     passed_gvlab_solve_qualification_type_id = create_or_get_qualification(passed_gvlab_solve_qualification)
     passed_gvlab_create_qualification_type_id = create_or_get_qualification(passed_gvlab_create_qualification)
 
@@ -212,6 +223,14 @@ def get_quals(task_type):
         "QualificationTypeId": passed_gvlab_create_qualification_type_id,
         "Comparator": "Exists"
     }
+    qual_didnt_annotated_gvlab_swow_solve = {
+        "QualificationTypeId": annotated_gvlab_swow_solve_type_id,
+        "Comparator": "DoesNotExist"
+    }
+    qual_annotated_gvlab_swow_solve = {
+        "QualificationTypeId": annotated_gvlab_swow_solve_type_id,
+        "Comparator": "Exists"
+    }
 
     # quals = [qual_approve_percent, qual_not_rejected, qual_gvlab_annotator]
     quals = [qual_approve_percent, qual_not_rejected]
@@ -222,9 +241,17 @@ def get_quals(task_type):
     elif task_type == "create_qual_test":
         """ If the task is the create qual, we need to make sure that the annotator didn't do it yet """
         quals.append(qual_needs_to_do_gvlab_create_test)
+        ''' GVLAB annotator only '''
+        quals.append(qual_gvlab_annotator)
+        ''' Annotated solve '''
+        quals.append(qual_annotated_gvlab_swow_solve)
     elif task_type == 'solve':
         """ If the task is solve, we need to make sure that the annotator passed the solve qual """
         quals.append(qual_passed_gvlab_solve_test)
+    elif task_type == 'solve_test':
+        """ If it's the test, we need to make sure that it's different annotators """
+        quals.append(qual_passed_gvlab_solve_test)
+        quals.append(qual_didnt_annotated_gvlab_swow_solve)
     elif task_type == 'create':
         """ If the task is solve, we need to make sure that the annotator passed the solve qual """
         quals.append(qual_passed_gvlab_create_test)
@@ -286,13 +313,19 @@ def retrieve_assignments(hit_type_id, hit_ids):
 if __name__ == '__main__':
     current_time = strftime("%Y-%m-%d_%H:%M:%S", gmtime())
     # start_idx, end_idx = 100, 550 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
-    start_idx, end_idx = 550, 650  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
-    number_of_annotators_for_qual = 200
-    task_type = 'solve'
+    # start_idx, end_idx = 550, 650  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
+    # start_idx, end_idx = 650, 1200  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
+    start_idx, end_idx = 1200, 1340 # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
+    number_of_annotators_for_qual = 100
+    # task_type = 'solve'
+    # task_type = 'solve_test'
     # task_type = 'solve_qual_test'
+    task_type = 'create_qual_test'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
+    title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
+    title_solve_test = f"GVLAB: Visual Associations - Solve Test"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
     solve_description = "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
@@ -307,12 +340,14 @@ if __name__ == '__main__':
     create_reward = '0.05'
     if task_type == 'solve':
         title, reward_dollars, keywords, description, max_assigns = title_full, solve_reward, solve_keywords, solve_description, max_assigns_full
+    elif task_type == 'solve_test':
+        title, reward_dollars, keywords, description, max_assigns = title_solve_test, solve_reward, solve_keywords, solve_description, max_assigns_full
     elif task_type == 'create':
         title, reward_dollars, keywords, description, max_assigns = title_full, create_reward, create_keywords, create_description, max_assigns_full
     elif task_type == 'solve_qual_test':
         title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, solve_keywords, solve_qual_test_description, max_assigns_qual
     elif task_type == 'create_qual_test':
-        title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, create_keywords, create_qual_test_description, max_assigns_qual
+        title, reward_dollars, keywords, description, max_assigns = title_qual_create, qual_test_reward, create_keywords, create_qual_test_description, max_assigns_qual
     else:
         raise Exception(f"Unknown task_type: {task_type}")
     config = {'task_type': task_type, 'max_assigns': max_assigns, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx}

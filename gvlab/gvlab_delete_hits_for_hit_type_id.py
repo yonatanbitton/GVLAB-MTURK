@@ -13,7 +13,10 @@ if __name__ == '__main__':
     print("Using sandobx: ", is_sandbox)
     mturk = boto3.client('mturk', endpoint_url=endpoint_url, region_name = 'us-east-1')
     # hit_type_id = '35EE6WR8LHPD5V6FND0B2VK1GAF17F'
-    title = 'GVLAB: Visual Associations - test for future HITs (Fun!)'
+    # hit_type_id = '3S942EFUVKZ59R1T0AKMY9A86SZJE7'
+    # hit_type_id = '3S942EFUVKZ59R1T0AKMY9A86SZJE7'
+    hit_type_id = '33YYKPVHQWOFWHXT42PLKMHFT7O0UZ'
+    title = 'GVLAB: Visual Associations - (solve items 1200-1340)'
     for i in range(12):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")
@@ -21,11 +24,11 @@ if __name__ == '__main__':
             break
         deleted = []
         for h in hits:
-            # if h['HITTypeId'] != hit_type_id:
-            #     continue
-            if h['Title'] not in ['GVLAB: Visual Associations - (solve items 100-550)']:
-                print(f"Not same title {h['Title']}")
+            if h['HITTypeId'] != hit_type_id:
                 continue
+            # if h['Title'] not in [title]:
+            #     print(f"Not same title {h['Title']}")
+            #     continue
             expiration_time = datetime(2000,1,1, 1, 1, 1, tzinfo=pytz.timezone('GMT'))
             response = mturk.update_expiration_for_hit(
                 HITId=h['HITId'],

@@ -10,7 +10,7 @@ if is_sandbox:
 else:
     endpoint_url = 'https://mturk-requester.us-east-1.amazonaws.com'
 if not is_sandbox:
-    for i in range(100):
+    for i in range(10):
         print('*** NOT SANDBOX!!! THIS IS REAL!!! ***')
 
 print("Using sandobx: ", is_sandbox)
