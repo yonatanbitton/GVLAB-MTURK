@@ -10,32 +10,56 @@ from gvlab.example_gvlab_creation import review_hits
 from gvlab.gvlab_swow import mturk, create_or_get_qualification
 
 
-def main():
-    # hit_type_id = '3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1'
-    # hit_type_id = '3R1N6HJI9CC5LHBKOVQ6EQSW77SWLH'
-    # hit_type_id = '3J3XIOMSTTYANQ2TAL071JT4ZC0I08' # real qual
-    hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM'  # real qual public
+def main(hit_type_id, approve):
     res_csv_path = os.path.join('results', f'results_hit_type_id_{hit_type_id}.csv')
     accepted_workers_csv_path = os.path.join('accepted_workers', f'results_hit_type_id_{hit_type_id}.csv')
     reviewed_hits = review_hits(hit_type_id)
     answers_data = []
+    num_approved = 0
+    num_total = 0
+    is_create_task = False
     for h in reviewed_hits:
         for h_assignment_dict in h:
+            num_total += 1
+            if approve:
+                if h_assignment_dict['AssignmentStatus'] == 'Submitted':
+                    mturk.approve_assignment(AssignmentId=h_assignment_dict['AssignmentId'])
+                    num_approved += 1
+                continue
             answer_data = {k: v for k,v in h_assignment_dict.items() if k in ['AssignmentId', 'WorkerId', 'HITId', 'AssignmentStatus']}
             answer_data['SubmitTime'] = h_assignment_dict['SubmitTime'].__str__()
             general_answer_dict = json.loads(xmltodict.parse(h_assignment_dict['Answer'])['QuestionFormAnswers']['Answer']['FreeText'])
             personal_details = general_answer_dict['personalDetails']
             for answer_dict in general_answer_dict['tasks']:
-                labels = set([x['img'].split("/")[-1] for x in answer_dict['candidates'] if x['answer']])
-                user_predictions = set([x['img'].split("/")[-1] for x in answer_dict['candidates'] if x['userChoice']])
-                assert len(labels) == len(user_predictions)
-                jaccard = len(labels.intersection(user_predictions)) / len(labels.union(user_predictions))
-                all_candidates = [x['img'].split("/")[-1] for x in answer_dict['candidates']]
-                answer_dict = {**answer_data, **{'id': answer_dict['id'], 'candidates': all_candidates, 'labels': labels, 'user_predictions': user_predictions, 'jaccard': jaccard, 'personal_details': personal_details}}
+                if 'userCue' in answer_dict:
+                    is_create_task = True
+                    assert len(answer_dict['candidates']) == 2
+                    selected_images_q1 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][0] if x['answer']]
+                    selected_images_q2 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][1] if x['answer']]
+                    assert len(selected_images_q2) == 0
+                    assert answer_dict['score'][1] is None
+                    score = answer_dict['score'][0]
+                    userCue = answer_dict['userCue'][0]
+                    answer_dict = {**answer_data, **{'id': answer_dict['id'], 'selected_images': selected_images_q1, 'score': score, 'userCue': userCue, 'personal_details': personal_details}}
+                else:
+                    labels = set([x['img'].split("/")[-1] for x in answer_dict['candidates'] if x['answer']])
+                    user_predictions = set([x['img'].split("/")[-1] for x in answer_dict['candidates'] if x['userChoice']])
+                    assert len(labels) == len(user_predictions)
+                    jaccard = len(labels.intersection(user_predictions)) / len(labels.union(user_predictions))
+                    all_candidates = [x['img'].split("/")[-1] for x in answer_dict['candidates']]
+                    answer_dict = {**answer_data, **{'id': answer_dict['id'], 'candidates': all_candidates, 'labels': labels, 'user_predictions': user_predictions, 'jaccard': jaccard, 'personal_details': personal_details}}
                 answers_data.append(answer_dict)
+    if approve:
+        print(f"Approved all ({num_approved}/{num_total}), exiting, hit_type_id: {hit_type_id}")
+        return 0
     answers_data_df = pd.DataFrame(answers_data)
-    print(f"DF: {len(answers_data_df)}, jaccard mean: {answers_data_df['jaccard'].mean()}")
+    print(f"Dumped: {len(answers_data_df)} to {res_csv_path}")
     answers_data_df.to_csv(res_csv_path)
+    if is_create_task:
+        print(f'*** is_create_task, breaking ***')
+        return 0
+    print(f"DF: {len(answers_data_df)}, jaccard mean: {answers_data_df['jaccard'].mean()}")
+
 
     df_by_users = answers_data_df.groupby('WorkerId')
     accepted_users_items = []
@@ -105,4 +129,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # hit_type_id = '3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1'
+    # hit_type_id = '3R1N6HJI9CC5LHBKOVQ6EQSW77SWLH'
+    # hit_type_id = '3J3XIOMSTTYANQ2TAL071JT4ZC0I08' # real qual
+    # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM'  # real qual public
+    # hit_type_id = '3ZT4KTA7QP12TXNO45XYG1KUDSO32E'  # real qual private
+    all_hits = ['3J3XIOMSTTYANQ2TAL071JT4ZC0I08', '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM', '3ZT4KTA7QP12TXNO45XYG1KUDSO32E']
+    create_hits_type_ids = ['3ZT4KTA7QP12TXNO45XYG1KUDSO32E', '3U6Z1K5VYX5KJGIN25QEZ6V34978N2']
+    for hit_type_id in create_hits_type_ids:
+        approve = False
+        print(f"approve: {approve}")
+        main(hit_type_id, approve=approve)

@@ -100,30 +100,31 @@
 *** NOT SANDBOX!!! THIS IS REAL!!! ***
 *** NOT SANDBOX!!! THIS IS REAL!!! ***
 Using sandbox:  False
-Available Balance: 2074.49
+Available Balance: 2072.49
 task_type: create_qual_test, config:
-{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-07_19:03:36', 'is_sandbox': False, 'start_idx': 1200, 'end_idx': 1340}
+{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-08_22:28:00', 'is_sandbox': False, 'start_idx': 1200, 'end_idx': 1340}
 task_type, start, end: ('create_qual_test', 1200, 1340)
 read dataframe of size: 1 (create_qual_test)
 Listing qualifications for :  Production
-gvlab_annotator = 3ZNBPLV0N9WZ3TXWVJK01YGWNHRC2Y
-First GVLAB Solve Batch Performance = 3JNQJJEQXO7VVJC4OVBSULOJWSKJU2
-passed_gvlab_solve_qualification = 3NDLUB5I81QKQQ3IP6QL8DLKB9C46U
-passed_gvlab_create_qualification = 3JC3H4XMU93OOBTFZJY5K8LOTVRC39
+gvlab_annotator 3ZNBPLV0N9WZ3TXWVJK01YGWNHRC2Y
+First GVLAB Solve Batch Performance 3JNQJJEQXO7VVJC4OVBSULOJWSKJU2
+passed_gvlab_solve_qualification 3NDLUB5I81QKQQ3IP6QL8DLKB9C46U
+passed_gvlab_create_qualification 3JC3H4XMU93OOBTFZJY5K8LOTVRC39
 inadequate 3DWHOMV0PMAFP43GUQRGI7WACXOHAJ
 Not requiring GVLAB Annotator
+Publishing PUBLIC qual, not demanding solve, but do demanding solve qual
 Not sandbox, adding two quals (number, locale)
 Created qualifications
-Created HIT Type: 3ZT4KTA7QP12TXNO45XYG1KUDSO32E
-gvlab_hit_type_id: 3ZT4KTA7QP12TXNO45XYG1KUDSO32E
+Created HIT Type: 3U6Z1K5VYX5KJGIN25QEZ6V34978N2
+gvlab_hit_type_id: 3U6Z1K5VYX5KJGIN25QEZ6V34978N2
 Created qualifications
-balance: 2074.49
+balance: 2072.49
 Uploading hits to:  Production
 max_assigns: 1 (is_sandbox: False)
 Finished uploading! 100 responses
 config
-{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-07_19:03:36', 'is_sandbox': False, 'start_idx': 1200, 'end_idx': 1340, 'gvlab_hit_type_id': '3ZT4KTA7QP12TXNO45XYG1KUDSO32E', 'current_mturk_balance': '2074.49'}
-current_mturk_balance_after_hits: 2072.49
-Wrote config to published_batches/hits_2022-05-07_19:03:36_create_qual_test_1200-1340.json
+{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-08_22:28:00', 'is_sandbox': False, 'start_idx': 1200, 'end_idx': 1340, 'gvlab_hit_type_id': '3U6Z1K5VYX5KJGIN25QEZ6V34978N2', 'current_mturk_balance': '2072.49'}
+current_mturk_balance_after_hits: 2070.49
+Wrote config to published_batches/hits_2022-05-08_22:28:00_create_qual_test_1200-1340.json
 
 Process finished with exit code 0

@@ -23,8 +23,9 @@ print(f"Available Balance: {mturk.get_account_balance()['AvailableBalance']}")
 # 30 days?
 ten_minutes_sec = 60 * 10
 one_hour_sec = 6 * ten_minutes_sec
-thirty_days_sec = 30 * 24 * one_hour_sec
-auto_approve_after_sec = thirty_days_sec
+# thirty_days_sec = 30 * 24 * one_hour_sec
+three_days_sec = 3 * 24 * one_hour_sec
+auto_approve_after_sec = three_days_sec
 assign_duration = ten_minutes_sec
 
 PercentAssignmentsApproved = "000000000000000000L0"
@@ -215,6 +216,10 @@ def get_quals(task_type):
         "QualificationTypeId": gvlab_annotator_qualification_type_id,
         "Comparator": "Exists"
     }
+    qual_not_gvlab_annotator = {
+        "QualificationTypeId": gvlab_annotator_qualification_type_id,
+        "Comparator": "DoesNotExist"
+    }
     qual_needs_to_do_gvlab_create_test = {
         "QualificationTypeId": passed_gvlab_create_qualification_type_id,
         "Comparator": "DoesNotExist"
@@ -242,9 +247,12 @@ def get_quals(task_type):
         """ If the task is the create qual, we need to make sure that the annotator didn't do it yet """
         quals.append(qual_needs_to_do_gvlab_create_test)
         ''' GVLAB annotator only '''
-        quals.append(qual_gvlab_annotator)
+        # quals.append(qual_gvlab_annotator)
         ''' Annotated solve '''
-        quals.append(qual_annotated_gvlab_swow_solve)
+        # quals.append(qual_annotated_gvlab_swow_solve)
+        print("Publishing PUBLIC qual, not demanding solve, but do demanding solve qual")
+        quals.append(qual_not_gvlab_annotator)
+        quals.append(qual_passed_gvlab_solve_test)
     elif task_type == 'solve':
         """ If the task is solve, we need to make sure that the annotator passed the solve qual """
         quals.append(qual_passed_gvlab_solve_test)
@@ -324,7 +332,8 @@ if __name__ == '__main__':
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
-    title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
+    # title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
+    title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public"
     title_solve_test = f"GVLAB: Visual Associations - Solve Test"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
