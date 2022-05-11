@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gvlab/gvlab_get_hits_for_hit_type_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_qual_public.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/notify_creators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/accepted_workers/results_hit_type_id_3J3XIOMSTTYANQ2TAL071JT4ZC0I08.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/accepted_workers/results_hit_type_id_3J3XIOMSTTYANQ2TAL071JT4ZC0I08.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_swow.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_swow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/logs/log_create_qual_private.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/logs/log_create_qual_private.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3J3XIOMSTTYANQ2TAL071JT4ZC0I08.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3J3XIOMSTTYANQ2TAL071JT4ZC0I08.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/created_data/user_collected_associations_qualification.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/created_data/user_collected_associations_qualification.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,7 +306,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py</url>
-          <line>25</line>
+          <line>32</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>

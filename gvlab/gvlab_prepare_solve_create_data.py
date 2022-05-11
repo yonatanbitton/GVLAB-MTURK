@@ -22,10 +22,12 @@ def main():
     df['candidates'] = df['id'].apply(lambda id: get_candidates_by_id(id, qual_csv))
     for c in ['associations', 'candidates']:
         df[c] = df[c].apply(lambda x: json.loads(x.replace("'",'"')))
+    df['associations'] = df['associations'].apply(lambda lst: [x.split(".")[0] for x in lst])
     df['num_associations'] = df['associations'].apply(lambda x: len(x))
     for c in ['associations', 'candidates']:
         df[c] = df[c].apply(lambda x: json.dumps(x))
     print(f"Dumping df of len: {len(df)} to {out_p}")
+    df['annotation_index'] = range(len(df))
     df.to_csv(out_p, index=False)
 
     print("Done")
