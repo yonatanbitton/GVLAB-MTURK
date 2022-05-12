@@ -1,0 +1,29 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/gvlab_swow.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: create_qual_test, config:
+{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-12_17:45:30', 'is_sandbox': True, 'start_idx': 1200, 'end_idx': 1340}
+task_type, start, end: ('create_qual_test', 1200, 1340)
+read dataframe of size: 1 (create_qual_test)
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Publishing PUBLIC qual, not demanding solve, but do demanding solve qual
+Created qualifications
+Created HIT Type: 3J1X5UP4FWI0OSEI7URW9Q24YALK5N
+gvlab_hit_type_id: 3J1X5UP4FWI0OSEI7URW9Q24YALK5N
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Finished uploading! 100 responses
+config
+{'task_type': 'create_qual_test', 'max_assigns': 1, 'reward_dollars': '0.01', 'title': "GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public", 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-12_17:45:30', 'is_sandbox': True, 'start_idx': 1200, 'end_idx': 1340, 'gvlab_hit_type_id': '3J1X5UP4FWI0OSEI7URW9Q24YALK5N', 'current_mturk_balance': '10000.00'}
+current_mturk_balance_after_hits: 10000.00
+Wrote config to published_batches_sandbox/hits_2022-05-12_17:45:30_create_qual_test_1200-1340.json
+
+Process finished with exit code 0

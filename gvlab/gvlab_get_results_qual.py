@@ -34,8 +34,10 @@ def main(hit_type_id, approve):
                 if 'userCue' in answer_dict:
                     is_create_task = True
                     assert len(answer_dict['candidates']) == 2
-                    selected_images_q1 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][0] if x['answer']]
-                    selected_images_q2 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][1] if x['answer']]
+                    # selected_images_q1 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][0] if x['answer']]
+                    # selected_images_q2 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][1] if x['answer']]
+                    selected_images_q1 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][0] if x['userChoice']]
+                    selected_images_q2 = [x['img'].split("/")[-1] for x in answer_dict['candidates'][1] if x['userChoice']]
                     assert len(selected_images_q2) == 0
                     assert answer_dict['score'][1] is None
                     score = answer_dict['score'][0]
@@ -53,6 +55,9 @@ def main(hit_type_id, approve):
         print(f"Approved all ({num_approved}/{num_total}), exiting, hit_type_id: {hit_type_id}")
         return 0
     answers_data_df = pd.DataFrame(answers_data)
+    for c in ['selected_images', 'personal_details']:
+        if c in answers_data_df:
+            answers_data_df[c] = answers_data_df[c].apply(json.dumps)
     print(f"Dumped: {len(answers_data_df)} to {res_csv_path}")
     answers_data_df.to_csv(res_csv_path)
     if is_create_task:
@@ -134,8 +139,10 @@ if __name__ == '__main__':
     # hit_type_id = '3J3XIOMSTTYANQ2TAL071JT4ZC0I08' # real qual
     # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM'  # real qual public
     # hit_type_id = '3ZT4KTA7QP12TXNO45XYG1KUDSO32E'  # real qual private
-    all_hits = ['3J3XIOMSTTYANQ2TAL071JT4ZC0I08', '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM', '3ZT4KTA7QP12TXNO45XYG1KUDSO32E']
+    # all_hits = ['3J3XIOMSTTYANQ2TAL071JT4ZC0I08', '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM', '3ZT4KTA7QP12TXNO45XYG1KUDSO32E']
     create_hits_type_ids = ['3ZT4KTA7QP12TXNO45XYG1KUDSO32E', '3U6Z1K5VYX5KJGIN25QEZ6V34978N2']
+    # sandbox_my_hit_type_id_create_qual = '3J1X5UP4FWI0OSEI7URW9Q24YALK5N'
+    # create_hits_type_ids
     for hit_type_id in create_hits_type_ids:
         approve = False
         print(f"approve: {approve}")

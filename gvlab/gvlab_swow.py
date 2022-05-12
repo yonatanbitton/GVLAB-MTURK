@@ -268,6 +268,8 @@ def get_quals(task_type):
     if not is_sandbox:
         print("Not sandbox, adding two quals (number, locale)")
         quals += [qual_approve_number, qual_en_locale]
+    else:
+        quals = []
 
     return quals
 
@@ -276,7 +278,7 @@ def create_gvlab_creation_hit_type(config):
     gvlab_quals = get_quals(config['task_type'])
     print(f"Created qualifications")
     response = mturk.create_hit_type(
-        AutoApprovalDelayInSeconds=thirty_days_sec,
+        AutoApprovalDelayInSeconds=three_days_sec,
         AssignmentDurationInSeconds=2 * ten_minutes_sec,
         Reward=config['reward_dollars'],
         Title=config['title'],
