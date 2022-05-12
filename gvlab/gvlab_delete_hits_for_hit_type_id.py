@@ -15,8 +15,12 @@ if __name__ == '__main__':
     # hit_type_id = '35EE6WR8LHPD5V6FND0B2VK1GAF17F'
     # hit_type_id = '3S942EFUVKZ59R1T0AKMY9A86SZJE7'
     # hit_type_id = '3S942EFUVKZ59R1T0AKMY9A86SZJE7'
-    hit_type_id = '33YYKPVHQWOFWHXT42PLKMHFT7O0UZ'
-    title = 'GVLAB: Visual Associations - (solve items 1200-1340)'
+    # hit_type_id = '33YYKPVHQWOFWHXT42PLKMHFT7O0UZ'
+    # hit_type_id = '3L31T0COU9OKFS1X1VUK9952NPRQG3'
+    # hit_type_id = '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL'
+    hit_type_id = '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL'
+    # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN'
+    # title = 'GVLAB: Visual Associations - (solve items 1200-1340)'
     for i in range(12):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")

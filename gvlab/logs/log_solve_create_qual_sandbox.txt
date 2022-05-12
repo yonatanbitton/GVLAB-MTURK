@@ -1,0 +1,32 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py" --multiprocess --qt-support=auto --client 127.0.0.1 --port 62402 --file /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/gvlab_swow.py
+Connected to pydev debugger (build 221.5080.212)
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: solve_create_qual, config:
+{'task_type': 'solve_create_qual', 'max_assigns': 3, 'reward_dollars': '0.03', 'title': 'GVLAB: Solve Visual Associations created by users', 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice", 'current_time': '2022-05-12_19:21:42', 'is_sandbox': True, 'start_idx': 1200, 'end_idx': 1340}
+task_type, start, end: ('solve_create_qual', 1200, 1340)
+read dataframe of size: 300 (solve_create_qual)
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL
+gvlab_hit_type_id: 3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 3 (is_sandbox: True)
+PyDev console: starting.
+
+'https://gvlab-dataset.github.io/mturk/solve/solve_create_qualification_148'
+Finished uploading! 300 responses
+config
+{'task_type': 'solve_create_qual', 'max_assigns': 3, 'reward_dollars': '0.03', 'title': 'GVLAB: Solve Visual Associations created by users', 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice", 'current_time': '2022-05-12_19:21:42', 'is_sandbox': True, 'start_idx': 1200, 'end_idx': 1340, 'gvlab_hit_type_id': '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL', 'current_mturk_balance': '10000.00'}
+current_mturk_balance_after_hits: 10000.00
+Wrote config to published_batches_sandbox/hits_2022-05-12_19:21:42_solve_create_qual_1200-1340.json
+
+Process finished with exit code 0

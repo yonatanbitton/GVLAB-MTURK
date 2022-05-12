@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 
 
-is_sandbox = True
+is_sandbox = False
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:

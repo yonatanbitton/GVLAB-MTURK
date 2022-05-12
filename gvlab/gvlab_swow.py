@@ -36,7 +36,10 @@ def assign_tasks(config):
     print(f"task_type, start, end: {config['task_type'], config['start_idx'], config['end_idx']}")
     df = pd.read_csv(os.path.join(f'urls', f'urls_{task_type}.csv'))
     print(f"read dataframe of size: {len(df)} ({task_type})")
-    if 'qual' in task_type:
+    if task_type == 'solve_create_qual':
+        df_sample = df
+        df['ID'] = df['annotation_index']
+    elif 'qual' in task_type:
         df_sample = df
     elif 'test' not in task_type:
         df_sample = df.iloc[config['start_idx']:config['end_idx']]
@@ -44,6 +47,8 @@ def assign_tasks(config):
     elif 'test' in task_type:
         df_sample = df
         print(f"df at length {len(df_sample)}")
+    else:
+        raise Exception(f"Unknown task_type: {task_type}")
     gvlab_hit_type_id, gvlab_quals = create_gvlab_creation_hit_type(config)
     print(f"gvlab_hit_type_id: {gvlab_hit_type_id}")
     # exit()
@@ -60,7 +65,7 @@ def assign_tasks(config):
     print(f"max_assigns: {max_assigns} (is_sandbox: {is_sandbox})")
     hit_lifetime = 7 * 24 * 6 * ten_minutes_sec
     hit_responses = []
-    if 'qual' in task_type:
+    if task_type in ['solve_qual_test', 'create_qual_test']:
         """ If in a qualification test, sending X number of test to accumulate workers that have this qualification """
         for i in range(number_of_annotators_for_qual):
             sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses)
@@ -83,7 +88,7 @@ def assign_tasks(config):
 
 
 def sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses):
-    for item_idx, item in df_sample.iterrows():
+    for item_idx, item in tqdm(df_sample.iterrows(), total=len(df_sample), desc='Uploading HITs'):
         escaped_url = xml_escape(item['ID'])
         this_question = external_question.format(url=escaped_url)
         response = mturk.create_hit_with_hit_type(
@@ -253,7 +258,7 @@ def get_quals(task_type):
         print("Publishing PUBLIC qual, not demanding solve, but do demanding solve qual")
         quals.append(qual_not_gvlab_annotator)
         quals.append(qual_passed_gvlab_solve_test)
-    elif task_type == 'solve':
+    elif task_type == 'solve' or task_type == 'solve_create_qual':
         """ If the task is solve, we need to make sure that the annotator passed the solve qual """
         quals.append(qual_passed_gvlab_solve_test)
     elif task_type == 'solve_test':
@@ -330,13 +335,15 @@ if __name__ == '__main__':
     # task_type = 'solve'
     # task_type = 'solve_test'
     # task_type = 'solve_qual_test'
-    task_type = 'create_qual_test'
+    # task_type = 'create_qual_test'
+    task_type = 'solve_create_qual'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
     # title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
     title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public"
     title_solve_test = f"GVLAB: Visual Associations - Solve Test"
+    title_solve_create_qual = f"GVLAB: Solve Visual Associations created by users (Fun!)"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
     solve_description = "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
@@ -344,7 +351,7 @@ if __name__ == '__main__':
     solve_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
     create_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
 
-    max_assigns_full = 3
+    max_assigns_full = 3 if not is_sandbox else 1
     max_assigns_qual = 1
     qual_test_reward = '0.01'  # minimum reward for qual test HIT
     solve_reward = '0.03'
@@ -359,6 +366,8 @@ if __name__ == '__main__':
         title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, solve_keywords, solve_qual_test_description, max_assigns_qual
     elif task_type == 'create_qual_test':
         title, reward_dollars, keywords, description, max_assigns = title_qual_create, qual_test_reward, create_keywords, create_qual_test_description, max_assigns_qual
+    elif task_type == 'solve_create_qual':
+        title, reward_dollars, keywords, description, max_assigns = title_solve_create_qual, solve_reward, solve_keywords, solve_description, max_assigns_full
     else:
         raise Exception(f"Unknown task_type: {task_type}")
     config = {'task_type': task_type, 'max_assigns': max_assigns, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx}

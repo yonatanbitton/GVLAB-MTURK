@@ -12,7 +12,7 @@ from gvlab.gvlab_swow import mturk
 def main(hit_type_id, approve=False):
     res_csv_path = os.path.join('results', f'results_hit_type_id_{hit_type_id}.csv')
     reviewed_hits = review_hits(hit_type_id)
-    print(f"# Reviewed Hits: {reviewed_hits}")
+    print(f"# Reviewed Hits: {len(reviewed_hits)}")
     num_approved = 0
     num_total = 0
     answers_data = []
@@ -48,6 +48,9 @@ def main(hit_type_id, approve=False):
     get_results_by_num_candidates(answers_data_df)
 
     all_mean_user_jaccard_for_association = get_user_agreement(answers_data_df)
+    all_mean_user_jaccard_for_association_json_path = os.path.join('results', f'all_mean_user_jaccard_for_association_{hit_type_id}.json')
+    print(f"Dumping json of len {len(all_mean_user_jaccard_for_association)} to {all_mean_user_jaccard_for_association_json_path}")
+    json.dump(all_mean_user_jaccard_for_association, open(all_mean_user_jaccard_for_association_json_path, 'w'))
 
     association_jaccard_threshold = 0.8
     associations_with_mean_jaccard_above_threshold = {k: v for k, v in all_mean_user_jaccard_for_association.items() if v >= association_jaccard_threshold}
@@ -65,8 +68,10 @@ if __name__ == '__main__':
     # hit_type_id = '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO'  # 650-1200
     # hit_type_id = '3S942EFUVKZ59R1T0AKMY9A86SZJE7' # 1200-1340
     # hit_type_id = '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V' # test solve
-    all_hits = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V']
-    for hit_type_id in all_hits:
-        approve = True
+    # all_hits = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V']
+    # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN' # solve_create_qual_sandbox
+    hit_type_id = '31UK836KROSS8RVV3KINI5EVNBTG3A' # solve_create_qual - REAL
+    for hit_type_id in [hit_type_id]:
+        approve = False
         print(f"approve: {approve}")
         main(hit_type_id, approve=approve)
