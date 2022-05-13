@@ -266,7 +266,7 @@ def get_quals(task_type):
         quals.append(qual_passed_gvlab_solve_test)
         quals.append(qual_didnt_annotated_gvlab_swow_solve)
     elif task_type == 'create':
-        """ If the task is solve, we need to make sure that the annotator passed the solve qual """
+        """ If the task is solve, we need to make sure that the annotator passed the create qual """
         quals.append(qual_passed_gvlab_create_test)
     else:
         raise Exception(f"Exception, unknown task_type: {task_type}")
@@ -330,13 +330,15 @@ if __name__ == '__main__':
     # start_idx, end_idx = 100, 550 # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
     # start_idx, end_idx = 550, 650  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
     # start_idx, end_idx = 650, 1200  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
-    start_idx, end_idx = 1200, 1340 # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
+    # start_idx, end_idx = 1200, 1340 # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
+    start_idx, end_idx = 0, 100  # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
     number_of_annotators_for_qual = 100
     # task_type = 'solve'
     # task_type = 'solve_test'
     # task_type = 'solve_qual_test'
     # task_type = 'create_qual_test'
-    task_type = 'solve_create_qual'
+    # task_type = 'solve_create_qual'
+    task_type = 'create'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
@@ -347,7 +349,16 @@ if __name__ == '__main__':
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
     solve_description = "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
-    create_description = "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
+    # create_description = "Try to create Visual Associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
+    create_description = "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. " \
+                         "\n The base payment is 0.05$ for annotating two cues. " \
+                         "\n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score." \
+                         "\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. " \
+                         "\n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. " \
+                         "\n If 67 <= fool-the-ai-score < 80, you will receive 0.12$. " \
+                         "\n If 80 <= fool-the-ai-score, you will receive 0.18$. " \
+                         "\n The bonuses will be paid retroactively, because we'll need to compute solver score ('solvable by human score') for the associations you create." \
+                         "\n This is a test batch of 100 instances, we might adjust the rewards after."
     solve_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
     create_qual_test_description = "Do this test only once: Pass this qualification for future HITs: Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
 

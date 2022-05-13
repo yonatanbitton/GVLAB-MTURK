@@ -1,0 +1,30 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/gvlab_swow.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: create, config:
+{'task_type': 'create', 'max_assigns': 1, 'reward_dollars': '0.05', 'title': 'GVLAB: Visual Associations - (create items 0-100)', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-13_12:50:20', 'is_sandbox': True, 'start_idx': 0, 'end_idx': 100}
+task_type, start, end: ('create', 0, 100)
+read dataframe of size: 1931 (create)
+Taking indices: (0, 100), got df sample of size: 100
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 32TFGTUJLPQDB76DR6FYUGS8X6XPI3
+gvlab_hit_type_id: 32TFGTUJLPQDB76DR6FYUGS8X6XPI3
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Uploading HITs: 100%|██████████| 100/100 [00:48<00:00,  2.04it/s]
+Finished uploading! 100 responses
+config
+{'task_type': 'create', 'max_assigns': 1, 'reward_dollars': '0.05', 'title': 'GVLAB: Visual Associations - (create items 0-100)', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice", 'current_time': '2022-05-13_12:50:20', 'is_sandbox': True, 'start_idx': 0, 'end_idx': 100, 'gvlab_hit_type_id': '32TFGTUJLPQDB76DR6FYUGS8X6XPI3', 'current_mturk_balance': '10000.00'}
+current_mturk_balance_after_hits: 10000.00
+Wrote config to published_batches_sandbox/hits_2022-05-13_12:50:20_create_0-100.json
+
+Process finished with exit code 0

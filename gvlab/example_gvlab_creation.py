@@ -4,7 +4,8 @@ import boto3
 import pandas as pd
 from tqdm import tqdm
 
-is_sandbox = False
+from gvlab.gvlab_swow import is_sandbox
+
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:
