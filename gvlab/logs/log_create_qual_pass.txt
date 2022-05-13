@@ -1,0 +1,119 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py" --multiprocess --qt-support=auto --client 127.0.0.1 --port 57520 --file /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py
+Connected to pydev debugger (build 221.5080.212)
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+Using sandbox:  False
+Available Balance: 2022.64
+Not null proportion: 299/300
+proportion_fooling_ai: 0.8666666666666667, proportion_solvable_by_humans: 0.7666666666666667, proportion_pass_joint_score: 0.6666666666666666
+passed_gvlab_create_qualification 3JC3H4XMU93OOBTFZJY5K8LOTVRC39
+PyDev console: starting.
+
+20
+10
+{'NotifyWorkersFailureStatuses': [], 'ResponseMetadata': {'RequestId': 'f8a78c35-32e4-47b4-82e1-f24950365195', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': 'f8a78c35-32e4-47b4-82e1-f24950365195', 'content-type': 'application/x-amz-json-1.1', 'content-length': '35', 'date': 'Thu, 12 May 2022 21:49:52 GMT'}, 'RetryAttempts': 0}}
+{'NotifyWorkersFailureStatuses': [], 'ResponseMetadata': {'RequestId': 'be246a61-0ab0-4681-96dc-1ab54d0be146', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': 'be246a61-0ab0-4681-96dc-1ab54d0be146', 'content-type': 'application/x-amz-json-1.1', 'content-length': '35', 'date': 'Thu, 12 May 2022 21:50:08 GMT'}, 'RetryAttempts': 0}}
+num_passed: 20, num_fail: 10
+Passed: ['A16184N1RO5OJV', 'A19UED74G8FXN3', 'A1HKYY6XI2OHO1', 'A1OZPLHNIU1519', 'A1PBRKFHSF1OF8', 'A2K607J3Z68WRR', 'A2M3C5YIO7IZ6G', 'A2ONILC0LZKG6Y', 'A2QX3YJXAAHHVV', 'A2SDOD67560IN8', 'A2UCKZZI9KBBCV', 'A2V3P1XE33NYC3', 'A302KOFOYLD89A', 'A377LTGWJKY2IW', 'A382S0KJMW3K9S', 'A3RTW9UWYKSNWX', 'A3UJSDFJ9LBQ6Z', 'AHB3QFZSFN9DL', 'AKQAI78JTXXC9', 'AZLZA0Q87TJZO']
+Failed: ['A104V8NZIQFN2F', 'A14GKRTUEHBLBZ', 'A1FA3QRISJ1RIP', 'A2UAHW3Q7S45JP', 'A30BPQ2QGZOXN8', 'A3135Y3RMFC3PK', 'A340FMNO9WJG4J', 'A68UG55LKRKMS', 'AB7MYP65HZ2MH', 'AXID3RPK6NZT6']
+Done
+
+Process finished with exit code 0

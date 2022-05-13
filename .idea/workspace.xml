@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gvlab/create_swow_urls_for_solve_create_qual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_qual.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_qual_sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_qual_pass.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/urls/filter_inappropriate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/urls/urls_create_full.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aviv/aviv_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/aviv/aviv_python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_swow.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_swow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_31UK836KROSS8RVV3KINI5EVNBTG3A.json" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_31UK836KROSS8RVV3KINI5EVNBTG3A.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_31UK836KROSS8RVV3KINI5EVNBTG3A.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_31UK836KROSS8RVV3KINI5EVNBTG3A.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/urls/urls_create.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/urls/urls_create.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +35,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/urls"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gvlab/urls" />
       <recent name="$PROJECT_DIR$/gvlab" />
       <recent name="$PROJECT_DIR$/gvlab/created_data" />
       <recent name="$PROJECT_DIR$/gvlab/accepted_workers" />
@@ -54,7 +55,7 @@
       <recent name="$PROJECT_DIR$/create_tasks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.gvlab_get_results">
+  <component name="RunManager" selected="Python.gvlab_evaluate_solve_create_qualifications_annotators">
     <configuration name="create_swow_urls_for_solve_create_qual" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +98,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="gvlab_evaluate_solve_create_qualifications_annotators" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GVLAB-MTURK" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gvlab_get_results" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -110,27 +132,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_get_results.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gvlab_prepare_solve_create_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GVLAB-MTURK" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,19 +162,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.gvlab_evaluate_solve_create_qualifications_annotators" />
       <item itemvalue="Python.create_swow_urls_for_solve_create_qual" />
       <item itemvalue="Python.gvlab_delete_hits_for_hit_type_id" />
-      <item itemvalue="Python.gvlab_prepare_solve_create_data" />
       <item itemvalue="Python.gvlab_swow" />
       <item itemvalue="Python.gvlab_get_results" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.gvlab_evaluate_solve_create_qualifications_annotators" />
         <item itemvalue="Python.gvlab_get_results" />
         <item itemvalue="Python.gvlab_swow" />
         <item itemvalue="Python.gvlab_delete_hits_for_hit_type_id" />
         <item itemvalue="Python.create_swow_urls_for_solve_create_qual" />
-        <item itemvalue="Python.gvlab_prepare_solve_create_data" />
       </list>
     </recent_temporary>
   </component>
@@ -329,6 +330,26 @@
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
           <line>56</line>
           <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="141" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
