@@ -18,10 +18,18 @@ if __name__ == '__main__':
     # hit_type_id = '33YYKPVHQWOFWHXT42PLKMHFT7O0UZ'
     # hit_type_id = '3L31T0COU9OKFS1X1VUK9952NPRQG3'
     # hit_type_id = '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL'
-    hit_type_id = '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL'
+    # hit_type_id = '3KAKS2ULSF7XZIPBT2MARJ0M3I2MTL'
     # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN'
-    # title = 'GVLAB: Visual Associations - (solve items 1200-1340)'
-    for i in range(12):
+    # hit_type_id = 'GVLAB: Solve Visual Associations created by users (Fun!) - (100-300)'
+    # hit_type_id = '3UZRKKY9ATT1I0VXRH0EXJF3SXH4O7'
+    hit_type_id = '3H5KS3F36QZTFBNOIXZ2T6QE72IZYO'
+    # title = 'GVLAB: Visual Associations - (solve items 100-300)'
+    # title = 'GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)'
+    # title = 'GVLAB: Visual Associations - (create items 0-100)'
+    # title = 'GVLAB: Visual Associations - (solve items 100-300)'
+    # title = 'GVLAB: Solve Visual Associations created by users (Fun!)'
+    # title = 'GVLAB: Visual Associations - (solve items 100-500)'
+    for i in range(50):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")
         if len(hits) == 0:
@@ -33,13 +41,13 @@ if __name__ == '__main__':
             # if h['Title'] not in [title]:
             #     print(f"Not same title {h['Title']}")
             #     continue
-            expiration_time = datetime(2000,1,1, 1, 1, 1, tzinfo=pytz.timezone('GMT'))
-            response = mturk.update_expiration_for_hit(
-                HITId=h['HITId'],
-                ExpireAt=datetime(2015, 1, 1)
-            )
-            h_new = mturk.get_hit(HITId=h['HITId'])
             try:
+                expiration_time = datetime(2000,1,1, 1, 1, 1, tzinfo=pytz.timezone('GMT'))
+                response = mturk.update_expiration_for_hit(
+                    HITId=h['HITId'],
+                    ExpireAt=datetime(2015, 1, 1)
+                )
+                h_new = mturk.get_hit(HITId=h['HITId'])
                 mturk.delete_hit(HITId=h['HITId'])
             except Exception as ex:
                 # h['HITStatus'] == 'Reviewable'
@@ -54,5 +62,5 @@ if __name__ == '__main__':
                         AssignmentId=AssignmentId,
                         OverrideRejection=False,
                     )
-            deleted.append((h['HITId'], hit_type_id))
+            # deleted.append((h['HITId'], hit_type_id))
         print(f'deleted: {deleted}')

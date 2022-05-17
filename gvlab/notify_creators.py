@@ -1,48 +1,39 @@
-from tqdm import tqdm
+from gvlab.send_gvlab_tasks import mturk
 
-from gvlab.gvlab_swow import create_or_get_qualification, mturk
 
 def main():
-    gvlab_annotator = '3ZNBPLV0N9WZ3TXWVJK01YGWNHRC2Y'
-    first_gvlab_performance = '3JNQJJEQXO7VVJC4OVBSULOJWSKJU2'
-    passed_gvlab_solve_qualification = '3NDLUB5I81QKQQ3IP6QL8DLKB9C46U'
-    # gvlab_annotators_response = mturk.list_workers_with_qualification_type(QualificationTypeId=gvlab_annotator)
-    # gvlab_annotators_workers_id = [x['WorkerId'] for x in gvlab_annotators_response['Qualifications']]
-    first_gvlab_performance_workers = paginate(mturk.list_workers_with_qualification_type, lambda resp: set([x['WorkerId'] for x in resp['Qualifications']]), max_results=1000, QualificationTypeId=first_gvlab_performance)
-    gvlab_annotator_workers = paginate(mturk.list_workers_with_qualification_type,
-                                               lambda resp: set([x['WorkerId'] for x in resp['Qualifications']]),
-                                               max_results=1000, QualificationTypeId=gvlab_annotator)
-    both_solved_first_and_gvlab_annotator = set(first_gvlab_performance_workers).intersection(set(first_gvlab_performance_workers))
-    print(f"gvlab_annotator_workers: {len(gvlab_annotator_workers)}, first_gvlab_performance_workers: {len(first_gvlab_performance_workers)}")
-    # print(both_solved_first_and_gvlab_annotator)
-    # relevant_workers = {'A2LU259QPV1I4V', 'A3UJSDFJ9LBQ6Z', 'AXID3RPK6NZT6', 'A1WY3YGT618GC0', 'AHB3QFZSFN9DL', 'A1OZPLHNIU1519',
-    #  'A1FA3QRISJ1RIP', 'A2K607J3Z68WRR', 'A302KOFOYLD89A', 'A1PBRKFHSF1OF8', 'AB7MYP65HZ2MH', 'A18WSAKX5YN2FB',
-    #  'A3BUWQ5C39GRQC', 'A382S0KJMW3K9S', 'A104V8NZIQFN2F', 'A68UG55LKRKMS', 'A2ONILC0LZKG6Y', 'A1W1X3S1Y0RKF3',
-    #  'A2UAHW3Q7S45JP', 'A3135Y3RMFC3PK', 'A2V3P1XE33NYC3', 'AKQAI78JTXXC9', 'A2BK45LZGGWPLX', 'A14GKRTUEHBLBZ',
-    #  'A36P1ZQ0GYF567'}
-    # SubjectNewQualification = 'GVLAB: Create Qualification test available - solve it successfully get access to many rewarding HITs'
-    # MessageText_new_batch = 'Hello, you are one of few chosen to annotate for GVLAB create task (if you want :)). Qual name: "GVLAB: Visual Associations - test for "create" future HITs (Fun!)". Instructions are in the qualification test and the TurkerNation group. Many rewarding HITs will be published in the upcoming days. Good luck!'
-    # response = mturk.notify_workers(Subject=SubjectNewQualification, MessageText=MessageText_new_batch,
-    #                                 WorkerIds=list(relevant_workers))  # response['NotifyWorkersFailureStatuses']
-    # print(response)
-    # print("Done")
-
-def paginate(operation, result_fn, max_results=None, **kwargs):
-    results = []
-    resp = operation(MaxResults=100, **kwargs)
-    local_results = result_fn(resp)
-    results.extend(local_results)
-    next_token = resp.get('NextToken')
-    with tqdm() as pbar:
-        while (local_results and next_token):
-            if max_results is not None and len(results) >= max_results:
-                break
-            resp = operation(MaxResults=100, NextToken=next_token, **kwargs)
-            local_results = result_fn(resp)
-            next_token = resp.get('NextToken')
-            results.extend(local_results)
-            pbar.update(len(local_results))
-    return results
+    all_creators = {'A377LTGWJKY2IW', 'A3RTW9UWYKSNWX', 'A2M3C5YIO7IZ6G', 'A16184N1RO5OJV', 'AHB3QFZSFN9DL', 'A2ONILC0LZKG6Y', 'A2UCKZZI9KBBCV', 'A2K607J3Z68WRR', 'A3UJSDFJ9LBQ6Z', 'A302KOFOYLD89A', 'A2QX3YJXAAHHVV', 'A382S0KJMW3K9S', 'AKQAI78JTXXC9', 'A1PBRKFHSF1OF8', 'A2V3P1XE33NYC3', 'AZLZA0Q87TJZO', 'A1OZPLHNIU1519', 'A19UED74G8FXN3', 'A1HKYY6XI2OHO1', 'A2SDOD67560IN8', 'A2N9U74YIPDQ9F'}  # added carbo - new one
+    revoked_creators = {'AKQAI78JTXXC9', 'A2UCKZZI9KBBCV'}  # A1HKYY6XI2OHO1 - good enough
+    creators_not_revoked = all_creators.difference(revoked_creators)
+    Subject = "50% increased bonus for high fool-the-AI scores, 'create' qualification revoke risk for low fool-the-AI score"
+    Message = "Hello. We aim to collect data that is challenging for the AI. We take additional two steps towards this goal:' \
+              '\n (1) 50% increased bonus for high fool-the-AI scores (while still solvable-by-humans). ' \
+              '\n If 67 <= fool-the-ai < 80, the bonus will be 0.18$ (instead of 0.12$).' \
+              '\n If 80 <= fool-the-ai, the bonus will be 0.27$ (instead of 0.18$).' \
+              '\n (2) If your fool-the-AI score average over 50 associations is lower than 30%, your 'create' qualification may be revoked' \
+              '\n Thanks and have fun :)"
+    print(Message)
+        # Subject = 'GVLAB Creators: Getting ready for the next batch, here are some great examples you created! Waiting for your approval.'
+    # SubjectNewBatch = "GVLAB Creators: New batch is available with increased pay :) Please read previous mail before solving"
+    # MessageNewBatch = "Please don't solve the new batch until reading the previous mail and seeing the good examples. " \
+    #                   "\n Help us to pay you more :) Try to achieve better 'fool-the-AI' score and maintaining 80% 'solvable-by-humans' score."
+    # Message = "Hello, here are some great examples you (the group) created in the first 0-100 batch. " \
+    #                         "Link: https://docs.google.com/presentation/d/1iRm_ANkPbgHGq9UZi2944Xzt16ObInE5/edit' \
+    #                         '\n In all of these examples, the 'solvable-by-humans' score is 100% - meaning that it was solved perfectly by 5 different human solvers," \
+    #                         "\n And the 'fool-the-AI' score was above 80%! (model performance <=20%)." \
+    #                         "\n The total reward for each of such association is 0.23$!" \
+    #                         "\n Try to learn and understand how to create such examples. " \
+    #                         "\n We have a mutual interest: the bigger the 'fool-the-AI' score, and as long 'solvable-by-humans' score is at least 80%, the higher the rewards ($$$) you receive, and the better data we collect." \
+    #                         "\n It'd be great if you respond that you read & understand this mail. " \
+    #                         "\n Stay tuned for the next batch (in a few hours, waiting for your responsees)." \
+    #                         "\n Please reach out if you have any questions or feedback."
+    # print(Message)
+    # response = mturk.notify_workers(Subject=Subject, MessageText=Message,
+    #                                 WorkerIds=list(all_creators))  # response['NotifyWorkersFailureStatuses']
+    response = mturk.notify_workers(Subject=Subject, MessageText=Message,
+                                    WorkerIds=list(creators_not_revoked))  # response['NotifyWorkersFailureStatuses']
+    print(response)
+    print("Done")
 
 if __name__ == '__main__':
     main()

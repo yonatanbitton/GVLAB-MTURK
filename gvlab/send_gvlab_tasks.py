@@ -34,20 +34,33 @@ Worker_Locale = "00000000000000000071"
 
 def assign_tasks(config):
     print(f"task_type, start, end: {config['task_type'], config['start_idx'], config['end_idx']}")
-    df = pd.read_csv(os.path.join(f'urls', f'urls_{task_type}.csv'))
+    if task_type == 'solve_create':
+        print(f"task_type == 'solve_create'")
+        df = pd.read_csv(os.path.join(f'urls', config['created_data_csv']))
+        print(f"Got CSV of {len(df)} associations")
+        df['ID'] = df['annotation_index']
+        if config['start_idx'] == 100 and config['end_idx'] == 300:
+            df_sample = df.iloc[:int(len(df) / 2)]
+        elif config['start_idx'] == 300 and config['end_idx'] == 500:
+            df_sample = df.iloc[int(len(df) / 2):]
+        else:
+            raise Exception(f"Unknown data")
+        print(f"Sampling batch, {config['start_idx'],config['end_idx']}, now CSV of {len(df_sample)}")
+    else:
+        df = pd.read_csv(os.path.join(f'urls', f'urls_{task_type}.csv'))
     print(f"read dataframe of size: {len(df)} ({task_type})")
     if task_type == 'solve_create_qual':
         df_sample = df
         df['ID'] = df['annotation_index']
     elif 'qual' in task_type:
         df_sample = df
-    elif 'test' not in task_type:
+    elif 'test' not in task_type and 'solve_create' not in task_type:
         df_sample = df.iloc[config['start_idx']:config['end_idx']]
         print(f"Taking indices: {(config['start_idx'],config['end_idx'])}, got df sample of size: {len(df_sample)}")
     elif 'test' in task_type:
         df_sample = df
         print(f"df at length {len(df_sample)}")
-    else:
+    elif task_type != 'solve_create':
         raise Exception(f"Unknown task_type: {task_type}")
     gvlab_hit_type_id, gvlab_quals = create_gvlab_creation_hit_type(config)
     print(f"gvlab_hit_type_id: {gvlab_hit_type_id}")
@@ -254,13 +267,22 @@ def get_quals(task_type):
         ''' GVLAB annotator only '''
         # quals.append(qual_gvlab_annotator)
         ''' Annotated solve '''
-        # quals.append(qual_annotated_gvlab_swow_solve)
+        quals.append(qual_annotated_gvlab_swow_solve)
         print("Publishing PUBLIC qual, not demanding solve, but do demanding solve qual")
         quals.append(qual_not_gvlab_annotator)
         quals.append(qual_passed_gvlab_solve_test)
-    elif task_type == 'solve' or task_type == 'solve_create_qual':
+    elif task_type == 'solve':
         """ If the task is solve, we need to make sure that the annotator passed the solve qual """
         quals.append(qual_passed_gvlab_solve_test)
+        ''' He needs to be NON CREATOR to do the solve '''
+        quals.append(qual_needs_to_do_gvlab_create_test)
+    elif task_type == 'solve_create_qual' or task_type == 'solve_create':
+        """ If the task is solve, we need to make sure that the annotator passed the solve qual """
+        quals.append(qual_passed_gvlab_solve_test)
+        ''' He needs to be NON CREATOR to do the solve '''
+        quals.append(qual_needs_to_do_gvlab_create_test)
+        ''' Annotated solve '''
+        quals.append(qual_annotated_gvlab_swow_solve)
     elif task_type == 'solve_test':
         """ If it's the test, we need to make sure that it's different annotators """
         quals.append(qual_passed_gvlab_solve_test)
@@ -331,27 +353,35 @@ if __name__ == '__main__':
     # start_idx, end_idx = 550, 650  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
     # start_idx, end_idx = 650, 1200  # 3DCJP2JIFL2FRFFQ1YM56ARCF5J3C1
     # start_idx, end_idx = 1200, 1340 # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
-    start_idx, end_idx = 0, 100  # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
+    # start_idx, end_idx = 0, 100  # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
+    # start_idx, end_idx = 0, 100  # first 100 created data, includes ~600 associations (HITs)
+    # start_idx, end_idx = 100, 300  # first minibatch of 100-500, includes 200*6=1200
+    start_idx, end_idx = 300, 500  # second minibatch of 100-500, includes 200*6=1200
     number_of_annotators_for_qual = 100
     # task_type = 'solve'
     # task_type = 'solve_test'
     # task_type = 'solve_qual_test'
     # task_type = 'create_qual_test'
     # task_type = 'solve_create_qual'
-    task_type = 'create'
+    # task_type = 'create'
+    # task_type = 'create'
+    task_type = 'solve_create'
+    created_data_urls = 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
+    title_create = f"GVLAB: Visual Associations - Create ({task_type} items {start_idx}-{end_idx}) - increased pay!"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
     # title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
     title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public"
     title_solve_test = f"GVLAB: Visual Associations - Solve Test"
     title_solve_create_qual = f"GVLAB: Solve Visual Associations created by users (Fun!)"
+    title_solve_create = f"GVLAB: Solve Visual Associations created by users (Fun!) - ({start_idx}-{end_idx})"
     create_keywords = "Fun, Association, Creativity, Visual Associations, Fool the AI"
     solve_keywords = "Fun, Association, Creativity, Visual Associations, Find Associations"
-    solve_description = "Fun Visual Associations: Given images, choose the images that are most associated with the cue - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
+    solve_description = "For experienced 'solve' annotators (annotated first batch). Solvers with low scores are at risk for revoking their qualification (You all passed the qualificiation with a good score). To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice"
     # create_description = "Try to create Visual Associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating! - To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Give The Cue' practice"
     create_description = "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. " \
-                         "\n The base payment is 0.05$ for annotating two cues. " \
+                         "\n The base payment is 0.07$ for annotating two cues. " \
                          "\n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score." \
                          "\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. " \
                          "\n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. " \
@@ -366,22 +396,25 @@ if __name__ == '__main__':
     max_assigns_qual = 1
     qual_test_reward = '0.01'  # minimum reward for qual test HIT
     solve_reward = '0.03'
-    create_reward = '0.05'
+    # create_reward = '0.05'
+    create_reward = '0.07'
     if task_type == 'solve':
         title, reward_dollars, keywords, description, max_assigns = title_full, solve_reward, solve_keywords, solve_description, max_assigns_full
+    elif task_type == 'solve_create':
+        title, reward_dollars, keywords, description, max_assigns = title_solve_create, solve_reward, solve_keywords, solve_description, max_assigns_full
     elif task_type == 'solve_test':
         title, reward_dollars, keywords, description, max_assigns = title_solve_test, solve_reward, solve_keywords, solve_description, max_assigns_full
     elif task_type == 'create':
-        title, reward_dollars, keywords, description, max_assigns = title_full, create_reward, create_keywords, create_description, max_assigns_full
+        title, reward_dollars, keywords, description, max_assigns = title_create, create_reward, create_keywords, create_description, max_assigns_full
     elif task_type == 'solve_qual_test':
         title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, solve_keywords, solve_qual_test_description, max_assigns_qual
     elif task_type == 'create_qual_test':
         title, reward_dollars, keywords, description, max_assigns = title_qual_create, qual_test_reward, create_keywords, create_qual_test_description, max_assigns_qual
     elif task_type == 'solve_create_qual':
-        title, reward_dollars, keywords, description, max_assigns = title_solve_create_qual, solve_reward, solve_keywords, solve_description, max_assigns_full
+        title, reward_dollars, keywords, description, max_assigns = title_solve_create, solve_reward, solve_keywords, solve_description, max_assigns_full
     else:
         raise Exception(f"Unknown task_type: {task_type}")
-    config = {'task_type': task_type, 'max_assigns': max_assigns, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx}
+    config = {'task_type': task_type, 'max_assigns': max_assigns, 'reward_dollars': reward_dollars, 'title': title, 'keywords': keywords, 'description': description, 'current_time': current_time, 'is_sandbox': is_sandbox, 'start_idx': start_idx, 'end_idx': end_idx, 'created_data_csv': created_data_urls}
     print(f'task_type: {task_type}, config: ')
     print(config)
     assign_tasks(config)

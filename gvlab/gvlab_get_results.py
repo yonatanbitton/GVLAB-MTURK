@@ -5,8 +5,8 @@ import pandas as pd
 import xmltodict
 
 from gvlab.example_gvlab_creation import review_hits
-from gvlab.gvlab_get_results_merged import get_results_by_user, get_results_by_num_candidates, get_user_agreement
-from gvlab.gvlab_swow import mturk
+from gvlab.gvlab_get_results_merged_swow_solve import get_results_by_user, get_results_by_num_candidates, get_user_agreement
+from gvlab.send_gvlab_tasks import mturk
 
 
 def main(hit_type_id, approve=False):
@@ -42,6 +42,15 @@ def main(hit_type_id, approve=False):
         is_create_task = True
         print(
             f"DF: {len(answers_data_df)}, # Associations: {len(reviewed_hits)}, score_fooling_ai_1: {answers_data_df['score_fooling_ai_1'].mean()}, score_fooling_ai_2: {answers_data_df['score_fooling_ai_2'].mean()}")
+        workers_items = []
+        for worker, worker_df in answers_data_df.groupby('WorkerId'):
+            score_fooling_ai_1 = int(worker_df['score_fooling_ai_1'].mean())
+            score_fooling_ai_2 = int(worker_df['score_fooling_ai_2'].mean())
+            num_items = len(worker_df)
+            workers_items.append({'worker': worker, 'num_items': num_items, 'score_fooling_ai_1': score_fooling_ai_1, 'score_fooling_ai_2': score_fooling_ai_2})
+        workers_items_df = pd.DataFrame(workers_items)
+        workers_items_df.sort_values(by=['score_fooling_ai_1'],inplace=True)
+        print(workers_items_df)
     print(f"Dumped results to {res_csv_path}")
     answers_data_df.to_csv(res_csv_path)
     if is_create_task:
@@ -97,9 +106,15 @@ if __name__ == '__main__':
     # hit_type_id = '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V' # test solve
     # all_hits = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V']
     # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN' # solve_create_qual_sandbox
-    # hit_type_id = '31UK836KROSS8RVV3KINI5EVNBTG3A' # solve_create_qual - REAL
+    hit_type_id = '31UK836KROSS8RVV3KINI5EVNBTG3A' # solve_create_qual - REAL
     # hit_type_id = '32TFGTUJLPQDB76DR6FYUGS8X6XPI3' # create 0-100 - sandbox
-    hit_type_id = '3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP' # create 0-100 - real
+    # hit_type_id = '3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP' # create 0-100 - real
+    # hit_type_id = '3VILS635XG325L99WI9CYIYV64ZSPY'  # solve-create 0-100 - sandbox
+    # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU'  # solve-create 0-100 - real
+    # hit_type_id = '3HMIRIJYITY39Q6S35I504KLG4XRVE' # create-100-400 - real
+    # hit_type_id = '3BKZR1PB4H0W7WEWCD111WG4U5X6KQ' # solve-create 100-300 - sandbox
+    # hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
+    # hit_type_id = '32A8IZJLQFI72Z2UI57PMZF56GCGHI'  # solve-create 300-500 - real
     for hit_type_id in [hit_type_id]:
         approve = False
         print(f"approve: {approve}")

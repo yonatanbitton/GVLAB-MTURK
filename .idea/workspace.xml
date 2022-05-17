@@ -2,16 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data_qual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_0-100_REAL.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_0-100_sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/create_swow_urls_for_solve_create.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_100-400_REAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_100-400_sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_0-100_real.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_0-100_sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_100_300_real.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_100_300_real_ERROR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_100_300_sandbox.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_solve_create_300_500_REAL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/notify_creators_old.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/notify_solvers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/urls/EXTENDED_GVLAB_dataset_filtered_nsfw.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/created_data/create_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gvlab/example_gvlab_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/example_gvlab_creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_swow.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_swow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_agreement_and_prepare_solve_create_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_swow.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/notify_creators.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/notify_creators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3029CDJAWE2TGO6JR9IGKSJA2ZBDSO.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3029CDJAWE2TGO6JR9IGKSJA2ZBDSO.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3ABSYNXI57NPRZT5O7RK079PHQZMWU.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3ABSYNXI57NPRZT5O7RK079PHQZMWU.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3S942EFUVKZ59R1T0AKMY9A86SZJE7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3S942EFUVKZ59R1T0AKMY9A86SZJE7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/urls/filter_inappropriate.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/urls/filter_inappropriate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/urls/urls_create.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/urls/urls_create.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +59,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/gvlab" />
@@ -57,8 +79,8 @@
       <recent name="$PROJECT_DIR$/create_tasks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.gvlab_get_results_merged_swow_solve">
-    <configuration name="gvlab_evaluate_solve_create_qualifications_annotators" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.gvlab_get_results">
+    <configuration name="gvlab_evaluate_created_data_and_calc_bonus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,7 +92,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,7 +101,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gvlab_get_results" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gvlab_get_results" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,7 +143,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gvlab_prepare_solve_create_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="notify_solvers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -133,7 +155,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/notify_solvers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,7 +164,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gvlab_swow" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="send_gvlab_tasks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,7 +176,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_swow.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,19 +186,19 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
       <item itemvalue="Python.gvlab_get_results_merged_swow_solve" />
-      <item itemvalue="Python.gvlab_prepare_solve_create_data" />
-      <item itemvalue="Python.gvlab_evaluate_solve_create_qualifications_annotators" />
-      <item itemvalue="Python.gvlab_swow" />
+      <item itemvalue="Python.notify_solvers" />
+      <item itemvalue="Python.send_gvlab_tasks" />
       <item itemvalue="Python.gvlab_get_results" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.gvlab_get_results_merged_swow_solve" />
-        <item itemvalue="Python.gvlab_prepare_solve_create_data" />
-        <item itemvalue="Python.gvlab_evaluate_solve_create_qualifications_annotators" />
         <item itemvalue="Python.gvlab_get_results" />
-        <item itemvalue="Python.gvlab_swow" />
+        <item itemvalue="Python.notify_solvers" />
+        <item itemvalue="Python.gvlab_get_results_merged_swow_solve" />
+        <item itemvalue="Python.send_gvlab_tasks" />
+        <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +232,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/example_gvlab_creation.py</url>
-          <line>188</line>
+          <line>186</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -225,27 +247,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/example_gvlab_creation.py</url>
-          <line>252</line>
+          <line>250</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results.py</url>
-          <line>62</line>
+          <line>71</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_swow.py</url>
-          <line>86</line>
+          <url>file://$PROJECT_DIR$/gvlab/send_gvlab_tasks.py</url>
+          <line>92</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py</url>
-          <line>31</line>
+          <line>39</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py</url>
-          <line>46</line>
+          <line>54</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -279,12 +301,12 @@
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_swow.py</url>
-          <line>252</line>
+          <url>file://$PROJECT_DIR$/gvlab/send_gvlab_tasks.py</url>
+          <line>258</line>
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/notify_creators.py</url>
+          <url>file://$PROJECT_DIR$/gvlab/notify_creators_old.py</url>
           <line>27</line>
           <option name="timeStamp" value="119" />
         </line-breakpoint>
@@ -314,21 +336,6 @@
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
-          <line>56</line>
-          <option name="timeStamp" value="134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
           <line>78</line>
           <option name="timeStamp" value="137" />
@@ -340,7 +347,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results.py</url>
-          <line>45</line>
+          <line>54</line>
           <option name="timeStamp" value="147" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -349,24 +356,104 @@
           <option name="timeStamp" value="160" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="164" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_prepare_solve_create_data.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="175" />
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="176" />
+          <line>105</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_agreement_and_prepare_solve_create_data.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/notify_creators_old.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_solve_create_qualifications_annotators.py</url>
+          <line>70</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="225" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/urls/filter_inappropriate.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="226" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_qual.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_agreement_and_prepare_solve_create_data.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_delete_hits_for_hit_type_id.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/send_gvlab_tasks.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="236" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/notify_solvers.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/notify_solvers.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="241" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/notify_solvers.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="242" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/notify_solvers.py</url>
+          <line>55</line>
+          <option name="timeStamp" value="243" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py</url>
+          <line>62</line>
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py</url>
+          <line>80</line>
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/send_gvlab_tasks.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="246" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

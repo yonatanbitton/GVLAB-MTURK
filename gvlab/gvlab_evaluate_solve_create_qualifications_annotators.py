@@ -2,14 +2,14 @@ import json
 
 import pandas as pd
 
-from gvlab.gvlab_swow import mturk, create_or_get_qualification
+from gvlab.send_gvlab_tasks import mturk, create_or_get_qualification
 
-user_collected_assocations_qualification_data_path = '/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/created_data/user_collected_associations_qualification.csv'
+user_collected_assocations_qualification_data_path = 'created_data/user_collected_associations_qualification.csv'
 mean_jaccard_per_association_path = 'results/all_mean_user_jaccard_for_association_31UK836KROSS8RVV3KINI5EVNBTG3A.json'
 
 
 def calc_bonus(score_fool_ai, score_solvable_by_humans):
-    # Base payment 0.05$
+    # Base payment 0.07$
     if score_solvable_by_humans < 0.8 or score_fool_ai < 50:
         return 0
     if 50 <= score_fool_ai < 60:

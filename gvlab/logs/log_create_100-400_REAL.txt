@@ -1,0 +1,131 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+Using sandbox:  False
+Available Balance: 1907.21
+task_type: create, config:
+{'task_type': 'create', 'max_assigns': 3, 'reward_dollars': '0.07', 'title': 'GVLAB: Visual Associations - Create (create items 100-500) - increased pay!', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. \n The base payment is 0.07$ for annotating two cues. \n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score.\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. \n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. \n If 67 <= fool-the-ai-score < 80, you will receive 0.12$. \n If 80 <= fool-the-ai-score, you will receive 0.18$. \n The bonuses will be paid retroactively, because we'll need to compute solver score ('solvable by human score') for the associations you create.\n This is a test batch of 100 instances, we might adjust the rewards after.", 'current_time': '2022-05-14_16:37:15', 'is_sandbox': False, 'start_idx': 100, 'end_idx': 500}
+task_type, start, end: ('create', 100, 500)
+read dataframe of size: 1826 (create)
+Taking indices: (100, 500), got df sample of size: 400
+Listing qualifications for :  Production
+gvlab_annotator 3ZNBPLV0N9WZ3TXWVJK01YGWNHRC2Y
+First GVLAB Solve Batch Performance 3JNQJJEQXO7VVJC4OVBSULOJWSKJU2
+passed_gvlab_solve_qualification 3NDLUB5I81QKQQ3IP6QL8DLKB9C46U
+passed_gvlab_create_qualification 3JC3H4XMU93OOBTFZJY5K8LOTVRC39
+inadequate 3DWHOMV0PMAFP43GUQRGI7WACXOHAJ
+Not requiring GVLAB Annotator
+Not sandbox, adding two quals (number, locale)
+Created qualifications
+Created HIT Type: 3HMIRIJYITY39Q6S35I504KLG4XRVE
+gvlab_hit_type_id: 3HMIRIJYITY39Q6S35I504KLG4XRVE
+Created qualifications
+balance: 1907.21
+Uploading hits to:  Production
+max_assigns: 3 (is_sandbox: False)
+Uploading HITs: 100%|██████████| 400/400 [04:28<00:00,  1.49it/s]
+Finished uploading! 400 responses
+config
+{'task_type': 'create', 'max_assigns': 3, 'reward_dollars': '0.07', 'title': 'GVLAB: Visual Associations - Create (create items 100-500) - increased pay!', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. \n The base payment is 0.07$ for annotating two cues. \n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score.\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. \n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. \n If 67 <= fool-the-ai-score < 80, you will receive 0.12$. \n If 80 <= fool-the-ai-score, you will receive 0.18$. \n The bonuses will be paid retroactively, because we'll need to compute solver score ('solvable by human score') for the associations you create.\n This is a test batch of 100 instances, we might adjust the rewards after.", 'current_time': '2022-05-14_16:37:15', 'is_sandbox': False, 'start_idx': 100, 'end_idx': 500, 'gvlab_hit_type_id': '3HMIRIJYITY39Q6S35I504KLG4XRVE', 'current_mturk_balance': '1907.21'}
+current_mturk_balance_after_hits: 1811.21
+Wrote config to published_batches/hits_2022-05-14_16:37:15_create_100-500.json
+
+Process finished with exit code 0

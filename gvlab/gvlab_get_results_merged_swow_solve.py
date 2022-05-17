@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import numpy as np
 
-from gvlab.gvlab_swow import create_or_get_qualification, mturk
+from gvlab.send_gvlab_tasks import create_or_get_qualification, mturk
 gvlab_dataset_path = '/Users/yonatab/PycharmProjects/GVLAB-backend/assets/gvlab_dataset.csv'
 swow_gvlab_dataset = pd.read_csv(gvlab_dataset_path)
 
@@ -91,17 +91,18 @@ def get_user_agreement(answers_data_df):
 
         for c in ['labels', 'candidates']:
             assert df_by_id[c].iloc[0] == df_by_id[c].iloc[1] == df_by_id[c].iloc[2]
-        swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
-        assert len(swow_rows) == 1
-        swow_row = swow_rows.iloc[0].to_dict()
-        swow_row['solvers_mean_jaccard'] = mean_user_jaccard
-        swow_with_jaccard_items.append(swow_row)
+
+        # swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
+        # assert len(swow_rows) == 1
+        # swow_row = swow_rows.iloc[0].to_dict()
+        # swow_row['solvers_mean_jaccard'] = mean_user_jaccard
+        # swow_with_jaccard_items.append(swow_row)
 
     print(f"user agreement: {int(np.mean(all_user_agreements) * 100)}")
     print(f'mean jaccard for association: {int(np.mean(list(all_mean_user_jaccard_for_association.values())) * 100)}')
-    swow_with_jaccard_items_df = pd.DataFrame(swow_with_jaccard_items)
-    print(f'Writing swow_with_jaccard_items_df at length {len(swow_with_jaccard_items_df)} to results/swow_with_jaccard_items_df.csv')
-    swow_with_jaccard_items_df.to_csv('results/swow_with_jaccard_items_df.csv',index=False)
+    # swow_with_jaccard_items_df = pd.DataFrame(swow_with_jaccard_items)
+    # print(f'Writing swow_with_jaccard_items_df at length {len(swow_with_jaccard_items_df)} to results/swow_with_jaccard_items_df.csv')
+    # swow_with_jaccard_items_df.to_csv('results/swow_with_jaccard_items_df.csv',index=False)
     return all_mean_user_jaccard_for_association
 
 

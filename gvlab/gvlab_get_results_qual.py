@@ -7,7 +7,7 @@ import pandas as pd
 import xmltodict
 
 from gvlab.example_gvlab_creation import review_hits
-from gvlab.gvlab_swow import mturk, create_or_get_qualification
+from gvlab.send_gvlab_tasks import mturk, create_or_get_qualification
 
 
 def main(hit_type_id, approve):

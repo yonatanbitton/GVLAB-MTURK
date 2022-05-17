@@ -4,7 +4,7 @@ import boto3
 import pandas as pd
 from tqdm import tqdm
 
-from gvlab.gvlab_swow import is_sandbox
+from gvlab.send_gvlab_tasks import is_sandbox
 
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
@@ -81,15 +81,13 @@ def paginate(operation, result_fn, max_results=None, **kwargs):
     local_results = result_fn(resp)
     results.extend(local_results)
     next_token = resp.get('NextToken')
-    with tqdm() as pbar:
-        while (local_results and next_token):
-            if max_results is not None and len(results) >= max_results:
-                break
-            resp = operation(MaxResults=100, NextToken=next_token, **kwargs)
-            local_results = result_fn(resp)
-            next_token = resp.get('NextToken')
-            results.extend(local_results)
-            pbar.update(len(local_results))
+    while (local_results and next_token):
+        if max_results is not None and len(results) >= max_results:
+            break
+        resp = operation(MaxResults=100, NextToken=next_token, **kwargs)
+        local_results = result_fn(resp)
+        next_token = resp.get('NextToken')
+        results.extend(local_results)
     return results
 
 
@@ -239,7 +237,7 @@ def review_assignments(hit_type_id):
 
 def retrieve_assignments(hit_type_id, hit_ids):
     assignments_for_review = []
-    for hit_id in hit_ids:
+    for hit_id in tqdm(hit_ids, desc='retrieve_assignments', total=len(hit_ids)):
         assignments_for_hit = paginate(mturk.list_assignments_for_hit, lambda resp: resp.get('Assignments', []),
                                        HITId=hit_id)
         assignments_for_review.append(assignments_for_hit)
