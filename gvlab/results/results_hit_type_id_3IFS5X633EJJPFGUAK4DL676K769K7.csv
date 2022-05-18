@@ -1,0 +1,3 @@
+,AssignmentId,WorkerId,HITId,AssignmentStatus,SubmitTime,id,selected_images_q1,selected_images_q2,score_fooling_ai_1,score_fooling_ai_2,cue1,cue2,candidates
+0,3DH6GAKTYZBCC3DZE7YOB6R0GBHZY8,A2LCWWEBLDW3H6,39XCQ6V3KYQA0LLABYRFFR4WN1P65N,Submitted,2022-05-19 00:15:20+03:00,random_1603,"['parmesan.jpg', 'pollen.jpg']","['crochet.jpg', 'cage.jpg']",67,0,edible,strings,"['parmesan.jpg', 'crochet.jpg', 'pollen.jpg', 'cage.jpg', 'pool.jpg', 'ebay.jpg']"
+1,3W92K5RLWV3X1VY5284OF3GBXV7V5O,A2LCWWEBLDW3H6,3JMNNNO3B1QGV3HTKX2LFE0XRTQW2C,Submitted,2022-05-19 00:14:29+03:00,random_1774,"['lane.jpg', 'tap.jpg']","['kneel.jpg', 'telescope.jpg']",100,0,clear,spectator,"['lane.jpg', 'tap.jpg', 'kneel.jpg', 'telescope.jpg', 'freezer.jpg', 'jewelry.jpg']"

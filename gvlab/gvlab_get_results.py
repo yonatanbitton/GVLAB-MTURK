@@ -113,8 +113,9 @@ if __name__ == '__main__':
     # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU'  # solve-create 0-100 - real
     # hit_type_id = '3HMIRIJYITY39Q6S35I504KLG4XRVE' # create-100-400 - real
     # hit_type_id = '3BKZR1PB4H0W7WEWCD111WG4U5X6KQ' # solve-create 100-300 - sandbox
-    hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
+    # hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
     # hit_type_id = '32A8IZJLQFI72Z2UI57PMZF56GCGHI'  # solve-create 300-500 - real
+    hit_type_id = '3IFS5X633EJJPFGUAK4DL676K769K7'  # create random 0-200
     for hit_type_id in [hit_type_id]:
         approve = False
         print(f"approve: {approve}")

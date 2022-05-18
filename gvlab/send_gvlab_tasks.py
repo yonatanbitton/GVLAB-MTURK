@@ -287,7 +287,7 @@ def get_quals(task_type):
         """ If it's the test, we need to make sure that it's different annotators """
         quals.append(qual_passed_gvlab_solve_test)
         quals.append(qual_didnt_annotated_gvlab_swow_solve)
-    elif task_type == 'create':
+    elif task_type == 'create' or task_type == 'create_random':
         """ If the task is solve, we need to make sure that the annotator passed the create qual """
         quals.append(qual_passed_gvlab_create_test)
     else:
@@ -356,7 +356,8 @@ if __name__ == '__main__':
     # start_idx, end_idx = 0, 100  # 3S942EFUVKZ59R1T0AKMY9A86SZJE7
     # start_idx, end_idx = 0, 100  # first 100 created data, includes ~600 associations (HITs)
     # start_idx, end_idx = 100, 300  # first minibatch of 100-500, includes 200*6=1200
-    start_idx, end_idx = 300, 500  # second minibatch of 100-500, includes 200*6=1200
+    # start_idx, end_idx = 300, 500  # second minibatch of 100-500, includes 200*6=1200
+    start_idx, end_idx = 0, 100  # first try of create random
     number_of_annotators_for_qual = 100
     # task_type = 'solve'
     # task_type = 'solve_test'
@@ -365,11 +366,13 @@ if __name__ == '__main__':
     # task_type = 'solve_create_qual'
     # task_type = 'create'
     # task_type = 'create'
-    task_type = 'solve_create'
+    # task_type = 'solve_create'
+    task_type = 'create_random'
     created_data_urls = 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_create = f"GVLAB: Visual Associations - Create ({task_type} items {start_idx}-{end_idx}) - increased pay!"
+    title_create_random = f"GVLAB: Visual Associations - Create ({task_type} items {start_idx}-{end_idx})"
     title_qual = f"GVLAB: Visual Associations - test for future HITs (Fun!)"
     # title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!)"
     title_qual_create = f"GVLAB: Visual Associations - test for 'create' future HITs (Fun!) - public"
@@ -406,6 +409,8 @@ if __name__ == '__main__':
         title, reward_dollars, keywords, description, max_assigns = title_solve_test, solve_reward, solve_keywords, solve_description, max_assigns_full
     elif task_type == 'create':
         title, reward_dollars, keywords, description, max_assigns = title_create, create_reward, create_keywords, create_description, max_assigns_full
+    elif task_type == 'create_random':
+        title, reward_dollars, keywords, description, max_assigns = title_create_random, create_reward, create_keywords, create_description, max_assigns_full
     elif task_type == 'solve_qual_test':
         title, reward_dollars, keywords, description, max_assigns = title_qual, qual_test_reward, solve_keywords, solve_qual_test_description, max_assigns_qual
     elif task_type == 'create_qual_test':

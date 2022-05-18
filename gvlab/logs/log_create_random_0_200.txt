@@ -1,0 +1,23 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: create_random, config:
+{'task_type': 'create_random', 'max_assigns': 1, 'reward_dollars': '0.07', 'title': 'GVLAB: Visual Associations - Create (create_random items 0-200)', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. \n The base payment is 0.07$ for annotating two cues. \n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score.\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. \n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. \n If 67 <= fool-the-ai-score < 80, you will receive 0.12$. \n If 80 <= fool-the-ai-score, you will receive 0.18$. \n The bonuses will be paid retroactively, because we'll need to compute solver score ('solvable by human score') for the associations you create.\n This is a test batch of 100 instances, we might adjust the rewards after.", 'current_time': '2022-05-18_21:11:08', 'is_sandbox': True, 'start_idx': 0, 'end_idx': 200, 'created_data_csv': 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'}
+task_type, start, end: ('create_random', 0, 200)
+read dataframe of size: 1950 (create_random)
+Taking indices: (0, 200), got df sample of size: 200
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 3IFS5X633EJJPFGUAK4DL676K769K7
+gvlab_hit_type_id: 3IFS5X633EJJPFGUAK4DL676K769K7
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Uploading HITs:  46%|████▋     | 93/200 [00:45<00:52,  2.03it/s]
