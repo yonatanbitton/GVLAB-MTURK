@@ -106,14 +106,14 @@ if __name__ == '__main__':
     # hit_type_id = '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V' # test solve
     # all_hits = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V']
     # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN' # solve_create_qual_sandbox
-    hit_type_id = '31UK836KROSS8RVV3KINI5EVNBTG3A' # solve_create_qual - REAL
+    # hit_type_id = '31UK836KROSS8RVV3KINI5EVNBTG3A' # solve_create_qual - REAL
     # hit_type_id = '32TFGTUJLPQDB76DR6FYUGS8X6XPI3' # create 0-100 - sandbox
     # hit_type_id = '3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP' # create 0-100 - real
     # hit_type_id = '3VILS635XG325L99WI9CYIYV64ZSPY'  # solve-create 0-100 - sandbox
     # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU'  # solve-create 0-100 - real
     # hit_type_id = '3HMIRIJYITY39Q6S35I504KLG4XRVE' # create-100-400 - real
     # hit_type_id = '3BKZR1PB4H0W7WEWCD111WG4U5X6KQ' # solve-create 100-300 - sandbox
-    # hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
+    hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
     # hit_type_id = '32A8IZJLQFI72Z2UI57PMZF56GCGHI'  # solve-create 300-500 - real
     for hit_type_id in [hit_type_id]:
         approve = False
