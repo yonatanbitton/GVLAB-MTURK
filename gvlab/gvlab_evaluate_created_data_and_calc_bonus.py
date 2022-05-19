@@ -111,7 +111,7 @@ def main(user_collected_assocations_path, mean_jaccard_per_association_path):
     # response = mturk.notify_workers(Subject=f'GVLAB great examples you created', MessageText=message,
     #                                                                 WorkerIds=list(all_scores_for_workers_df['worker']))  # response['NotifyWorkersFailureStatuses']
     print(message)
-    print(response)
+    # print(response)
 
     min_score_fooling_ai = 35
     min_score_solvable_humans = 75

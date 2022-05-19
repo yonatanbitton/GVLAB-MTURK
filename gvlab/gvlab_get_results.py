@@ -61,10 +61,16 @@ def main(hit_type_id, approve=False):
 
     get_results_by_num_candidates(answers_data_df)
 
-    all_mean_user_jaccard_for_association = get_user_agreement(answers_data_df)
+    all_mean_user_jaccard_for_association, all_std_user_jaccard_for_association = get_user_agreement(answers_data_df)
     all_mean_user_jaccard_for_association_json_path = os.path.join('results', f'all_mean_user_jaccard_for_association_{hit_type_id}.json')
     print(f"Dumping json of len {len(all_mean_user_jaccard_for_association)} to {all_mean_user_jaccard_for_association_json_path}")
     json.dump(all_mean_user_jaccard_for_association, open(all_mean_user_jaccard_for_association_json_path, 'w'))
+
+    all_std_user_jaccard_for_association_json_path = os.path.join('results',
+                                                                   f'all_std_user_jaccard_for_association_{hit_type_id}.json')
+    print(
+        f"Dumping json of len {len(all_std_user_jaccard_for_association)} to {all_std_user_jaccard_for_association_json_path}")
+    json.dump(all_std_user_jaccard_for_association, open(all_std_user_jaccard_for_association_json_path, 'w'))
 
     association_jaccard_threshold = 0.8
     associations_with_mean_jaccard_above_threshold = {k: v for k, v in all_mean_user_jaccard_for_association.items() if v >= association_jaccard_threshold}
@@ -111,11 +117,12 @@ if __name__ == '__main__':
     # hit_type_id = '3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP' # create 0-100 - real
     # hit_type_id = '3VILS635XG325L99WI9CYIYV64ZSPY'  # solve-create 0-100 - sandbox
     # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU'  # solve-create 0-100 - real
-    # hit_type_id = '3HMIRIJYITY39Q6S35I504KLG4XRVE' # create-100-400 - real
+    # hit_type_id = '3HMIRIJYITY39Q6S35I504KLG4XRVE' # create-100-500 - real
     # hit_type_id = '3BKZR1PB4H0W7WEWCD111WG4U5X6KQ' # solve-create 100-300 - sandbox
     # hit_type_id = '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9'  # solve-create 100-300 - real
-    # hit_type_id = '32A8IZJLQFI72Z2UI57PMZF56GCGHI'  # solve-create 300-500 - real
-    hit_type_id = '3IFS5X633EJJPFGUAK4DL676K769K7'  # create random 0-200
+    hit_type_id = '32A8IZJLQFI72Z2UI57PMZF56GCGHI'  # solve-create 300-500 - real
+    # hit_type_id = '3IFS5X633EJJPFGUAK4DL676K769K7'  # create random 0-200 - snbbox
+    # hit_type_id = '325VGVP4D3PCDRAZVOXKTZLWGGX0L7'   # create random 0-100 - real
     for hit_type_id in [hit_type_id]:
         approve = False
         print(f"approve: {approve}")

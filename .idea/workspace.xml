@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_random_0_200.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gvlab/logs/log_create_random_real.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/logs/log_create_100-400_REAL.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/logs/log_create_100-500_REAL.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/logs/log_create_100-400_sandbox.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/logs/log_create_100-500_sandbox.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/logs/log_create_random_real.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/logs/log_create_random_0_100_real.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/notify_creators.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/notify_creators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.json" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/all_mean_user_jaccard_for_association_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_32A8IZJLQFI72Z2UI57PMZF56GCGHI.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_32A8IZJLQFI72Z2UI57PMZF56GCGHI.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.csv" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/results/results_hit_type_id_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,28 +63,7 @@
       <recent name="$PROJECT_DIR$/create_tasks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.send_gvlab_tasks">
-    <configuration name="create_swow_urls_with_random" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GVLAB-MTURK" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/create_swow_urls_with_random.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.gvlab_merge_game_split">
     <configuration name="gvlab_evaluate_created_data_and_calc_bonus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,7 +106,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="notify_solvers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gvlab_get_results_merged_game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -128,7 +118,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/notify_solvers.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,7 +127,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="send_gvlab_tasks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gvlab_get_results_merged_swow_solve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -149,7 +139,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gvlab_merge_game_split" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GVLAB-MTURK" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,19 +170,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.create_swow_urls_with_random" />
       <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
-      <item itemvalue="Python.notify_solvers" />
-      <item itemvalue="Python.send_gvlab_tasks" />
+      <item itemvalue="Python.gvlab_get_results_merged_game" />
+      <item itemvalue="Python.gvlab_get_results_merged_swow_solve" />
+      <item itemvalue="Python.gvlab_merge_game_split" />
       <item itemvalue="Python.gvlab_get_results" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.send_gvlab_tasks" />
+        <item itemvalue="Python.gvlab_merge_game_split" />
         <item itemvalue="Python.gvlab_get_results" />
-        <item itemvalue="Python.create_swow_urls_with_random" />
         <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
-        <item itemvalue="Python.notify_solvers" />
+        <item itemvalue="Python.gvlab_get_results_merged_game" />
+        <item itemvalue="Python.gvlab_get_results_merged_swow_solve" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +236,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results.py</url>
-          <line>71</line>
+          <line>77</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -330,12 +341,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="176" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gvlab/gvlab_get_results_merged_swow_solve.py</url>
-          <line>105</line>
+          <line>126</line>
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -422,6 +428,26 @@
           <url>file://$PROJECT_DIR$/gvlab/create_swow_urls_with_random.py</url>
           <line>32</line>
           <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gvlab/gvlab_merge_game_split.py</url>
+          <line>79</line>
+          <option name="timeStamp" value="273" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

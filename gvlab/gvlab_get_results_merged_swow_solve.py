@@ -74,6 +74,7 @@ def get_user_agreement(answers_data_df):
     df_by_id = answers_data_df.groupby('id')
     all_user_agreements = []
     all_mean_user_jaccard_for_association = {}
+    all_std_user_jaccard_for_association = {}
     swow_with_jaccard_items = []
     for id, df_by_id in df_by_id:
         user1_preds = set(sorted(df_by_id['user_predictions'].iloc[0]))
@@ -86,24 +87,44 @@ def get_user_agreement(answers_data_df):
         user1_jaccard = df_by_id['jaccard'].iloc[0]
         user2_jaccard = df_by_id['jaccard'].iloc[1]
         user3_jaccard = df_by_id['jaccard'].iloc[2]
-        mean_user_jaccard = np.mean([user1_jaccard, user2_jaccard, user3_jaccard])
+        mean_user_jaccard = round(np.mean([user1_jaccard, user2_jaccard, user3_jaccard]), 2)
         all_mean_user_jaccard_for_association[id] = mean_user_jaccard
+        std_user_jaccard = round(np.std([user1_jaccard, user2_jaccard, user3_jaccard]), 2)
+        all_std_user_jaccard_for_association[id] = std_user_jaccard
 
         for c in ['labels', 'candidates']:
             assert df_by_id[c].iloc[0] == df_by_id[c].iloc[1] == df_by_id[c].iloc[2]
 
-        # swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
-        # assert len(swow_rows) == 1
-        # swow_row = swow_rows.iloc[0].to_dict()
-        # swow_row['solvers_mean_jaccard'] = mean_user_jaccard
-        # swow_with_jaccard_items.append(swow_row)
+        swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
+        assert len(swow_rows) == 1
+        swow_row = swow_rows.iloc[0].to_dict()
+        swow_row['solvers_jaccard_mean'] = mean_user_jaccard
+        swow_row['solvers_jaccard_std'] = std_user_jaccard
+        swow_with_jaccard_items.append(swow_row)
 
     print(f"user agreement: {int(np.mean(all_user_agreements) * 100)}")
-    print(f'mean jaccard for association: {int(np.mean(list(all_mean_user_jaccard_for_association.values())) * 100)}')
+    print(f'mean jaccard for association: {round(np.mean(list(all_mean_user_jaccard_for_association.values())) * 100, 2)}')
+    print(f'mean jaccard STD for association: {round(np.mean(list(all_std_user_jaccard_for_association.values())) * 100, 2)}')
+
     # swow_with_jaccard_items_df = pd.DataFrame(swow_with_jaccard_items)
-    # print(f'Writing swow_with_jaccard_items_df at length {len(swow_with_jaccard_items_df)} to results/swow_with_jaccard_items_df.csv')
-    # swow_with_jaccard_items_df.to_csv('results/swow_with_jaccard_items_df.csv',index=False)
-    return all_mean_user_jaccard_for_association
+    #
+    # bad_ids = []
+    # for idx, item in enumerate(swow_with_jaccard_items_df[['ID', 'candidates_connectivity_data']].values):
+    #     try:
+    #         json.loads(item[1].replace("'", '"'))
+    #     except Exception:
+    #         print((item[0]))
+    #         bad_ids.append(item[0])
+    #
+    # swow_with_jaccard_items_df = swow_with_jaccard_items_df[~swow_with_jaccard_items_df['ID'].isin(bad_ids)]
+    # swow_with_jaccard_items_df_above_threshold = swow_with_jaccard_items_df[swow_with_jaccard_items_df['solvers_jaccard_mean'] > 0.8].sample(1000)
+    # relevant_columns = ['ID', 'cue', 'associations', 'num_associations', 'cue_weight', 'associations_mean_weight', 'candidates', 'candidates_connectivity_data', 'candidates_connectivity_score', 'solvers_jaccard_mean', 'solvers_jaccard_std']
+    # swow_with_jaccard_items_df_above_threshold = swow_with_jaccard_items_df_above_threshold[relevant_columns]
+    # swow_with_jaccard_items_df_above_threshold['candidates_connectivity_data'] = swow_with_jaccard_items_df_above_threshold['candidates_connectivity_data'].apply(lambda x: json.dumps(json.loads(x.replace("'",'"'))))
+
+    # print(f'Writing swow_with_jaccard_items_df_above_threshold at length {len(swow_with_jaccard_items_df_above_threshold)} to test_sets/gvlab_swow_split.csv')
+    # swow_with_jaccard_items_df_above_threshold.to_csv('test_sets/gvlab_swow_split.csv',index=False)
+    return all_mean_user_jaccard_for_association, all_std_user_jaccard_for_association
 
 
 def get_results_by_num_candidates(answers_data_df):
