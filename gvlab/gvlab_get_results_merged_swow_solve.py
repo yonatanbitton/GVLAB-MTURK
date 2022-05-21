@@ -95,12 +95,12 @@ def get_user_agreement(answers_data_df):
         for c in ['labels', 'candidates']:
             assert df_by_id[c].iloc[0] == df_by_id[c].iloc[1] == df_by_id[c].iloc[2]
 
-        swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
-        assert len(swow_rows) == 1
-        swow_row = swow_rows.iloc[0].to_dict()
-        swow_row['solvers_jaccard_mean'] = mean_user_jaccard
-        swow_row['solvers_jaccard_std'] = std_user_jaccard
-        swow_with_jaccard_items.append(swow_row)
+        # swow_rows = swow_gvlab_dataset[swow_gvlab_dataset['ID'] == id]
+        # assert len(swow_rows) == 1
+        # swow_row = swow_rows.iloc[0].to_dict()
+        # swow_row['solvers_jaccard_mean'] = mean_user_jaccard
+        # swow_row['solvers_jaccard_std'] = std_user_jaccard
+        # swow_with_jaccard_items.append(swow_row)
 
     print(f"user agreement: {int(np.mean(all_user_agreements) * 100)}")
     print(f'mean jaccard for association: {round(np.mean(list(all_mean_user_jaccard_for_association.values())) * 100, 2)}')

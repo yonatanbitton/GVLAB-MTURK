@@ -13,7 +13,7 @@ def main():
     #           '\n (2) If your fool-the-AI score average over 50 associations is lower than 30%, your 'create' qualification may be revoked' \
     #           '\n Thanks and have fun :)"
     subject = "GVLAB: New test 'create' HITs are available"
-    message = 'Hello. A new "create" batch is available: "GVLAB: Visual Associations - Create (create_random items 0-100)". Please say if you notice something *different* in this batch from the previous batches.'
+    message = 'Hello. A new "create" batch is available: "GVLAB: Visual Associations - Create (create_random items 100-250)". Good luck!'
     print(subject)
     print(message)
         # Subject = 'GVLAB Creators: Getting ready for the next batch, here are some great examples you created! Waiting for your approval.'
@@ -33,8 +33,8 @@ def main():
     # print(Message)
     # response = mturk.notify_workers(Subject=Subject, MessageText=Message,
     #                                 WorkerIds=list(all_creators))  # response['NotifyWorkersFailureStatuses']
-    response = mturk.notify_workers(Subject=subject, MessageText=message,
-                                    WorkerIds=list(creators_not_revoked))  # response['NotifyWorkersFailureStatuses']
+    # response = mturk.notify_workers(Subject=subject, MessageText=message,
+    #                                 WorkerIds=list(creators_not_revoked))  # response['NotifyWorkersFailureStatuses']
     print(response)
     print("Done")
 

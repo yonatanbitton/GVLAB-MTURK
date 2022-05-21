@@ -66,6 +66,10 @@ def main(user_collected_assocations_path, mean_jaccard_per_association_path):
         proportion_solvable_by_humnans = int(len(worker_df[worker_df['mean_solvers_jaccard'] >= 0.8]) / len(worker_df) * 100)
         all_scores_for_workers.append({'worker': worker, 'worker_annotations_num': worker_annotations_num, 'bonus_total': bonus_total, 'score_fooling_ai': mean_human_vs_model_jaccard, 'score_solvable_by_humans': mean_solver_jaccard, 'num_associations': num_associations, 'median_solver_jaccard': median_solver_jaccard, 'median_human_vs_model_jaccard': median_human_vs_model_jaccard, 'bonus_mean': bonus_mean, 'bonus_median': bonus_median, 'proportion_solvable_by_humnans': proportion_solvable_by_humnans, 'first_assignment_id': first_assignment_id})
     all_scores_for_workers_df = pd.DataFrame(all_scores_for_workers).sort_values(by='bonus_mean')
+
+    print("Scores TAHLES")
+    print(all_scores_for_workers_df[['bonus_mean', 'score_fooling_ai', 'score_solvable_by_humans']].mean())
+
     """
     all_scores_for_workers_df[all_scores_for_workers_df['num_associations'] == 2].mean()
     all_scores_for_workers_df[all_scores_for_workers_df['num_associations'] == 3].mean()
@@ -89,28 +93,28 @@ def main(user_collected_assocations_path, mean_jaccard_per_association_path):
 
         print()
 
-    best_worker = user_data[user_data['WorkerId'] == 'A382S0KJMW3K9S']
-    best_worker_good_examples = best_worker.query('score == 100 and mean_solvers_jaccard == 1')
-    best_worker_good_examples_urls = best_worker_good_examples['annotation_index'].apply(lambda x: f"https://gvlab-dataset.github.io/mturk/solve/create/{x}")
-    for x in best_worker_good_examples_urls:
-        print(x)
+    # best_worker = user_data[user_data['WorkerId'] == 'A382S0KJMW3K9S']
+    # best_worker_good_examples = best_worker.query('score == 100 and mean_solvers_jaccard == 1')
+    # best_worker_good_examples_urls = best_worker_good_examples['annotation_index'].apply(lambda x: f"https://gvlab-dataset.github.io/mturk/solve/create/{x}")
+    # for x in best_worker_good_examples_urls:
+    #     print(x)
 
 
-    good_examples = user_data.query('score == 100 and mean_solvers_jaccard == 1')
-    good_examples_urls = good_examples['annotation_index'].apply(lambda x: f"https://gvlab-dataset.github.io/mturk/solve/create/{x}")
-    all_examples_string = ""
-    for x in good_examples_urls.sample(50):
-        # print(x)
-        all_examples_string += x + " \n "
-    examples_sentence = 'The average ‘fool-the-AI’ score is 47%, ‘solvable-by-humans’ score is 83.2%, and the average bonus per HIT is 0.12$.\n' \
-                        'All of the examples here are `perfect`: fool-the-AI=100, solvable-by-humans=100 \n' \
-                        'Enter this URLs and try to solve, you will receive instant feedback \n' \
-                        'Learn from this example and try to improve for the next batch :) \n' \
-                        ''
-    message = examples_sentence + all_examples_string
+    # good_examples = user_data.query('score == 100 and mean_solvers_jaccard == 1')
+    # good_examples_urls = good_examples['annotation_index'].apply(lambda x: f"https://gvlab-dataset.github.io/mturk/solve/create/{x}")
+    # all_examples_string = ""
+    # for x in good_examples_urls.sample(50):
+    #     # print(x)
+    #     all_examples_string += x + " \n "
+    # examples_sentence = 'The average ‘fool-the-AI’ score is 47%, ‘solvable-by-humans’ score is 83.2%, and the average bonus per HIT is 0.12$.\n' \
+    #                     'All of the examples here are `perfect`: fool-the-AI=100, solvable-by-humans=100 \n' \
+    #                     'Enter this URLs and try to solve, you will receive instant feedback \n' \
+    #                     'Learn from this example and try to improve for the next batch :) \n' \
+    #                     ''
+    # message = examples_sentence + all_examples_string
     # response = mturk.notify_workers(Subject=f'GVLAB great examples you created', MessageText=message,
     #                                                                 WorkerIds=list(all_scores_for_workers_df['worker']))  # response['NotifyWorkersFailureStatuses']
-    print(message)
+    # print(message)
     # print(response)
 
     min_score_fooling_ai = 35
@@ -135,10 +139,17 @@ def get_proportion_pass_joint_score(all_scores_for_workers_df, min_score_fooling
     return proportion
 
 if __name__ == '__main__':
+    # game swow based
     # 0-100
     # user_collected_assocations_path = 'created_data/create_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP_indices_0_100.csv'
     # mean_jaccard_per_association_path = 'results/all_mean_user_jaccard_for_association_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.json'
     # 100-500
-    user_collected_assocations_path = 'created_data/create_hit_type_id_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
-    mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json', 'results/all_mean_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json'] # 100-300
+    # user_collected_assocations_path = 'created_data/create_hit_type_id_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
+    # mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json', 'results/all_mean_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json'] # 100-300
+
+    # game random
+    # hit_type_id = '30AWZEBKT3DFB0EBAD1EFM7MVTVCAU' # solve-create random 0-100 - real
+    user_collected_assocations_path = 'created_data/create_hit_type_id_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
+    mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_30AWZEBKT3DFB0EBAD1EFM7MVTVCAU.json']
+
     main(user_collected_assocations_path, mean_jaccard_per_association_paths)

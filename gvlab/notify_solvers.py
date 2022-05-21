@@ -8,6 +8,10 @@ def main():
     more_good_public_solvers_not_sent = {k:v for k,v in more_good_public_solvers.items() if k not in first_batch_0_100_workers_results.keys()}
     solvers_of_first_create = {'A104V8NZIQFN2F': 82, 'A18WSAKX5YN2FB': 87, 'A2BK45LZGGWPLX': 83, 'A2UAHW3Q7S45JP': 84, 'A2UCKZZI9KBBCV': 87,
                                'A3135Y3RMFC3PK': 84, 'A36P1ZQ0GYF567': 88, 'A3FQNVDMR1ORAT': 81, 'AB7MYP65HZ2MH': 80, 'AHB3QFZSFN9DL': 90, 'AKQAI78JTXXC9': 80}
+    # response = mturk.notify_workers(Subject='GVLAB New Solve Batch Available',
+    #                                 MessageText="GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)",
+    #                                 WorkerIds=list(
+    #                                     first_batch_0_100_workers_results_above_75.keys()))  # response['NotifyWorkersFailureStatuses']
     print(f"All workers: {len(first_batch_0_100_workers_results)}, above 75: {len(first_batch_0_100_workers_results_above_75)}, more_good_public_solvers_not_sent: {len(more_good_public_solvers_not_sent)}")
     # all_workers_that_solved = {'A2UAHW3Q7S45JP', 'A104V8NZIQFN2F', 'A302KOFOYLD89A', 'AKQAI78JTXXC9', 'A1FA3QRISJ1RIP', 'A3135Y3RMFC3PK', 'A1PBRKFHSF1OF8', 'A1W1X3S1Y0RKF3', 'A18WSAKX5YN2FB', 'A36P1ZQ0GYF567', 'A2VUF0V7HT51Q3', 'AXID3RPK6NZT6', 'A2ONILC0LZKG6Y', 'A382S0KJMW3K9S', 'A1WY3YGT618GC0', 'A1OZPLHNIU1519', 'A14GKRTUEHBLBZ', 'A3UJSDFJ9LBQ6Z', 'A3BUWQ5C39GRQC', 'A2LU259QPV1I4V', 'A68UG55LKRKMS', 'A2BK45LZGGWPLX', 'A2V3P1XE33NYC3', 'A2K607J3Z68WRR', 'AB7MYP65HZ2MH'}
     # all_creators = {'A377LTGWJKY2IW', 'A3RTW9UWYKSNWX', 'A2M3C5YIO7IZ6G', 'A16184N1RO5OJV', 'AHB3QFZSFN9DL', 'A2ONILC0LZKG6Y', 'A2UCKZZI9KBBCV', 'A2K607J3Z68WRR', 'A3UJSDFJ9LBQ6Z', 'A302KOFOYLD89A', 'A2QX3YJXAAHHVV', 'A382S0KJMW3K9S', 'AKQAI78JTXXC9', 'A1PBRKFHSF1OF8', 'A2V3P1XE33NYC3', 'AZLZA0Q87TJZO', 'A1OZPLHNIU1519', 'A19UED74G8FXN3', 'A1HKYY6XI2OHO1', 'A2SDOD67560IN8'}

@@ -39,7 +39,11 @@ def assign_tasks(config):
         df = pd.read_csv(os.path.join(f'urls', config['created_data_csv']))
         print(f"Got CSV of {len(df)} associations")
         df['ID'] = df['annotation_index']
-        if config['start_idx'] == 100 and config['end_idx'] == 300:
+        for i in range(10):
+            print("*** CRITICAL PART SOLVE CREATE CHECK ME ***")
+        if config['start_idx'] == 0 and config['end_idx'] == 100:
+            df_sample = df
+        elif config['start_idx'] == 100 and config['end_idx'] == 300:
             df_sample = df.iloc[:int(len(df) / 2)]
         elif config['start_idx'] == 300 and config['end_idx'] == 500:
             df_sample = df.iloc[int(len(df) / 2):]
@@ -357,7 +361,8 @@ if __name__ == '__main__':
     # start_idx, end_idx = 0, 100  # first 100 created data, includes ~600 associations (HITs)
     # start_idx, end_idx = 100, 300  # first minibatch of 100-500, includes 200*6=1200
     # start_idx, end_idx = 300, 500  # second minibatch of 100-500, includes 200*6=1200
-    start_idx, end_idx = 0, 100  # first try of create random
+    # start_idx, end_idx = 0, 100  # first try of create random
+    start_idx, end_idx = 100, 250  # second batch of create random
     number_of_annotators_for_qual = 100
     # task_type = 'solve'
     # task_type = 'solve_test'
@@ -368,7 +373,8 @@ if __name__ == '__main__':
     # task_type = 'create'
     # task_type = 'solve_create'
     task_type = 'create_random'
-    created_data_urls = 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
+    # created_data_urls = 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
+    created_data_urls = 'urls_solve_create_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_create = f"GVLAB: Visual Associations - Create ({task_type} items {start_idx}-{end_idx}) - increased pay!"

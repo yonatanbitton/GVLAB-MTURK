@@ -1,0 +1,35 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: solve_create, config:
+{'task_type': 'solve_create', 'max_assigns': 1, 'reward_dollars': '0.03', 'title': 'GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)', 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "For experienced 'solve' annotators (annotated first batch). Solvers with low scores are at risk for revoking their qualification (You all passed the qualificiation with a good score). To practice, visit https://gvlab-dataset.github.io/beat-the-ai, 'Guess The Associations' practice", 'current_time': '2022-05-19_22:12:19', 'is_sandbox': True, 'start_idx': 0, 'end_idx': 100, 'created_data_csv': 'urls_solve_create_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'}
+task_type, start, end: ('solve_create', 0, 100)
+task_type == 'solve_create'
+Got CSV of 600 associations
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+*** CRITICAL PART SOLVE CREATE CHECK ME ***
+Sampling batch, (0, 100), now CSV of 600
+read dataframe of size: 600 (solve_create)
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 3QY2P19FFIKAYHJVAD27T1ASL52XNJ
+gvlab_hit_type_id: 3QY2P19FFIKAYHJVAD27T1ASL52XNJ
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Uploading HITs:   7%|▋         | 43/600 [00:19<02:42,  3.43it/s]

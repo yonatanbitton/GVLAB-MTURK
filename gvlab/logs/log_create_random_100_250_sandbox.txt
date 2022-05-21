@@ -1,0 +1,63 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: create_random, config:
+{'task_type': 'create_random', 'max_assigns': 1, 'reward_dollars': '0.07', 'title': 'GVLAB: Visual Associations - Create (create_random items 100-250)', 'keywords': 'Fun, Association, Creativity, Visual Associations, Fool the AI', 'description': "Similar to the qualification you perform, but you need to create 2 *different* cues for image candidates. \n The base payment is 0.07$ for annotating two cues. \n BONUS: Given that 'solvable by human score' is above 80%, you will receive a bonus according to the 'fool-the-AI' score.\n If 50 <= fool-the-ai-score < 60, you will receive 0.03$. \n If 60 <= fool-the-ai-score < 67, you will receive 0.07$. \n If 67 <= fool-the-ai-score < 80, you will receive 0.12$. \n If 80 <= fool-the-ai-score, you will receive 0.18$. \n The bonuses will be paid retroactively, because we'll need to compute solver score ('solvable by human score') for the associations you create.\n This is a test batch of 100 instances, we might adjust the rewards after.", 'current_time': '2022-05-20_07:58:08', 'is_sandbox': True, 'start_idx': 100, 'end_idx': 250, 'created_data_csv': 'urls_solve_create_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'}
+task_type, start, end: ('create_random', 100, 250)
+read dataframe of size: 1950 (create_random)
+Taking indices: (100, 250), got df sample of size: 150
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 3RJQE76GDI9SUIGVXQ4U31JVIU5Y3A
+gvlab_hit_type_id: 3RJQE76GDI9SUIGVXQ4U31JVIU5Y3A
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Uploading HITs:  39%|███▉      | 59/150 [00:28<00:43,  2.07it/s]
+Traceback (most recent call last):
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py", line 431, in <module>
+    assign_tasks(config)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py", line 90, in assign_tasks
+    sand_hits(df_sample, external_question, gvlab_hit_type_id, hit_lifetime, hit_responses)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py", line 111, in sand_hits
+    response = mturk.create_hit_with_hit_type(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/client.py", line 415, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/client.py", line 731, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/client.py", line 751, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/endpoint.py", line 107, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/endpoint.py", line 197, in _send_request
+    success_response, exception = self._get_response(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/endpoint.py", line 215, in _get_response
+    success_response, exception = self._do_get_response(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/endpoint.py", line 249, in _do_get_response
+    http_response = self._send(request)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/endpoint.py", line 321, in _send
+    return self.http_session.send(request)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/botocore/httpsession.py", line 439, in send
+    urllib_response = conn.urlopen(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 1040, in _validate_conn
+    conn.connect()
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/lib/python3.8/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+KeyboardInterrupt
+
+Process finished with exit code 130 (interrupted by signal 2: SIGINT)

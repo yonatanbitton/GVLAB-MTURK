@@ -16,9 +16,11 @@ def get_score_by_cue_association(r):
         Exception(f'Unknown Score')
 
 
-def get_worker_temploral_index(x, workers_submit_times):
+def get_worker_temploral_index(x, workers_submit_times, idx):
     worker_submit_time_list = workers_submit_times[x['WorkerId']]
     worker_temploral_index = worker_submit_time_list.index(x['SubmitTime'])
+    if idx % 2 != 0:
+        worker_temploral_index += 1
     return worker_temploral_index
 
 
@@ -62,8 +64,38 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
         workers_submit_times[worker] = worker_submit_time
 
     user_data['score_fool_the_ai'] = user_data['score']
-    user_data['worker_annotation_temporal_index'] = user_data.apply(lambda x: get_worker_temploral_index(x, workers_submit_times), axis=1)
+    worker_annotation_temporal_index_lst = []
+    for idx, (r_idx, r) in enumerate(user_data.iterrows()):
+        worker_annotation_temporal_index_lst.append(get_worker_temploral_index(r, workers_submit_times, idx))
+    user_data['worker_annotation_temporal_index'] = worker_annotation_temporal_index_lst
     user_data['bonus'] = user_data.apply(lambda r: calc_bonus(r['score'], r['solvers_jaccard_mean']), axis=1)
+
+    workers_accumulative_data = []
+    for i in range(max(worker_annotation_temporal_index_lst)):
+        workers_in_ith_annotation = user_data[user_data['worker_annotation_temporal_index'] == i]
+        bonus_mean = workers_in_ith_annotation['bonus'].mean()
+        score_fool_the_ai_mean = workers_in_ith_annotation['score_fool_the_ai'].mean()
+        solvers_jaccard_mean_mean = workers_in_ith_annotation['solvers_jaccard_mean'].mean()
+        data_i = {'annotation_temporal_index': i, 'num_workers': len(workers_in_ith_annotation),
+                  'bonus_mean': bonus_mean, 'score_fool_the_ai_mean': score_fool_the_ai_mean,
+                  'solvers_jaccard_mean_mean': solvers_jaccard_mean_mean}
+        workers_accumulative_data.append(data_i)
+    workers_accumulative_data_df = pd.DataFrame(workers_accumulative_data)
+    workers_accumulative_data_df = workers_accumulative_data_df.set_index('annotation_temporal_index')
+    # import matplotlib.pyplot as plt
+    # workers_accumulative_data_df['bonus_mean'].plot.line()
+    # plt.ylabel('average bonus')
+    # plt.suptitle('bonus as a factor of annotation index')
+    #
+    # workers_accumulative_data_df['score_fool_the_ai_mean'].plot.line()
+    # plt.ylabel('average fool-the-AI score')
+    # plt.suptitle('fool-the-AI score as a factor of annotation index')
+    #
+    # workers_accumulative_data_df['solvers_jaccard_mean_mean'].plot.line()
+    # plt.ylabel('average solvable-by-humans score')
+    # plt.suptitle('solvable-by-humans score as a factor of annotation index')
+
+
 
     all_correlations = []
     for worker, worker_df in user_data.groupby('WorkerId'):
@@ -71,6 +103,7 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
         correlation_temporal_index_and_fool_the_ai = round(worker_df['worker_annotation_temporal_index'].corr(worker_df['score_fool_the_ai']), 2)
         correlation_temporal_index_and_solvable_by_humans = round(worker_df['worker_annotation_temporal_index'].corr(worker_df['solvers_jaccard_mean']), 2)
         all_correlations.append({'worker': worker, 'bonus': correlation_temporal_index_and_bonus, 'fool-the-ai': correlation_temporal_index_and_fool_the_ai, 'solvable-by-humans': correlation_temporal_index_and_solvable_by_humans})
+        worker_df_sorted = worker_df.sort_values(by='worker_annotation_temporal_index')
         # worker_df.set_index('worker_annotation_temporal_index')['bonus'].plot.line()
 
     all_correlations = pd.DataFrame(all_correlations).set_index('worker')
@@ -83,7 +116,7 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
 
     game_data_above_threshold = game_data[game_data['solvers_jaccard_mean'] > 0.8]
     print(f"game_data_above_threshold: {len(game_data_above_threshold)}, solvers_jaccard_mean: {round(game_data_above_threshold['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data_above_threshold['score_fool_the_ai'].mean(), 2)}")
-    game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv')
+    # game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv')
     print("Done")
 
 def get_user_agreement(user_data):
