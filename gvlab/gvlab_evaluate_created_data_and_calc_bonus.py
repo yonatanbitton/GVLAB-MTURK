@@ -85,7 +85,8 @@ def main(user_collected_assocations_path, mean_jaccard_per_association_path):
                           f"\n You receive a total bonus of {r['bonus_total']}$, average bonus of {round(r['bonus_mean'],2) * 2}$ per single HIT." \
                           f"\n {r['proportion_solvable_by_humnans']}% of your created associations were solved by solvers in an average score above 80%. " \
                           f"\n Please reach out if you have any questions." \
-                          f"\n New batch will be released soon. Good luck!"
+                          f"\n New batch will be released tommorow." \
+                          f"\n *** The next batch will have 10/12 candidates options (instead of 5/6). It should be easier to achieve bonuses. Stay tuned! ***"
         print((r['worker'], r['first_assignment_id']))
         print(worker_sentence)
         # response = mturk.notify_workers(Subject=SubjectBatchFinished, MessageText=worker_sentence,
@@ -149,7 +150,11 @@ if __name__ == '__main__':
 
     # game random
     # hit_type_id = '30AWZEBKT3DFB0EBAD1EFM7MVTVCAU' # solve-create random 0-100 - real
-    user_collected_assocations_path = 'created_data/create_hit_type_id_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
-    mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_30AWZEBKT3DFB0EBAD1EFM7MVTVCAU.json']
+    # user_collected_assocations_path = 'created_data/create_hit_type_id_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
+    # mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_30AWZEBKT3DFB0EBAD1EFM7MVTVCAU.json']
+
+    # hit_type_id = '359956SLTZK0DLUYP1GZDVMJP6XRLX' # solve create 100-250 - real
+    user_collected_assocations_path = 'created_data/create_hit_type_id_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv'
+    mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_359956SLTZK0DLUYP1GZDVMJP6XRLX.json']
 
     main(user_collected_assocations_path, mean_jaccard_per_association_paths)

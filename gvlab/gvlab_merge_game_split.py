@@ -36,6 +36,7 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
 
     ### SCORE
     user_data['score'] = user_data.apply(lambda r: get_score_by_cue_association(r), axis=1)
+    user_data['score_fool_the_ai'] = user_data['score']
 
     user_data_not_null_mean = user_data[user_data['solvers_jaccard_mean'] != -1]
     print(f"Not null proportion - user_data_not_null_mean: {len(user_data_not_null_mean)}/{len(user_data)}")
@@ -45,31 +46,50 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
 
     user_data = user_data_not_null_std
 
-    # all_scores_for_workers = []
-    # for worker, worker_df in user_data.groupby('WorkerId'):
-    #     first_assignment_id = worker_df['AssignmentId'].iloc[0]
-    #     num_associations = worker_df['num_associations'].mean()
-    #     mean_solver_jaccard = int(worker_df['solvers_jaccard_mean'].mean() * 100)
-    #     mean_human_vs_model_jaccard = int(worker_df['score'].mean())
-    #     worker_annotations_num = len(worker_df)
-    #     proportion_solvable_by_humans = int(len(worker_df[worker_df['solvers_jaccard_mean'] >= 0.8]) / len(worker_df) * 100)
-    #     all_scores_for_workers.append({'worker': worker, 'worker_annotations_num': worker_annotations_num, 'score_fooling_ai': mean_human_vs_model_jaccard, 'score_solvable_by_humans': mean_solver_jaccard, 'num_associations': num_associations, 'proportion_solvable_by_humnans': proportion_solvable_by_humans, 'first_assignment_id': first_assignment_id})
-    # all_scores_for_workers_df = pd.DataFrame(all_scores_for_workers)
+    # get_worker_scores()
+    # get_temporal_charts(user_data)
+    # get_temporal_correlations(user_data)
 
-    # get_user_agreement(user_data)
+    relevant_columns = ['HITId', 'id', 'candidates', 'cue', 'associations', 'score_fool_the_ai', 'num_associations', 'annotation_index', 'num_candidates', 'solvers_jaccard_mean', 'solvers_jaccard_std']
+    game_data = user_data[relevant_columns]
+    print(f"game_data: {len(game_data)}, solvers_jaccard_mean: {round(game_data['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data['score_fool_the_ai'].mean(), 2)}")
 
+    game_data_above_threshold = game_data[game_data['solvers_jaccard_mean'] > 0.8]
+    print(f"game_data_above_threshold: {len(game_data_above_threshold)}, solvers_jaccard_mean: {round(game_data_above_threshold['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data_above_threshold['score_fool_the_ai'].mean(), 2)}")
+    game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv')
+    print("Done")
+
+
+def get_temporal_correlations(user_data):
+    all_correlations = []
+    for worker, worker_df in user_data.groupby('WorkerId'):
+        correlation_temporal_index_and_bonus = round(
+            worker_df['worker_annotation_temporal_index'].corr(worker_df['bonus']), 2)
+        correlation_temporal_index_and_fool_the_ai = round(
+            worker_df['worker_annotation_temporal_index'].corr(worker_df['score_fool_the_ai']), 2)
+        correlation_temporal_index_and_solvable_by_humans = round(
+            worker_df['worker_annotation_temporal_index'].corr(worker_df['solvers_jaccard_mean']), 2)
+        all_correlations.append({'worker': worker, 'bonus': correlation_temporal_index_and_bonus,
+                                 'fool-the-ai': correlation_temporal_index_and_fool_the_ai,
+                                 'solvable-by-humans': correlation_temporal_index_and_solvable_by_humans})
+        worker_df_sorted = worker_df.sort_values(by='worker_annotation_temporal_index')
+        # worker_df.set_index('worker_annotation_temporal_index')['bonus'].plot.line()
+    all_correlations = pd.DataFrame(all_correlations).set_index('worker')
+    print(f'all_correlations: {all_correlations}')
+    print(all_correlations.mean())
+
+
+def get_temporal_charts(user_data):
     workers_submit_times = {}
     for worker, worker_df in user_data.groupby('WorkerId'):
         worker_submit_time = list(worker_df['SubmitTime'])
         workers_submit_times[worker] = worker_submit_time
-
     user_data['score_fool_the_ai'] = user_data['score']
     worker_annotation_temporal_index_lst = []
     for idx, (r_idx, r) in enumerate(user_data.iterrows()):
         worker_annotation_temporal_index_lst.append(get_worker_temploral_index(r, workers_submit_times, idx))
     user_data['worker_annotation_temporal_index'] = worker_annotation_temporal_index_lst
     user_data['bonus'] = user_data.apply(lambda r: calc_bonus(r['score'], r['solvers_jaccard_mean']), axis=1)
-
     workers_accumulative_data = []
     for i in range(max(worker_annotation_temporal_index_lst)):
         workers_in_ith_annotation = user_data[user_data['worker_annotation_temporal_index'] == i]
@@ -96,28 +116,20 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
     # plt.suptitle('solvable-by-humans score as a factor of annotation index')
 
 
+def get_worker_scores():
+    pass
+    # all_scores_for_workers = []
+    # for worker, worker_df in user_data.groupby('WorkerId'):
+    #     first_assignment_id = worker_df['AssignmentId'].iloc[0]
+    #     num_associations = worker_df['num_associations'].mean()
+    #     mean_solver_jaccard = int(worker_df['solvers_jaccard_mean'].mean() * 100)
+    #     mean_human_vs_model_jaccard = int(worker_df['score'].mean())
+    #     worker_annotations_num = len(worker_df)
+    #     proportion_solvable_by_humans = int(len(worker_df[worker_df['solvers_jaccard_mean'] >= 0.8]) / len(worker_df) * 100)
+    #     all_scores_for_workers.append({'worker': worker, 'worker_annotations_num': worker_annotations_num, 'score_fooling_ai': mean_human_vs_model_jaccard, 'score_solvable_by_humans': mean_solver_jaccard, 'num_associations': num_associations, 'proportion_solvable_by_humnans': proportion_solvable_by_humans, 'first_assignment_id': first_assignment_id})
+    # all_scores_for_workers_df = pd.DataFrame(all_scores_for_workers)
+    # get_user_agreement(user_data)
 
-    all_correlations = []
-    for worker, worker_df in user_data.groupby('WorkerId'):
-        correlation_temporal_index_and_bonus = round(worker_df['worker_annotation_temporal_index'].corr(worker_df['bonus']), 2)
-        correlation_temporal_index_and_fool_the_ai = round(worker_df['worker_annotation_temporal_index'].corr(worker_df['score_fool_the_ai']), 2)
-        correlation_temporal_index_and_solvable_by_humans = round(worker_df['worker_annotation_temporal_index'].corr(worker_df['solvers_jaccard_mean']), 2)
-        all_correlations.append({'worker': worker, 'bonus': correlation_temporal_index_and_bonus, 'fool-the-ai': correlation_temporal_index_and_fool_the_ai, 'solvable-by-humans': correlation_temporal_index_and_solvable_by_humans})
-        worker_df_sorted = worker_df.sort_values(by='worker_annotation_temporal_index')
-        # worker_df.set_index('worker_annotation_temporal_index')['bonus'].plot.line()
-
-    all_correlations = pd.DataFrame(all_correlations).set_index('worker')
-    print(f'all_correlations: {all_correlations}')
-    print(all_correlations.mean())
-
-    relevant_columns = ['HITId', 'id', 'candidates', 'cue', 'associations', 'score_fool_the_ai', 'num_associations', 'annotation_index', 'num_candidates', 'solvers_jaccard_mean', 'solvers_jaccard_std']
-    game_data = user_data[relevant_columns]
-    print(f"game_data: {len(game_data)}, solvers_jaccard_mean: {round(game_data['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data['score_fool_the_ai'].mean(), 2)}")
-
-    game_data_above_threshold = game_data[game_data['solvers_jaccard_mean'] > 0.8]
-    print(f"game_data_above_threshold: {len(game_data_above_threshold)}, solvers_jaccard_mean: {round(game_data_above_threshold['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data_above_threshold['score_fool_the_ai'].mean(), 2)}")
-    # game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv')
-    print("Done")
 
 def get_user_agreement(user_data):
     df_by_id = user_data.groupby('id')
@@ -202,10 +214,13 @@ def get_proportion_pass_joint_score(all_scores_for_workers_df, min_score_fooling
     return proportion
 
 if __name__ == '__main__':
-    user_collected_assocations_paths = ['created_data/create_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP_indices_0_100.csv', 'created_data/create_hit_type_id_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv']
-    mean_jaccard_per_association_paths = ['results/all_mean_user_jaccard_for_association_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.json', 'results/all_mean_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json', 'results/all_mean_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json'] # 100-500
-    std_jaccard_per_association_paths = [
-        'results/all_std_user_jaccard_for_association_3PS3UFWQYLQKDK1X8G5P73OFYLZYRU.json',
-        'results/all_std_user_jaccard_for_association_3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9.json',
-        'results/all_std_user_jaccard_for_association_32A8IZJLQFI72Z2UI57PMZF56GCGHI.json']  # 100-500
+    hit_types_ids_swow_images = ['3PS3UFWQYLQKDK1X8G5P73OFYLZYRU', '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9', '32A8IZJLQFI72Z2UI57PMZF56GCGHI'] # solve-create 0-100 - real # solve-create 100-300 - real # solve-create 300-500 - real
+    hit_types_ids_random_images = ['30AWZEBKT3DFB0EBAD1EFM7MVTVCAU', '359956SLTZK0DLUYP1GZDVMJP6XRLX']
+    user_collected_assocations_paths = ['created_data/create_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP_indices_0_100.csv', 'created_data/create_hit_type_id_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv', 'created_data/create_hit_type_id_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv', 'created_data/create_hit_type_id_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv']
+    mean_jaccard_per_association_paths_swow = [f"results/all_mean_user_jaccard_for_association_{h}.json" for h in hit_types_ids_swow_images]
+    std_jaccard_per_association_paths_swow = [f"results/all_std_user_jaccard_for_association_{h}.json" for h in hit_types_ids_swow_images]
+    mean_jaccard_per_association_paths_random = [f"results/all_mean_user_jaccard_for_association_{h}.json" for h in hit_types_ids_random_images]
+    std_jaccard_per_association_paths_random = [f"results/all_std_user_jaccard_for_association_{h}.json" for h in hit_types_ids_random_images]
+    mean_jaccard_per_association_paths = mean_jaccard_per_association_paths_swow + mean_jaccard_per_association_paths_random
+    std_jaccard_per_association_paths = std_jaccard_per_association_paths_swow + std_jaccard_per_association_paths_random
     main(user_collected_assocations_paths, mean_jaccard_per_association_paths, std_jaccard_per_association_paths)

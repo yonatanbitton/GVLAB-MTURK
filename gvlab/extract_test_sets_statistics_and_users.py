@@ -56,6 +56,8 @@ def get_workers_stats():
     # num workers, average score for workers, avg bonus
     solvers_df = get_annotator_df(solve_hit_types_ids, annotator_type='solver')
     print_workers_stats(all_workers2details, solvers_df, annotator_type='solver')
+    sorted_solvers = solvers_df.sort_values(by=['# items', 'jaccard'], ascending=[True, False])
+    annotators_to_solve_game = sorted_solvers[sorted_solvers['# items'] < 300].query('jaccard > 0.87')
     creators_df = get_annotator_df(create_hit_types_ids, annotator_type='creator')
     print_workers_stats(all_workers2details, creators_df, annotator_type='creator')
 
