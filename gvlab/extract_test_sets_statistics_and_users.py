@@ -6,17 +6,93 @@ test_sets_path = 'test_sets'
 
 qual_data_lst = ['3PS3UFWQYLQKDK1X8G5P73OFYLYRYM', '3J3XIOMSTTYANQ2TAL071JT4ZC0I08' ,'3U6Z1K5VYX5KJGIN25QEZ6V34978N2', '3ZT4KTA7QP12TXNO45XYG1KUDSO32E']
 
-solve_hit_types_ids = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '31UK836KROSS8RVV3KINI5EVNBTG3A', '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU', '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9', '32A8IZJLQFI72Z2UI57PMZF56GCGHI','30AWZEBKT3DFB0EBAD1EFM7MVTVCAU', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V']
+solve_hit_types_ids = ['36R4ILE2GAQ1OZ6Z7L174EFT51AFHG', '3ABSYNXI57NPRZT5O7RK079PHQZMWU', '34W4CI95J0NSJKQ6AHJ0UUUX2GUI9K', '3029CDJAWE2TGO6JR9IGKSJA2ZBDSO', '3S942EFUVKZ59R1T0AKMY9A86SZJE7', '31UK836KROSS8RVV3KINI5EVNBTG3A', '3PS3UFWQYLQKDK1X8G5P73OFYLZYRU', '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9', '32A8IZJLQFI72Z2UI57PMZF56GCGHI','30AWZEBKT3DFB0EBAD1EFM7MVTVCAU', '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V', '359956SLTZK0DLUYP1GZDVMJP6XRLX']
+create_hit_types_ids = ['3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP', '3HMIRIJYITY39Q6S35I504KLG4XRVE', '325VGVP4D3PCDRAZVOXKTZLWGGX0L7', '3HMIRIJYITY39Q6S35I504KLG4XRVE']
+swow_solve_test_hit_type_id = '3DIFNAQ3LD1WDWH1NKHUHOTKD50T3V'
 
 def main():
-    all_workers2details = get_qual_data()
-    print(f"Got total of {len(all_workers2details)} workers")
-
-    # num workers, average score for workers, avg bonus
+    get_workers_stats()
 
     swow = pd.read_csv(os.path.join(test_sets_path, 'gvlab_swow_split.csv'))
+    swow_sampled_test_results_df = pd.read_csv(os.path.join('results', f'results_hit_type_id_{swow_solve_test_hit_type_id}.csv'))
+
+    splitted_results = get_splitted_results_for_split(swow, swow_sampled_test_results_df)
+    print(splitted_results)
+
     game = pd.read_csv(os.path.join(test_sets_path, 'gvlab_game_split.csv'))
+
     print("Done")
+
+
+def get_splitted_results_for_split(dataset, swow_sampled_test_results_df):
+    dataset_solve = swow_sampled_test_results_df
+    dataset['num_candidates'] = dataset['candidates'].apply(lambda x: len(json.loads(x)))
+    dataset_solve['num_candidates'] = dataset_solve['candidates'].apply(lambda x: len(json.loads(x.replace("'", '"'))))
+    splitted_results = []
+    for num_candidates in set(dataset['num_candidates']):
+        dataset_num_candidates = dataset[dataset['num_candidates'] == num_candidates]
+        num_candidates_items = len(dataset_num_candidates)
+        dataset_solve_num_candidates = dataset_solve[dataset_solve['num_candidates'] == num_candidates]
+        num_candidates_performance = round(dataset_solve_num_candidates['jaccard'].mean(), 2)
+        splitted_results.append({'num_candidates': num_candidates, 'num_candidates_items': num_candidates_items,
+                                 'num_candidates_performance': num_candidates_performance})
+        for num_associations in set(dataset['num_associations']):
+            dataset_num_associations = dataset_num_candidates[
+                dataset_num_candidates['num_associations'] == num_associations]
+            num_associations_items = len(dataset_num_associations)
+            dataset_solve_num_associations = dataset_solve_num_candidates[
+                dataset_solve_num_candidates['num_candidates'] == num_candidates]
+            num_associations_performance = round(dataset_solve_num_associations['jaccard'].mean(), 2)
+            splitted_results.append({'num_candidates': num_candidates, 'num_candidates_items': num_candidates_items,
+                                     'num_candidates_performance': num_candidates_performance,
+                                     'num_associations': num_associations,
+                                     'num_associations_items': num_associations_items,
+                                     'num_associations_performance': num_associations_performance})
+    return splitted_results
+
+def get_workers_stats():
+    all_workers2details = get_qual_data()
+    print(f"Got total of {len(all_workers2details)} workers")
+    # num workers, average score for workers, avg bonus
+    solvers_df = get_annotator_df(solve_hit_types_ids, annotator_type='solver')
+    print_workers_stats(all_workers2details, solvers_df, annotator_type='solver')
+    creators_df = get_annotator_df(create_hit_types_ids, annotator_type='creator')
+    print_workers_stats(all_workers2details, creators_df, annotator_type='creator')
+
+
+def print_workers_stats(all_workers2details, workers_df, annotator_type):
+    if annotator_type == 'solver':
+        print(f"Num solvers: {len(workers_df)}, average items solved by worker: {round(workers_df['# items'].mean(), 1)}, mean jaccard for worker: {round(workers_df['jaccard'].mean(), 2)}")
+    else:
+        print(f"Num creators: {len(workers_df)}, average items created: {round(workers_df['# items'].mean(), 1)}, mean fool-the-AI score: {round(workers_df['score_fooling_ai'].mean(), 2)}")
+    solvers_personal_details = pd.DataFrame({k: v for k, v in all_workers2details.items() if k in workers_df.index}).T
+    for c in solvers_personal_details:
+        print(c)
+        if c == 'ages':
+            ages = [solvers_personal_details['ages'].quantile(q) for q in [0.25, 0.5, 0.75, 1]]
+            print(ages)
+        else:
+            print(solvers_personal_details[c].value_counts())
+        print()
+
+
+def get_annotator_df(hit_types_ids, annotator_type):
+    all_data = pd.DataFrame()
+    for solve_hit_types_id in hit_types_ids:
+        s_df = pd.read_csv(os.path.join('results', f'results_hit_type_id_{solve_hit_types_id}.csv'))
+        all_data = pd.concat([all_data, s_df])
+    solvers_data = {}
+    for worker, worker_df in all_data.groupby("WorkerId"):
+        if worker in solvers_data:
+            raise Exception()
+        if annotator_type == 'solver':
+            ann_dict = {'# items': len(worker_df), 'jaccard': worker_df['jaccard'].mean()}
+        else:
+            score_fooling_ai = (worker_df['score_fooling_ai_1'].mean() + worker_df['score_fooling_ai_2'].mean()) / 2
+            ann_dict = {'# items': len(worker_df) * 2, 'score_fooling_ai': score_fooling_ai}
+        solvers_data[worker] = ann_dict
+    solvers_df = pd.DataFrame(solvers_data).T
+    return solvers_df
 
 
 def get_qual_data():

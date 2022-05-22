@@ -18,10 +18,10 @@ def main():
     # rovoked_bad_solvers = {'A1WY3YGT618GC0', 'A2LU259QPV1I4V', 'A2M9JNCHRKMCC4', 'AXID3RPK6NZT6'}
     # workers_not_creators_nor_bad_solvers = list(all_workers_that_solved.difference(all_creators.union(rovoked_bad_solvers)))
     # print(f"workers_not_creators: {len(workers_not_creators_nor_bad_solvers)}")
-    # SubjectNewQualification = 'GVLAB: New solve batch is available: "GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)"'
-    # MessageText_new_batch = 'Hello, You are welcome to solve the new batch "GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)", Have Fun!'
+    SubjectNewQualification = 'GVLAB: New solve batch is available: "GVLAB: Solve Visual Associations created by users (Fun!) - (100-250)"'
+    MessageText_new_batch = 'Hello, You are welcome to solve the new batch "GVLAB: Solve Visual Associations created by users (Fun!) - (100-250)", Have Fun!'
     # SubjectNewQualification = 'New GVLAB "solve" batch available (300-500) for experienced solvers (you)'
-    SubjectNewQualification = 'GVLAB: Your solving results and batch available (300-500)'
+    # SubjectNewQualification = 'GVLAB: Your solving results and batch available (300-500)'
     # for k,v in first_batch_0_100_workers_results_above_75.items():
     #     message = f"Hello. Your previously annotated GVLAB 'solve'. Your score was {v}, which is above the acceptable bar. Good job!." \
     #               f"\n A new batch is available for you: 'GVLAB: Solve Visual Associations created by users (Fun!) - (100-300)'. " \

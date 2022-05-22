@@ -39,17 +39,19 @@ def assign_tasks(config):
         df = pd.read_csv(os.path.join(f'urls', config['created_data_csv']))
         print(f"Got CSV of {len(df)} associations")
         df['ID'] = df['annotation_index']
-        for i in range(10):
-            print("*** CRITICAL PART SOLVE CREATE CHECK ME ***")
-        if config['start_idx'] == 0 and config['end_idx'] == 100:
-            df_sample = df
-        elif config['start_idx'] == 100 and config['end_idx'] == 300:
-            df_sample = df.iloc[:int(len(df) / 2)]
-        elif config['start_idx'] == 300 and config['end_idx'] == 500:
-            df_sample = df.iloc[int(len(df) / 2):]
-        else:
-            raise Exception(f"Unknown data")
-        print(f"Sampling batch, {config['start_idx'],config['end_idx']}, now CSV of {len(df_sample)}")
+        df_sample = df
+        # for i in range(10):
+        #     print("*** CRITICAL PART SOLVE CREATE CHECK ME ***")
+        # if config['start_idx'] == 0 and config['end_idx'] == 100:
+        #     df_sample = df
+        # elif config['start_idx'] == 100 and config['end_idx'] == 300:
+        #     df_sample = df.iloc[:int(len(df) / 2)]
+        # elif config['start_idx'] == 300 and config['end_idx'] == 500:
+        #     df_sample = df.iloc[int(len(df) / 2):]
+        # else:
+        #     raise Exception(f"Unknown data")
+        # print(f"Sampling batch, {config['start_idx'],config['end_idx']}, now CSV of {len(df_sample)}")
+        print("Taking all data - 100-250, should be 150*6 = 900")
     else:
         df = pd.read_csv(os.path.join(f'urls', f'urls_{task_type}.csv'))
     print(f"read dataframe of size: {len(df)} ({task_type})")
@@ -371,10 +373,11 @@ if __name__ == '__main__':
     # task_type = 'solve_create_qual'
     # task_type = 'create'
     # task_type = 'create'
-    # task_type = 'solve_create'
-    task_type = 'create_random'
+    task_type = 'solve_create'
+    # task_type = 'create_random'
     # created_data_urls = 'urls_solve_create_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv'
-    created_data_urls = 'urls_solve_create_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
+    # created_data_urls = 'urls_solve_create_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv'
+    created_data_urls = 'urls_solve_create_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv'
 
     title_full = f"GVLAB: Visual Associations - ({task_type} items {start_idx}-{end_idx})"
     title_create = f"GVLAB: Visual Associations - Create ({task_type} items {start_idx}-{end_idx}) - increased pay!"

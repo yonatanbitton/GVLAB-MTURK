@@ -125,7 +125,9 @@ if __name__ == '__main__':
     # hit_type_id = '325VGVP4D3PCDRAZVOXKTZLWGGX0L7'   # create random 0-100 - real
     # hit_type_id = '3QY2P19FFIKAYHJVAD27T1ASL52XNJ' # solve-create random 0-100 - sandbox
     # hit_type_id = '30AWZEBKT3DFB0EBAD1EFM7MVTVCAU' # solve-create random 0-100 - real
-    hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA' # create random 100-250 - real
+    # hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA' # create random 100-250 - real
+    # hit_type_id = '3ARIN4O78G41KUHJD3JTIME4V1DIFY' # solve create 100-250 - sandbox
+    hit_type_id = '359956SLTZK0DLUYP1GZDVMJP6XRLX' # solve create 100-250 - real
     for hit_type_id in [hit_type_id]:
         approve = False
         print(f"approve: {approve}")
