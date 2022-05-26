@@ -1,0 +1,131 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+*** NOT SANDBOX!!! THIS IS REAL!!! ***
+Using sandbox:  False
+Available Balance: 930.83
+task_type: solve_game_test, config:
+{'task_type': 'solve_game_test', 'max_assigns': 3, 'reward_dollars': '0.05', 'title': "GVLAB: Solve Visual Associations created by users (Fun!) - Solve carefully - it's a test (Increased pay)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Solve visual associations created by users. Solve carefully, it's a test with increased pay. If you don't understand - skip. You can practice in https://gvlab-dataset.github.io/beat-the-ai", 'current_time': '2022-05-22_01:56:12', 'is_sandbox': False, 'start_idx': 100, 'end_idx': 250, 'created_data_csv': 'urls_solve_create_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv'}
+task_type, start, end: ('solve_game_test', 100, 250)
+read dataframe of size: 247 (solve_game_test)
+Listing qualifications for :  Production
+gvlab_annotator 3ZNBPLV0N9WZ3TXWVJK01YGWNHRC2Y
+First GVLAB Solve Batch Performance 3JNQJJEQXO7VVJC4OVBSULOJWSKJU2
+passed_gvlab_solve_qualification 3NDLUB5I81QKQQ3IP6QL8DLKB9C46U
+passed_gvlab_create_qualification 3JC3H4XMU93OOBTFZJY5K8LOTVRC39
+GVLAB Solver Tester 33LK213QXUZGVCZHXUA1XGEZ3N5QCQ
+inadequate 3DWHOMV0PMAFP43GUQRGI7WACXOHAJ
+Not requiring GVLAB Annotator
+Not sandbox, adding two quals (number, locale)
+Created qualifications
+Created HIT Type: 3RL1BYM2927VU09ARQF3354OO0N97K
+gvlab_hit_type_id: 3RL1BYM2927VU09ARQF3354OO0N97K
+Created qualifications
+balance: 930.83
+Uploading hits to:  Production
+max_assigns: 3 (is_sandbox: False)
+Uploading HITs: 100%|██████████| 247/247 [01:11<00:00,  3.43it/s]
+Finished uploading! 247 responses
+config
+{'task_type': 'solve_game_test', 'max_assigns': 3, 'reward_dollars': '0.05', 'title': "GVLAB: Solve Visual Associations created by users (Fun!) - Solve carefully - it's a test (Increased pay)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Solve visual associations created by users. Solve carefully, it's a test with increased pay. If you don't understand - skip. You can practice in https://gvlab-dataset.github.io/beat-the-ai", 'current_time': '2022-05-22_01:56:12', 'is_sandbox': False, 'start_idx': 100, 'end_idx': 250, 'created_data_csv': 'urls_solve_create_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv', 'gvlab_hit_type_id': '3RL1BYM2927VU09ARQF3354OO0N97K', 'current_mturk_balance': '930.83'}
+current_mturk_balance_after_hits: 886.37
+Wrote config to published_batches/hits_2022-05-22_01:56:12_solve_game_test_100-250.json
+
+Process finished with exit code 0

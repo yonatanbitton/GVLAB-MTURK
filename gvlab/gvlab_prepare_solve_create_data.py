@@ -105,7 +105,13 @@ if __name__ == '__main__':
     # hit_type_id = '325VGVP4D3PCDRAZVOXKTZLWGGX0L7'   # create random 0-100 - real
     # indices = 'random_indices_0_100'
 
-    hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA'   # create random 0-100 - real
-    indices = 'random_indices_100_250'
+    # hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA'   # create random 100-250 - real
+    # indices = 'random_indices_100_250'
+
+    # hit_type_id = '30WQ7ZZ0RU9SNPFM4Z1FUITI23JH9U'  # create random 0-100 - 10-12 - real
+    # indices = 'random_indices_0_100_candidates_10_12'
+
+    hit_type_id = '33KTOXRB2MHEDTK23QD1IIHZSACFRH' # create random 100-250 - 10-12 - real
+    indices = 'random_indices_100_250_candidates_10_12'
 
     main(hit_type_id, indices)

@@ -144,5 +144,16 @@ def get_results_by_user(answers_data_df):
     print(f"Mean jaccard per user: {int(np.mean(jaccard_per_user_values) * 100), int(np.median(jaccard_per_user_values) * 100)}")
     return jaccard_per_user
 
+def get_results_by_user_and_num_candidates(answers_data_df):
+    df_by_users = answers_data_df.groupby('WorkerId')
+    jaccard_per_user = {}
+    for user, user_df in df_by_users:
+        print(f"user {user}, # items: {len(user_df)} jaccard: {int(user_df['jaccard'].mean() * 100)}")
+        jaccard_per_user[user] = user_df['jaccard'].mean()
+    jaccard_per_user_values = list(jaccard_per_user.values())
+    print(f"Mean jaccard per user: {int(np.mean(jaccard_per_user_values) * 100), int(np.median(jaccard_per_user_values) * 100)}")
+    return jaccard_per_user
+
+
 if __name__ == '__main__':
     main()

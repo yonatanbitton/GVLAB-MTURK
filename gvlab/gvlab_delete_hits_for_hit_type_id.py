@@ -3,7 +3,7 @@ from datetime import datetime
 import boto3 as boto3
 import pytz as pytz
 
-is_sandbox = False
+is_sandbox = True
 if is_sandbox:
     endpoint_url = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
 else:
@@ -22,13 +22,21 @@ if __name__ == '__main__':
     # hit_type_id = '31WLO1EP3YLN5XAOWVO1YNO5B0LQSN'
     # hit_type_id = 'GVLAB: Solve Visual Associations created by users (Fun!) - (100-300)'
     # hit_type_id = '3UZRKKY9ATT1I0VXRH0EXJF3SXH4O7'
-    hit_type_id = '3H5KS3F36QZTFBNOIXZ2T6QE72IZYO'
+    # hit_type_id = '3H5KS3F36QZTFBNOIXZ2T6QE72IZYO'
     # title = 'GVLAB: Visual Associations - (solve items 100-300)'
     # title = 'GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)'
     # title = 'GVLAB: Visual Associations - (create items 0-100)'
     # title = 'GVLAB: Visual Associations - (solve items 100-300)'
     # title = 'GVLAB: Solve Visual Associations created by users (Fun!)'
     # title = 'GVLAB: Visual Associations - (solve items 100-500)'
+    # title = 'GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)'
+    # title = 'GVLAB: Visual Associations - Create (create_random_10_12_candidates items 0-100) - (Higher probablity for bonuses)'
+    # title = 'GVLAB: Visual Associations - Create (create_random items 0-100)'
+    # title = "GVLAB: Solve Visual Associations created by users (Fun!) - Solve carefully - it's a test (Increased pay)"
+    # title = "GVLAB: Solve Visual Associations created by users (Fun!) - (100-250)"
+    # title = "GVLAB: Visual Associations - Create (create_random items 100-250)"
+    # title = "GVLAB: Visual Associations - Create (create items 100-250) - increased pay!"
+    title ="GVLAB: Visual Associations - Create (create_random items 0-200)"
     for i in range(50):
         hits = mturk.list_hits()['HITs']
         print(f"There are {len(hits)} HITs")
@@ -36,11 +44,11 @@ if __name__ == '__main__':
             break
         deleted = []
         for h in hits:
-            if h['HITTypeId'] != hit_type_id:
-                continue
-            # if h['Title'] not in [title]:
-            #     print(f"Not same title {h['Title']}")
+            # if h['HITTypeId'] != hit_type_id:
             #     continue
+            if h['Title'] not in [title]:
+                print(f"Not same title {h['Title']}")
+                continue
             try:
                 expiration_time = datetime(2000,1,1, 1, 1, 1, tzinfo=pytz.timezone('GMT'))
                 response = mturk.update_expiration_for_hit(

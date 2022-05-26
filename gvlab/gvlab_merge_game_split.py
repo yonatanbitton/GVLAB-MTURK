@@ -28,9 +28,17 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
     user_data = pd.DataFrame()
     for p in user_collected_assocations_paths:
         curr_data = pd.read_csv(p)
+        hit_type_id = p.split("_id_")[1].split("_")[0]
+        if hit_type_id in images_swow_create_hit_type_ids:
+            curr_data['images_source'] = 'swow'
+        else:
+            assert hit_type_id in images_random_create_hit_type_ids
+            curr_data['images_source'] = 'random'
         print(f"curr_data: {len(curr_data)}")
         user_data = pd.concat([user_data, curr_data])
     user_data['num_candidates'] = user_data['candidates'].apply(lambda x: len(json.loads(x)))
+    user_data['original_id'] = user_data['id']
+    user_data.drop(columns=['id'],inplace=True)
     add_solvers_jaccard_mean(mean_jaccard_per_association_path, user_data)
     add_solvers_jaccard_std(std_jaccard_per_association_paths, user_data)
 
@@ -50,13 +58,14 @@ def main(user_collected_assocations_paths, mean_jaccard_per_association_path, st
     # get_temporal_charts(user_data)
     # get_temporal_correlations(user_data)
 
-    relevant_columns = ['HITId', 'id', 'candidates', 'cue', 'associations', 'score_fool_the_ai', 'num_associations', 'annotation_index', 'num_candidates', 'solvers_jaccard_mean', 'solvers_jaccard_std']
+    relevant_columns = ['HITId', 'candidates', 'cue', 'associations', 'score_fool_the_ai', 'num_associations', 'annotation_index', 'num_candidates', 'solvers_jaccard_mean', 'solvers_jaccard_std', 'images_source']
     game_data = user_data[relevant_columns]
     print(f"game_data: {len(game_data)}, solvers_jaccard_mean: {round(game_data['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data['score_fool_the_ai'].mean(), 2)}")
 
     game_data_above_threshold = game_data[game_data['solvers_jaccard_mean'] > 0.8]
     print(f"game_data_above_threshold: {len(game_data_above_threshold)}, solvers_jaccard_mean: {round(game_data_above_threshold['solvers_jaccard_mean'].mean(), 2)}, score_fool_the_ai: {round(game_data_above_threshold['score_fool_the_ai'].mean(), 2)}")
-    game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv')
+    game_data_above_threshold['ID'] = range(len(game_data_above_threshold))
+    game_data_above_threshold.to_csv('test_sets/gvlab_game_split.csv',index=False)
     print("Done")
 
 
@@ -216,6 +225,8 @@ def get_proportion_pass_joint_score(all_scores_for_workers_df, min_score_fooling
 if __name__ == '__main__':
     hit_types_ids_swow_images = ['3PS3UFWQYLQKDK1X8G5P73OFYLZYRU', '3ES7ZYWJECSULNMPGJB6W8UQ8OKHC9', '32A8IZJLQFI72Z2UI57PMZF56GCGHI'] # solve-create 0-100 - real # solve-create 100-300 - real # solve-create 300-500 - real
     hit_types_ids_random_images = ['30AWZEBKT3DFB0EBAD1EFM7MVTVCAU', '359956SLTZK0DLUYP1GZDVMJP6XRLX']
+    images_swow_create_hit_type_ids = ['3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP', '3HMIRIJYITY39Q6S35I504KLG4XRVE']
+    images_random_create_hit_type_ids = ['325VGVP4D3PCDRAZVOXKTZLWGGX0L7', '36ENCJ709KV0KB7BIVKYZOALLH2KEA']
     user_collected_assocations_paths = ['created_data/create_hit_type_id_3K3YEJM751RRJS8ZW8AYJ5Y3VVB5WP_indices_0_100.csv', 'created_data/create_hit_type_id_3HMIRIJYITY39Q6S35I504KLG4XRVE_indices_100_500.csv', 'created_data/create_hit_type_id_325VGVP4D3PCDRAZVOXKTZLWGGX0L7_random_indices_0_100.csv', 'created_data/create_hit_type_id_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv']
     mean_jaccard_per_association_paths_swow = [f"results/all_mean_user_jaccard_for_association_{h}.json" for h in hit_types_ids_swow_images]
     std_jaccard_per_association_paths_swow = [f"results/all_std_user_jaccard_for_association_{h}.json" for h in hit_types_ids_swow_images]

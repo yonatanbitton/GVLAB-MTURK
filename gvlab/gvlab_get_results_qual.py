@@ -70,7 +70,7 @@ def main(hit_type_id, approve):
     accepted_users_items = []
     for user, user_df in df_by_users:
         assert len(set([str(x) for x in user_df['personal_details'].values])) == 1
-        user_personal_details = user_df['personal_details'].iloc[0]
+        user_personal_details = json.loads(user_df['personal_details'].iloc[0])
         mean_jaccard = user_df['jaccard'].mean()
         print(f"user {user} jaccard: {user_df['jaccard'].mean()}")
         print(user_personal_details)
@@ -140,9 +140,10 @@ if __name__ == '__main__':
     # hit_type_id = '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM'  # real qual public
     # hit_type_id = '3ZT4KTA7QP12TXNO45XYG1KUDSO32E'  # real qual private
     # all_hits = ['3J3XIOMSTTYANQ2TAL071JT4ZC0I08', '3PS3UFWQYLQKDK1X8G5P73OFYLYRYM', '3ZT4KTA7QP12TXNO45XYG1KUDSO32E']
-    create_hits_type_ids = ['3ZT4KTA7QP12TXNO45XYG1KUDSO32E', '3U6Z1K5VYX5KJGIN25QEZ6V34978N2']
+    # create_hits_type_ids = ['3ZT4KTA7QP12TXNO45XYG1KUDSO32E', '3U6Z1K5VYX5KJGIN25QEZ6V34978N2']
     # sandbox_my_hit_type_id_create_qual = '3J1X5UP4FWI0OSEI7URW9Q24YALK5N'
     # create_hits_type_ids
+    create_hits_type_ids = ['3EOS91U1V0YXXDK8CJJZ7OJBGZZBYX', '3EOS91U1V0YXXDK8CJJZ7OJBGZZBYX']
     for hit_type_id in create_hits_type_ids:
         approve = False
         print(f"approve: {approve}")

@@ -11,8 +11,11 @@ import pandas as pd
 # hit_type_id = '325VGVP4D3PCDRAZVOXKTZLWGGX0L7'  # create random 0-100 - real
 # indices = 'random_indices_0_100'
 
-hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA'  # create random 100-250 - real
-indices = 'random_indices_100_250'
+# hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA'  # create random 100-250 - real
+# indices = 'random_indices_100_250'
+
+hit_type_id = '30WQ7ZZ0RU9SNPFM4Z1FUITI23JH9U'  # create random 100-250 - real
+indices = 'random_indices_0_100_candidates_10_12'
 
 created_data_path = f'created_data/create_hit_type_id_{hit_type_id}_{indices}.csv'
 

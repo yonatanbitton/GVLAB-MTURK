@@ -1,0 +1,30 @@
+/Users/yonatab/PycharmProjects/GVLAB-MTURK/venv/bin/python /Users/yonatab/PycharmProjects/GVLAB-MTURK/gvlab/send_gvlab_tasks.py
+Using sandbox:  True
+Available Balance: 10000.00
+task_type: solve_game_test, config:
+{'task_type': 'solve_game_test', 'max_assigns': 1, 'reward_dollars': '0.05', 'title': "GVLAB: Solve Visual Associations created by users (Fun!) - Solve carefully - it's a test (Increased pay)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Solve visual associations created by users. Solve carefully, it's a test with increased pay. If you don't understand - skip. You can practice in https://gvlab-dataset.github.io/beat-the-ai", 'current_time': '2022-05-22_01:48:14', 'is_sandbox': True, 'start_idx': 100, 'end_idx': 250, 'created_data_csv': 'urls_solve_create_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv'}
+task_type, start, end: ('solve_game_test', 100, 250)
+read dataframe of size: 247 (solve_game_test)
+Listing qualifications for :  Sandobx
+gvlab_annotator 3V2N8HP7QWB3WY36E88O0TZEU2CDBJ
+First GVLAB Solve Batch Performance 3FSN91MSW0EMWBJYYHRXQQZICF57SV
+passed_gvlab_solve_qualification 3OC6D1W5XC6GV6XFOQLK3L0D5T9JTT
+passed_gvlab_create_qualification 3QA4K48P7386WE30RNYCJDSU9N4MT0
+GVLAB Solver Tester 35BVO3HY7ST62MOV79UMF9AV690V9D
+inadequate 3ZA6RUP9VER4YAACOQ6QPPX5WJFQXY
+Not requiring GVLAB Annotator
+Created qualifications
+Created HIT Type: 3K9PHCH9NP5QQJXSW9O09AY34B5DGQ
+gvlab_hit_type_id: 3K9PHCH9NP5QQJXSW9O09AY34B5DGQ
+Created qualifications
+balance: 10000.00
+Uploading hits to:  Sandbox
+max_assigns: 1 (is_sandbox: True)
+Uploading HITs: 100%|██████████| 247/247 [02:01<00:00,  2.04it/s]
+Finished uploading! 247 responses
+config
+{'task_type': 'solve_game_test', 'max_assigns': 1, 'reward_dollars': '0.05', 'title': "GVLAB: Solve Visual Associations created by users (Fun!) - Solve carefully - it's a test (Increased pay)", 'keywords': 'Fun, Association, Creativity, Visual Associations, Find Associations', 'description': "Solve visual associations created by users. Solve carefully, it's a test with increased pay. If you don't understand - skip. You can practice in https://gvlab-dataset.github.io/beat-the-ai", 'current_time': '2022-05-22_01:48:14', 'is_sandbox': True, 'start_idx': 100, 'end_idx': 250, 'created_data_csv': 'urls_solve_create_36ENCJ709KV0KB7BIVKYZOALLH2KEA_random_indices_100_250.csv', 'gvlab_hit_type_id': '3K9PHCH9NP5QQJXSW9O09AY34B5DGQ', 'current_mturk_balance': '10000.00'}
+current_mturk_balance_after_hits: 10000.00
+Wrote config to published_batches_sandbox/hits_2022-05-22_01:48:14_solve_game_test_100-250.json
+
+Process finished with exit code 0

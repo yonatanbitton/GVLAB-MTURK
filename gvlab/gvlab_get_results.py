@@ -127,7 +127,16 @@ if __name__ == '__main__':
     # hit_type_id = '30AWZEBKT3DFB0EBAD1EFM7MVTVCAU' # solve-create random 0-100 - real
     # hit_type_id = '36ENCJ709KV0KB7BIVKYZOALLH2KEA' # create random 100-250 - real
     # hit_type_id = '3ARIN4O78G41KUHJD3JTIME4V1DIFY' # solve create 100-250 - sandbox
-    hit_type_id = '359956SLTZK0DLUYP1GZDVMJP6XRLX' # solve create 100-250 - real
+    # hit_type_id = '359956SLTZK0DLUYP1GZDVMJP6XRLX'  # solve create 100-250 - real
+    # hit_type_id = '3K9PHCH9NP5QQJXSW9O09AY34B5DGQ'  # game test - sandbox
+    # hit_type_id = '3RL1BYM2927VU09ARQF3354OO0N97K' # game test - real
+    # hit_type_id = '35RL0GHNS8FVIPBSS4ZKFSGO4N6GEM' # create random 10-12, 0-100, sandbox
+    # hit_type_id = '30WQ7ZZ0RU9SNPFM4Z1FUITI23JH9U' # create random 10-12, 0-100 , real
+    # hit_type_id = '3QY2P19FFIKAYHJVAD27T1ASL52XNJ' # solve create random 10-12, 0-100 , sandbox
+    # hit_type_id = '3BIF6MRRHNW5YEAFVC7WMMY9VTJR8U' # solve create random 10-12, 0-100 , sandbox
+    # hit_type_id = '30AWZEBKT3DFB0EBAD1EFM7MVTVCAU'  # solve create random 10-12, 0-100 , real
+    hit_type_id = '33KTOXRB2MHEDTK23QD1IIHZSACFRH' # solve create random 10-12, 100-250 , real
+
     for hit_type_id in [hit_type_id]:
         approve = False
         print(f"approve: {approve}")

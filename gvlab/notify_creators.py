@@ -12,8 +12,13 @@ def main():
     #           '\n If 80 <= fool-the-ai, the bonus will be 0.27$ (instead of 0.18$).' \
     #           '\n (2) If your fool-the-AI score average over 50 associations is lower than 30%, your 'create' qualification may be revoked' \
     #           '\n Thanks and have fun :)"
-    subject = "GVLAB: New test 'create' HITs are available"
-    message = 'Hello. A new "create" batch is available: "GVLAB: Visual Associations - Create (create_random items 100-250)". Good luck!'
+    subject = "GVLAB: New test 'create' HITs are available, 10/12 candidates -> better probability to win bonuses"
+    # message = 'Hello. A new "create" batch is available: "GVLAB: Visual Associations - Create (create_random_10_12_candidates items 0-100) - (Higher probablity for bonuses)". Because there is more candidates, the AI is less likely to guess a random prediction for the correct images, thus you have better probability to win bonuses. Good luck!'
+    message = '''
+    Probably the LAST create batch is now published!
+    “GVLAB: Visual Associations - Create (create_random_10_12_candidates items 100-250) - (Higher probablity for bonuses)”
+    Good luck :crossed_fingers:
+    '''
     print(subject)
     print(message)
         # Subject = 'GVLAB Creators: Getting ready for the next batch, here are some great examples you created! Waiting for your approval.'
@@ -33,8 +38,8 @@ def main():
     # print(Message)
     # response = mturk.notify_workers(Subject=Subject, MessageText=Message,
     #                                 WorkerIds=list(all_creators))  # response['NotifyWorkersFailureStatuses']
-    # response = mturk.notify_workers(Subject=subject, MessageText=message,
-    #                                 WorkerIds=list(creators_not_revoked))  # response['NotifyWorkersFailureStatuses']
+    response = mturk.notify_workers(Subject=subject, MessageText=message,
+                                    WorkerIds=list(creators_not_revoked))  # response['NotifyWorkersFailureStatuses']
     print(response)
     print("Done")
 

@@ -2,6 +2,7 @@ from gvlab.send_gvlab_tasks import mturk, create_or_get_qualification
 
 
 def main():
+    solvers_batch_10_12_fine = {'A18WSAKX5YN2FB': 87, 'A2N9U74YIPDQ9F': 100, 'A2UAHW3Q7S45JP': 83, 'A36P1ZQ0GYF567': 20, 'A68UG55LKRKMS': 82}
     first_batch_0_100_workers_results = {'A104V8NZIQFN2F': 81, 'A1FA3QRISJ1RIP': 100, 'A1WY3YGT618GC0': 74, 'A281Q8U3T9H7JS': 76, 'A2BK45LZGGWPLX': 80, 'A2LU259QPV1I4V': 73, 'A2M9JNCHRKMCC4': 74, 'A2N9U74YIPDQ9F': 87, 'A2UAHW3Q7S45JP': 83, 'A30BPQ2QGZOXN8': 86, 'A3135Y3RMFC3PK': 90, 'A36P1ZQ0GYF567': 88, 'AB7MYP65HZ2MH': 77, 'AXFTXWW2B0Y5B': 96, 'AXID3RPK6NZT6': 72}
     first_batch_0_100_workers_results_above_75 = {k:v for k,v in first_batch_0_100_workers_results.items() if v >= 75}
     more_good_public_solvers = {'A1FA3QRISJ1RIP': 98, 'A1WY3YGT618GC0': 86, 'A3UJSDFJ9LBQ6Z': 100, 'A19UED74G8FXN3': 96, 'A2M9JNCHRKMCC4': 96, 'A2QX3YJXAAHHVV': 93, 'A30BPQ2QGZOXN8': 96, 'A3FQNVDMR1ORAT': 93, 'AHB3QFZSFN9DL': 87, 'A2K607J3Z68WRR': 91, 'A36P1ZQ0GYF567': 96, 'A382S0KJMW3K9S': 97, 'A3HE29W5IDR394': 100, 'AB7MYP65HZ2MH': 87, 'A2V3P1XE33NYC3': 90, 'A3135Y3RMFC3PK': 90, 'A18WSAKX5YN2FB': 92, 'A68UG55LKRKMS': 100}
@@ -18,8 +19,8 @@ def main():
     # rovoked_bad_solvers = {'A1WY3YGT618GC0', 'A2LU259QPV1I4V', 'A2M9JNCHRKMCC4', 'AXID3RPK6NZT6'}
     # workers_not_creators_nor_bad_solvers = list(all_workers_that_solved.difference(all_creators.union(rovoked_bad_solvers)))
     # print(f"workers_not_creators: {len(workers_not_creators_nor_bad_solvers)}")
-    SubjectNewQualification = 'GVLAB: New solve batch is available: "GVLAB: Solve Visual Associations created by users (Fun!) - (100-250)"'
-    MessageText_new_batch = 'Hello, You are welcome to solve the new batch "GVLAB: Solve Visual Associations created by users (Fun!) - (100-250)", Have Fun!'
+    SubjectNewQualification = 'GVLAB: New solve batch is available: "GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)" - Please solve carefully'
+    MessageText_new_batch = 'Hello, You are welcome to solve the new batch "GVLAB: Solve Visual Associations created by users (Fun!) - (0-100)", it has more options and should be more interesting. Have Fun!'
     # SubjectNewQualification = 'New GVLAB "solve" batch available (300-500) for experienced solvers (you)'
     # SubjectNewQualification = 'GVLAB: Your solving results and batch available (300-500)'
     # for k,v in first_batch_0_100_workers_results_above_75.items():
@@ -30,8 +31,8 @@ def main():
     #                                     WorkerIds=[k])  # response['NotifyWorkersFailureStatuses']
     #     print(response)
 
-    # response = mturk.notify_workers(Subject=SubjectNewQualification, MessageText=MessageText_new_batch,
-    #                                 WorkerIds=workers_not_creators_nor_bad_solvers)  # response['NotifyWorkersFailureStatuses']
+    response = mturk.notify_workers(Subject=SubjectNewQualification, MessageText=MessageText_new_batch,
+                                    WorkerIds=workers_not_creators_nor_bad_solvers)  # response['NotifyWorkersFailureStatuses']
     # print(response)
 
     annotated_gvlab_swow_solve = {
