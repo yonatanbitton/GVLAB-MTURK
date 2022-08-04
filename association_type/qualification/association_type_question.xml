@@ -1,0 +1,587 @@
+<QuestionForm xmlns='http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/QuestionForm.xsd'>
+    <Overview>
+        <Title>
+            Please read the instructions in the following link:
+        </Title>
+        <Text>
+            https://pdfhost.io/v/5KMm~GPYN0_Tagging_instructions_of_association_categories_typesfinal
+        </Text>
+        <Text>
+            Choose the association category type
+        </Text>
+    </Overview>
+    <Question>
+        <QuestionIdentifier>A</QuestionIdentifier>
+        <DisplayName>Q1</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Jewelry</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/ring.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salientl</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>B</QuestionIdentifier>
+        <DisplayName>Q2</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Human</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/turban.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>C</QuestionIdentifier>
+        <DisplayName>Q3</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Clean</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/room.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>D</QuestionIdentifier>
+        <DisplayName>Q4</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Heavy</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/feather.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>E</QuestionIdentifier>
+        <DisplayName>Q5</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Four</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/dice.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>F</QuestionIdentifier>
+        <DisplayName>Q6</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Female</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/boyfriend.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>G</QuestionIdentifier>
+        <DisplayName>Q7</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Hold</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/nurse.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>H</QuestionIdentifier>
+        <DisplayName>Q8</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Iguana</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/scales.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>I</QuestionIdentifier>
+        <DisplayName>Q9</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Stork</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/bird.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>J</QuestionIdentifier>
+        <DisplayName>Q10</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>super-model</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/camera.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>K</QuestionIdentifier>
+        <DisplayName>Q11</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>Fishing</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/cooler.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>L</QuestionIdentifier>
+        <DisplayName>Q12</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>quadruped</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/bunny.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>M</QuestionIdentifier>
+        <DisplayName>Q13</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>jump</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/jump.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+    <Question>
+        <QuestionIdentifier>N</QuestionIdentifier>
+        <DisplayName>Q14</DisplayName>
+        <IsRequired>true</IsRequired>
+        <QuestionContent>
+            <Title>wings</Title>
+            <EmbeddedBinary>
+                <EmbeddedMimeType>
+                    <Type>image</Type>
+                    <SubType>jpg</SubType>
+                </EmbeddedMimeType>
+                <DataURL>https://gvlab-bucket.s3.amazonaws.com/mill.jpg</DataURL>
+                <AltText></AltText>
+                <Width>1000</Width>
+                <Height>550</Height>
+            </EmbeddedBinary>
+        </QuestionContent>
+        <AnswerSpecification>
+            <SelectionAnswer>
+                <StyleSuggestion>radiobutton</StyleSuggestion>
+                <Selections>
+                    <Selection>
+                        <SelectionIdentifier>C1</SelectionIdentifier>
+                        <Text>Visually Salient Object</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C2</SelectionIdentifier>
+                        <Text>Visually Salient Activity</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C3</SelectionIdentifier>
+                        <Text>Visually Non-Salient</Text>
+                    </Selection>
+                    <Selection>
+                        <SelectionIdentifier>C4</SelectionIdentifier>
+                        <Text>Non Visual, Concept Related</Text>
+                    </Selection>
+                </Selections>
+            </SelectionAnswer>
+        </AnswerSpecification>
+    </Question>
+</QuestionForm>

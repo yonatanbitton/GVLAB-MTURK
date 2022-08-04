@@ -32,7 +32,7 @@ Worker_Locale = "00000000000000000071"
 def create():
     train_gvlab_hit_type_id, train_gvlab_quals = create_gvlab_creation_hit_type("train")
 
-    print(f"Created qualifications")
+    print(f"Created qualification")
     external_question = open("./external_question.xml").read()
     gvlab_creation_df = pd.read_csv(r"./urls.csv")
 
@@ -105,7 +105,7 @@ def create_or_get_qualification(qualification):
 
 
 def get_quals(phase):
-    print("Listing qualifications for : ", "Sandobx" if is_sandbox else "Production")
+    print("Listing qualification for : ", "Sandobx" if is_sandbox else "Production")
     inadequate = {
         "Name": "inadequate",
         "Description": "inadequate",
@@ -199,7 +199,7 @@ def create_gvlab_creation_hit_type(phase):
     description = "Try to create visual associations that fools an AI model! Additional bonus for fooling the AI! Additional bonus for not cheating!"
 
     gvlab_quals, inadequate_type_id, in_screening_type_id, in_training_type_id = get_quals(phase)
-    print(f"Created qualifications")
+    print(f"Created qualification")
     response = mturk.create_hit_type(
         AutoApprovalDelayInSeconds=thirty_days_sec,
         AssignmentDurationInSeconds=2 * ten_minutes_sec,

@@ -75,7 +75,7 @@ def assign_tasks(config):
     # exit()
     config['gvlab_hit_type_id'] = gvlab_hit_type_id
 
-    print(f"Created qualifications")
+    print(f"Created qualification")
     external_question = open("./external_question.xml").read()
 
     print(f"balance: {mturk.get_account_balance()['AvailableBalance']}")
@@ -162,7 +162,7 @@ def create_or_get_qualification(qualification):
 
 
 def get_quals(task_type):
-    print("Listing qualifications for : ", "Sandobx" if is_sandbox else "Production")
+    print("Listing qualification for : ", "Sandobx" if is_sandbox else "Production")
     inadequate = {
         "Name": "inadequate",
         "Description": "inadequate",
@@ -328,7 +328,7 @@ def get_quals(task_type):
 
 def create_gvlab_creation_hit_type(config):
     gvlab_quals = get_quals(config['task_type'])
-    print(f"Created qualifications")
+    print(f"Created qualification")
     response = mturk.create_hit_type(
         AutoApprovalDelayInSeconds=three_days_sec,
         AssignmentDurationInSeconds=2 * ten_minutes_sec,

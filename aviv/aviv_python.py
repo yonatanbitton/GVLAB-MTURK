@@ -69,7 +69,7 @@ def create_or_get_qualification(qualification):
 
 
 def get_quals(phase):
-    print("Listing qualifications for : ", "Sandobx" if is_sandbox else "Production")
+    print("Listing qualification for : ", "Sandobx" if is_sandbox else "Production")
     inadequate = {
         "Name": "some name",
         "Description": "some description",
