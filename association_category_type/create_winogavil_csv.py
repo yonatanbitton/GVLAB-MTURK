@@ -10,8 +10,9 @@ def get_json(file_path):
         f.close()
         return response
 
-base_url = 'https://gvlab-bucket.s3.amazonaws.com/{}'
-image_cue_pairs = get_json(r'C:\devel\GVLAB-MTURK\association_type\pairs_to_annotate.json')
+# base_url = 'https://gvlab-bucket.s3.amazonaws.com/{}'
+base_url = 'https://winogavil.s3.eu-west-1.amazonaws.com/{}'
+image_cue_pairs = get_json(r'/association_category_type\pairs_to_annotate.json')
 count = 0
 def create_batch(batch, batch_number):
     global count
@@ -31,24 +32,28 @@ for pair in image_cue_pairs[100:200]:
 create_batch(first_batch, 1)
 
 second_batch = []
-for pair in image_cue_pairs[200:600]:
+for pair in image_cue_pairs[200:300]:
     second_batch.append(pair)
 create_batch(second_batch, 2)
 
 third_batch = []
-for pair in image_cue_pairs[600:1000]:
+for pair in image_cue_pairs[300:400]:
     third_batch.append(pair)
 create_batch(third_batch, 3)
 
 forth_batch = []
-for pair in image_cue_pairs[1000:1400]:
+for pair in image_cue_pairs[400:500]:
     forth_batch.append(pair)
 create_batch(forth_batch, 4)
 
 fifth_batch = []
-for pair in image_cue_pairs[1400:]:
+for pair in image_cue_pairs[500:1000]:
     fifth_batch.append(pair)
 create_batch(fifth_batch, 5)
 
+six_batch = []
+for pair in image_cue_pairs[1000:1050]:
+    six_batch.append(pair)
+create_batch(six_batch, 6)
 
 print(count)

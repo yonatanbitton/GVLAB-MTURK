@@ -2,61 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="tre">
-      <change afterPath="$PROJECT_DIR$/association_type/create_winogavil_csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/pairs_to_annotate.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/qualification/analogies_qual.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/qualification/association_type_answer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/qualification/association_type_question.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-0.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_type/winogavil-pairs-5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GVLAB-MTURK.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GVLAB-MTURK.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/Tagging instructions of association categories types.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/Tagging instructions of association categories types.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/splinter.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-layout.html.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-0.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-6.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aviv/aviv_python.py" beforeDir="false" afterPath="$PROJECT_DIR$/aviv/aviv_python.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/example_gvlab_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/example_gvlab_creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-05_22:32:26_solve_qual_test_100-150.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-06_01:21:31_solve_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-06_02:43:39_solve_100-550.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-06_07:14:10_solve_qual_test_100-550.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-06_08:28:01_solve_550-650.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-06_14:29:38_solve_650-1200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-07_09:51:38_solve_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-07_13:46:06_solve_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-07_13:54:31_solve_test_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-07_18:58:00_create_qual_test_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-07_19:03:36_create_qual_test_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-08_22:28:00_create_qual_test_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-12_19:44:52_solve_create_qual_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-13_15:44:44_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-13_22:36:39_solve_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-14_16:37:15_create_100-500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-16_20:48:18_solve_create_100-300.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-17_16:03:58_solve_create_300-500.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-18_21:18:34_create_random_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-19_22:34:27_solve_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-20_08:09:07_create_random_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-21_13:19:08_solve_create_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-22_01:56:12_solve_game_test_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-22_22:54:01_create_random_10_12_candidates_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-22_23:22:47_solve_qual_test_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-22_23:25:26_solve_qual_test_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-24_00:06:27_solve_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches/hits_2022-05-24_20:57:35_create_random_10_12_candidates_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-12_17:45:30_create_qual_test_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-12_19:21:42_solve_create_qual_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-12_19:41:11_solve_create_qual_1200-1340.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-13_12:50:20_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-13_22:26:02_solve_create_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-22_01:48:14_solve_game_test_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-22_22:43:22_create_random_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-22_22:48:50_create_random_10_12_candidates_0-100.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/published_batches_sandbox/hits_2022-05-24_20:39:34_create_random_10_12_candidates_100-250.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/gvlab/send_gvlab_tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/create_winogavil_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/create_winogavil_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/pairs_to_annotate.json" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/pairs_to_annotate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/qualification/analogies_qual.py" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/analogies_qual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/qualification/association_type_answer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/association_type_answer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/qualification/association_type_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/association_type_question.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-0.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-5.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +66,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IRLM" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -114,7 +85,7 @@
       <recent name="$PROJECT_DIR$/create_tasks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.analogies_qual">
+  <component name="RunManager" selected="Python.create_winogavil_csv">
     <configuration name="analogies_qual" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -151,28 +122,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association_type/create_winogavil_csv.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gvlab_evaluate_created_data_and_calc_bonus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GVLAB-MTURK" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_evaluate_created_data_and_calc_bonus.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -225,20 +174,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GVLAB-MTURK" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/association_type" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association_type/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
       <item itemvalue="Python.gvlab_merge_game_split" />
       <item itemvalue="Python.gvlab_get_results" />
       <item itemvalue="Python.create_winogavil_csv" />
       <item itemvalue="Python.analogies_qual" />
+      <item itemvalue="Python.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.analogies_qual" />
         <item itemvalue="Python.create_winogavil_csv" />
+        <item itemvalue="Python.analogies_qual" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.gvlab_merge_game_split" />
         <item itemvalue="Python.gvlab_get_results" />
-        <item itemvalue="Python.gvlab_evaluate_created_data_and_calc_bonus" />
       </list>
     </recent_temporary>
   </component>
@@ -253,6 +224,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651180187762</updated>
+      <workItem from="1659641606035" duration="222000" />
+      <workItem from="1659641862206" duration="65000" />
+      <workItem from="1659641951862" duration="128000" />
+      <workItem from="1659642091113" duration="10454000" />
     </task>
     <task id="LOCAL-00001" summary="tre">
       <created>1659610681969</created>
@@ -261,8 +236,18 @@
       <option name="project" value="LOCAL" />
       <updated>1659610681969</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="tre">
+      <created>1659636500488</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659636500488</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -314,15 +299,21 @@
           <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/association_type/qualification/analogies_qual.py</url>
-          <line>18</line>
+          <url>file://$PROJECT_DIR$/association_category_type/qualification/analogies_qual.py</url>
+          <line>19</line>
           <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/association_category_type/qualification/analogies_qual.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="275" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/main_py$create_winogavil_csv.coverage" NAME="create_winogavil_csv Coverage Results" MODIFIED="1659633880447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type" />
-    <SUITE FILE_PATH="coverage/main_py$analogies_qual.coverage" NAME="analogies_qual Coverage Results" MODIFIED="1659633912140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type/qualification" />
+    <SUITE FILE_PATH="coverage/main_py$test.coverage" NAME="test Coverage Results" MODIFIED="1659638558544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type" />
+    <SUITE FILE_PATH="coverage/main_py$create_winogavil_csv.coverage" NAME="create_winogavil_csv Coverage Results" MODIFIED="1659821981389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type" />
+    <SUITE FILE_PATH="coverage/main_py$analogies_qual.coverage" NAME="analogies_qual Coverage Results" MODIFIED="1659689293343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type/qualification" />
   </component>
 </project>

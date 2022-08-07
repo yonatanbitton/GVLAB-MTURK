@@ -73,7 +73,7 @@
 <h3>Visually Salient Objec </h3><br> <p>The cue is one of the main visually salient objects in this specific image. <br><br>
 Do you see the cue as an object in the image? is it clearly visualized in the image, and it is one of the main objects? (If so -> <strong>visually salient object</strong>) </p><br>
 
-"Grass" is <strong>visually salient object</strong> in these images:<br><br>
+"Grass" is <strong>visually salient object</strong> in these images:<br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/grass.jpg" alt=""></p>
 <br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/calf.jpg" alt=""></p>
@@ -85,10 +85,10 @@ Do you see the cue as an object in the image? is it clearly visualized in the im
 Do you see the cue as an activity in this image? (If so -> <strong>visually salient activity</strong>) </p><br>
 
 
-"Throw" is <strong>visually salient activity</strong> in these image:<br><br>
+"Throw" is <strong>visually salient activity</strong> in these image:<br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/throw.jpg" alt=""></p>
 <br>
-"Catch" is <strong>visually salient activity</strong> in these image:<br><br>
+"Catch" is <strong>visually salient activity</strong> in these image:<br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/catch.jpg" alt=""></p>
 </p>
 <br>
@@ -100,7 +100,6 @@ The cue is visual but not salient object nor an activity? (If so -> <strong>visu
 
 "Grass" is <strong>visually non-salient</strong> in these images:<br><br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/soccer.jpg" alt=""></p>
-<br>
 <p><img class="center-fit" src="https://gvlab-bucket.s3.amazonaws.com/tennis.jpg" alt=""></p>
 <br><br>
 "Clean" is <strong>visually non-salient</strong> in these image:<br><br>
