@@ -2,31 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f11f03bc-c1f0-4a36-bae7-a6d12de5cecf" name="Default Changelist" comment="tre">
-      <change afterPath="$PROJECT_DIR$/association_category_type/Tagging instructions of association categories types.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/Tagging instructions of association categories types.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/splinter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-layout.html.bak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-0.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/create_winogavil_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/create_winogavil_csv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/pairs_to_annotate.json" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/pairs_to_annotate.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/qualification/analogies_qual.py" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/analogies_qual.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/qualification/association_type_answer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/association_type_answer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/qualification/association_type_question.xml" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/qualification/association_type_question.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/association_type/winogavil-pairs-5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/create_winogavil_csv.py" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/create_winogavil_csv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/pairs_to_annotate.json" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/pairs_to_annotate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/association_category_type/winogavil-pairs-6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/association_category_type/winogavil-pairs-6.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +52,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -85,7 +76,7 @@
       <recent name="$PROJECT_DIR$/create_tasks" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create_winogavil_csv">
+  <component name="RunManager" selected="Python.create_winogavil_csv (1)">
     <configuration name="analogies_qual" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,7 +99,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="create_winogavil_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="create_winogavil_csv (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,12 +107,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/association_type" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/association_category_type" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association_type/create_winogavil_csv.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association_category_type/create_winogavil_csv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -130,20 +121,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gvlab_get_results" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="create_winogavil_csv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GVLAB-MTURK" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/gvlab" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\devel\image_analogies\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/association_type" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gvlab/gvlab_get_results.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association_type/create_winogavil_csv.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -198,18 +189,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.gvlab_merge_game_split" />
-      <item itemvalue="Python.gvlab_get_results" />
       <item itemvalue="Python.create_winogavil_csv" />
       <item itemvalue="Python.analogies_qual" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.create_winogavil_csv (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.create_winogavil_csv (1)" />
         <item itemvalue="Python.create_winogavil_csv" />
         <item itemvalue="Python.analogies_qual" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.gvlab_merge_game_split" />
-        <item itemvalue="Python.gvlab_get_results" />
       </list>
     </recent_temporary>
   </component>
@@ -228,6 +219,8 @@
       <workItem from="1659641862206" duration="65000" />
       <workItem from="1659641951862" duration="128000" />
       <workItem from="1659642091113" duration="10454000" />
+      <workItem from="1659863032098" duration="94000" />
+      <workItem from="1659863127335" duration="417000" />
     </task>
     <task id="LOCAL-00001" summary="tre">
       <created>1659610681969</created>
@@ -315,5 +308,6 @@
     <SUITE FILE_PATH="coverage/main_py$test.coverage" NAME="test Coverage Results" MODIFIED="1659638558544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type" />
     <SUITE FILE_PATH="coverage/main_py$create_winogavil_csv.coverage" NAME="create_winogavil_csv Coverage Results" MODIFIED="1659821981389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type" />
     <SUITE FILE_PATH="coverage/main_py$analogies_qual.coverage" NAME="analogies_qual Coverage Results" MODIFIED="1659689293343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_type/qualification" />
+    <SUITE FILE_PATH="coverage/create_winogavil_csv_py$create_winogavil_csv__1_.coverage" NAME="create_winogavil_csv (1) Coverage Results" MODIFIED="1659867394434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/association_category_type" />
   </component>
 </project>
